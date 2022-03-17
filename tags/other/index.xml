@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>other on 30 years old for chenbokai.run</title>
+    <link>https://chenbokaix250.github.io/tags/other/</link>
+    <description>Recent content in other on 30 years old for chenbokai.run</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 08 Apr 2020 23:52:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://chenbokaix250.github.io/tags/other/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>第一篇 -&gt; 搭建</title>
+      <link>https://chenbokaix250.github.io/post/blog/</link>
+      <pubDate>Wed, 08 Apr 2020 23:52:51 +0800</pubDate>
+      
+      <guid>https://chenbokaix250.github.io/post/blog/</guid>
+      <description>利用hugo搭建博客 并挂载github pages 利用chenbokai.run 域名挂博客
+算是从30岁开始输出技术资料
+不断提高自己
+GoGoGo</description>
+    </item>
+    
+  </channel>
+</rss>

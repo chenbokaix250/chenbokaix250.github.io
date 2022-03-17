@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on cbk的极乐世界</title>
+    <link>https://chenbokaix250.github.io/tags/introduction/</link>
+    <description>Recent content in Introduction on cbk的极乐世界</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 09 Apr 2020 01:16:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://chenbokaix250.github.io/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>性能评价</title>
+      <link>https://chenbokaix250.github.io/post/%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7/</link>
+      <pubDate>Thu, 09 Apr 2020 01:16:59 +0800</pubDate>
+      
+      <guid>https://chenbokaix250.github.io/post/%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7/</guid>
+      <description>detecter 参考yolo评价  mAP(mean Averge Precision) 作为object detection中衡量检测精度的指标 &amp;gt;45% FPS(Frames Per Second) 每秒传输帧数 &amp;gt;35 IOU(交并比) 计算两个边界框交集和并集之比 &amp;gt;85%  参考kitti  moderate &amp;gt;70% Easy &amp;gt;80% Hard &amp;gt;60% Runtime &amp;lt;0.25s  tracking VOT评价体系 &amp;ndash; 主要有EAO指标和EFO指标  EAO是Expect Average Overlaprate(平均重叠率) &amp;gt;85% EFO是Equivalent Filter Operations(过滤器等效操作数) &amp;gt;30  MOTA16 评价体系(参考kitti)  MOTA(Multiple Object Tracking Accuracy) &amp;gt;75% MOTP(Multiple Object Tracking Precision) &amp;gt;75% MT(Mostly Tracked) 满足Ground Truth至少在80%的时间内都匹配成功的track 在所有追踪目标中所占的比例。&amp;gt;65% ML(Mostly Lost) 满足Ground Truth在小于20%的时间内匹配成功的track 在所有追踪目标中所占的比例。&amp;lt;15% Runtime 运行周期 &amp;lt;0.</description>
+    </item>
+    
+    <item>
+      <title>第一篇 -&gt; 搭建</title>
+      <link>https://chenbokaix250.github.io/post/blog/</link>
+      <pubDate>Wed, 08 Apr 2020 23:52:51 +0800</pubDate>
+      
+      <guid>https://chenbokaix250.github.io/post/blog/</guid>
+      <description>利用hugo搭建博客 并挂载github pages 利用chenboka</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.89.1" /><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Yolov3训练kitti | 极乐世界</title>
+
+    <link rel="stylesheet" href="../../css/meme.min.a51d2e78c88c28c2d1494764d47b2a2a6cd0677a3c5b1e9d1535668b0d0e2bb7.css"/>
+
+    
+    
+        <script src="../../js/meme.min.9da7ceebb526f70d67ed0f4fe668252d38b01dc89412c8a51d63ff66ecde38d6.js"></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="chenbokai" /><meta name="description" content="YOLOv3训练kitti数据集 1.获取KITTI数据集及标签 KITTI官网链接 2D……" />
+
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="../../icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="极乐世界" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="极乐世界" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="../../manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2020-08-18T09:57:50+08:00",
+        "dateModified": "2020-08-18T11:55:25+08:00",
+        "url": "https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/",
+        "headline": "Yolov3训练kitti",
+        "description": "YOLOv3训练kitti数据集 1.获取KITTI数据集及标签 KITTI官网链接 2D……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "tech",
+        "wordCount":  6749 ,
+        "image": ["https://img-blog.csdnimg.cn/20190111222351577.png","https://img-blog.csdnimg.cn/20190111222750840.png","https://img-blog.csdnimg.cn/20190111222817878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70","https://img-blog.csdnimg.cn/20190111222849691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70","https://img-blog.csdnimg.cn/20190111222935938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70"],
+        "author": {
+            "@type": "Person",
+            "description": "Viva La Vida",
+            "email": "chenbokais3@gmail.com",
+            "image": "https://chenbokaix250.github.io/icons/google.png",
+            "url": "https://chenbokai.work",
+            "name": "chenbokai"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "极乐世界",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://chenbokaix250.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://chenbokaix250.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://chenbokaix250.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+<meta name="twitter:site" content="@chenbokaiy450" />
+<meta name="twitter:creator" content="@chenbokaiy450" />
+
+    
+
+
+
+<meta property="og:title" content="Yolov3训练kitti" />
+<meta property="og:description" content="YOLOv3训练kitti数据集 1.获取KITTI数据集及标签 KITTI官网链接 2D……" />
+<meta property="og:url" content="https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/" />
+<meta property="og:site_name" content="极乐世界" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://img-blog.csdnimg.cn/20190111222351577.png" />
+<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-08-18T09:57:50&#43;08:00" />
+    <meta property="article:modified_time" content="2020-08-18T11:55:25&#43;08:00" />
+    
+    <meta property="article:section" content="tech" />
+
+
+
+    
+    
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="../../" class="brand">极乐世界</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="../../life/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon life"><path d="M301.1 212c4.4 4.4 4.4 11.9 0 16.3l-9.7 9.7c-4.4 4.7-11.9 4.7-16.6 0l-10.5-10.5c-4.4-4.7-4.4-11.9 0-16.6l9.7-9.7c4.4-4.4 11.9-4.4 16.6 0l10.5 10.8zm-30.2-19.7c3-3 3-7.8 0-10.5-2.8-3-7.5-3-10.5 0-2.8 2.8-2.8 7.5 0 10.5 3.1 2.8 7.8 2.8 10.5 0zm-26 5.3c-3 2.8-3 7.5 0 10.2 2.8 3 7.5 3 10.5 0 2.8-2.8 2.8-7.5 0-10.2-3-3-7.7-3-10.5 0zm72.5-13.3c-19.9-14.4-33.8-43.2-11.9-68.1 21.6-24.9 40.7-17.2 59.8.8 11.9 11.3 29.3 24.9 17.2 48.2-12.5 23.5-45.1 33.2-65.1 19.1zm47.7-44.5c-8.9-10-23.3 6.9-15.5 16.1 7.4 9 32.1 2.4 15.5-16.1zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-66.2 42.6c2.5-16.1-20.2-16.6-25.2-25.7-13.6-24.1-27.7-36.8-54.5-30.4 11.6-8 23.5-6.1 23.5-6.1.3-6.4 0-13-9.4-24.9 3.9-12.5.3-22.4.3-22.4 15.5-8.6 26.8-24.4 29.1-43.2 3.6-31-18.8-59.2-49.8-62.8-22.1-2.5-43.7 7.7-54.3 25.7-23.2 40.1 1.4 70.9 22.4 81.4-14.4-1.4-34.3-11.9-40.1-34.3-6.6-25.7 2.8-49.8 8.9-61.4 0 0-4.4-5.8-8-8.9 0 0-13.8 0-24.6 5.3 11.9-15.2 25.2-14.4 25.2-14.4 0-6.4-.6-14.9-3.6-21.6-5.4-11-23.8-12.9-31.7 2.8.1-.2.3-.4.4-.5-5 11.9-1.1 55.9 16.9 87.2-2.5 1.4-9.1 6.1-13 10-21.6 9.7-56.2 60.3-56.2 60.3-28.2 10.8-77.2 50.9-70.6 79.7.3 3 1.4 5.5 3 7.5-2.8 2.2-5.5 5-8.3 8.3-11.9 13.8-5.3 35.2 17.7 24.4 15.8-7.2 29.6-20.2 36.3-30.4 0 0-5.5-5-16.3-4.4 27.7-6.6 34.3-9.4 46.2-9.1 8 3.9 8-34.3 8-34.3 0-14.7-2.2-31-11.1-41.5 12.5 12.2 29.1 32.7 28 60.6-.8 18.3-15.2 23-15.2 23-9.1 16.6-43.2 65.9-30.4 106 0 0-9.7-14.9-10.2-22.1-17.4 19.4-46.5 52.3-24.6 64.5 26.6 14.7 108.8-88.6 126.2-142.3 34.6-20.8 55.4-47.3 63.9-65 22 43.5 95.3 94.5 101.1 59z"/></svg><span class="menu-item-name">生活</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="../../tech/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tech"><path d="M512 256c0 141.2-114.7 256-256 256C114.8 512 0 397.3 0 256S114.7 0 256 0s256 114.7 256 256zm-32 0c0-123.2-100.3-224-224-224C132.5 32 32 132.5 32 256s100.5 224 224 224 224-100.5 224-224zM160.9 124.6l86.9 37.1-37.1 86.9-86.9-37.1 37.1-86.9zm110 169.1l46.6 94h-14.6l-50-100-48.9 100h-14l51.1-106.9-22.3-9.4 6-14 68.6 29.1-6 14.3-16.5-7.1zm-11.8-116.3l68.6 29.4-29.4 68.3L230 246l29.1-68.6zm80.3 42.9l54.6 23.1-23.4 54.3-54.3-23.1 23.1-54.3z"/></svg><span class="menu-item-name">技术</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="../../about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon about"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">关于</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="../../tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">标签</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+                    
+                        
+                        
+                    
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-align="justify" data-type="tech" data-toc-num="true">
+
+            <h1 class="post-title p-name">Yolov3训练kitti</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2020-08-18T09:57:50&#43;08:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2020.8.18</time>
+    
+    
+        
+        <time datetime="2020-08-18T11:55:25&#43;08:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2020.8.18</time>
+    
+    
+    
+        
+        
+            
+            
+                
+                
+                
+                
+                    
+                    
+                    
+                        
+                            
+                            
+                        
+                    
+                
+            
+            
+            
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="../../tech/" class="category-link p-category">Tech</a></span>
+            
+        
+        
+    
+    
+        
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;6749</span>
+    
+    
+        
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;14&nbsp;分钟</span>
+    
+    
+    
+</div>
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目录</h2><ol class="toc">
+    <li><a id="contents:1获取kitti数据集及标签" href="#1获取kitti数据集及标签">1.获取KITTI数据集及标签</a></li>
+    <li><a id="contents:2将kitti的标签格式转换为voc数据格式的标签xxxxml" href="#2将kitti的标签格式转换为voc数据格式的标签xxxxml">2.将KITTI的标签格式转换为VOC数据格式的标签xxx.xml</a>
+      <ol>
+        <li><a id="contents:21-使用modify_annotations_txtpy调整原来的8类为3类" href="#21-使用modify_annotations_txtpy调整原来的8类为3类">2.1 使用modify_annotations_txt.py调整原来的8类为3类</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:22-将原来kitti标注的txt格式转换为pascal-voc的xml格式" href="#22-将原来kitti标注的txt格式转换为pascal-voc的xml格式">2.2 将原来KITTI标注的txt格式转换为PASCAL VOC的xml格式</a></li>
+    <li><a id="contents:3将voc格式的xml标签转换为darknet格式的标签xxxtxt" href="#3将voc格式的xml标签转换为darknet格式的标签xxxtxt">3.将VOC格式的xml标签转换为darknet格式的标签xxx.txt</a></li>
+    <li><a id="contents:4生成traintxt和valtxt" href="#4生成traintxt和valtxt">4.生成train.txt和val.txt</a></li>
+    <li><a id="contents:5准备数据的配置文件" href="#5准备数据的配置文件">5.准备数据的配置文件</a>
+      <ol>
+        <li><a id="contents:51-准备kittinames" href="#51-准备kittinames">5.1 准备<code>kitti.names</code></a></li>
+        <li><a id="contents:52-准备kittidata" href="#52-准备kittidata">5.2 准备kitti.data</a></li>
+        <li><a id="contents:53-准备yolov3-kitticfg" href="#53-准备yolov3-kitticfg">5.3 准备yolov3-kitti.cfg</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:6-下载imagenet预训练的网络参数" href="#6-下载imagenet预训练的网络参数">6. 下载ImageNet预训练的网络参数</a></li>
+    <li><a id="contents:训练模型" href="#训练模型">训练模型</a></li>
+    <li><a id="contents:8测试" href="#8测试">8.测试</a></li>
+    <li><a id="contents:模型配置文件----cfgyolov3-kitticfg" href="#模型配置文件----cfgyolov3-kitticfg">模型配置文件 -- cfg/yolov3-kitti.cfg</a></li>
+  </ol>
+</nav><div class="post-body e-content">
+                <h1 id="yolov3训练kitti数据集"><a href="#yolov3训练kitti数据集" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:yolov3训练kitti数据集" class="headings">YOLOv3训练kitti数据集</a></h1>
+<h2 id="1获取kitti数据集及标签"><a href="#1获取kitti数据集及标签" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:1获取kitti数据集及标签" class="headings">1.获取KITTI数据集及标签</a></h2>
+<p>KITTI官网<a href="http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d" target="_blank" rel="noopener">链接</a></p>
+<p>2D对象检测 需要下载第一项<a href="http://www.cvlibs.net/download.php?file=data_object_image_2.zip" target="_blank" rel="noopener">Download left color images of object data set (12 GB)</a>和对应的标签<a href="http://www.cvlibs.net/download.php?file=data_object_label_2.zip" target="_blank" rel="noopener">Download training labels of object data set (5 MB)</a></p>
+<p>下载并解压完毕后，我们可以发现文件夹data_object_image_2存放了训练集和测试集图片，其中训练集有7481张，测试集有7518张，共有 8个类别：</p>
+<ul>
+<li>Car（小轿车），</li>
+<li>Van（面包车），</li>
+<li>Truck（卡车），</li>
+<li>Tram（电车），</li>
+<li>Pedestrain（行人），</li>
+<li>Person(sit-ting)（行人），</li>
+<li>Cyclist（骑行人），</li>
+<li>Misc（杂项）。
+还有一项DontCare为不关心的物体，文件夹training存放了训练集的标签，而测试集没有给出标签。文件目录树分布如下：</li>
+</ul>
+<pre tabindex="0"><code>├── data_object_image_2
+│   ├── testing
+│   │   └── image_2
+                 ├── 000000.png 
+                 ├── 000001.png 
+│   └── training
+│   │   └── image_2
+                 ├── 000000.png 
+                 ├── 000001.png 
+│   └── image_2
+└── training
+    └── label_2
+        ├── 000000.txt
+        ├── 000001.txt
+        ├── 000002.txt
+</code></pre><p>这里用全部的7481张图片来训练</p>
+<h2 id="2将kitti的标签格式转换为voc数据格式的标签xxxxml"><a href="#2将kitti的标签格式转换为voc数据格式的标签xxxxml" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:2将kitti的标签格式转换为voc数据格式的标签xxxxml" class="headings">2.将KITTI的标签格式转换为VOC数据格式的标签xxx.xml</a></h2>
+<p>我们创建一个PASCAL VOC结构的文件夹目录形式,原PASCAL VOC目录结构如下:
+<img src="https://img-blog.csdnimg.cn/20190111222351577.png" alt="结构"></p>
+<ul>
+<li><code>Annotations</code>文件夹存放标签文件<code>xxx.xml</code></li>
+<li><code>ImageSets</code>文件夹存放了各种任务需要的训练集和验证集的图片名汇总,这里不需要</li>
+<li><code>JPEGImages</code>文件夹存放了所有的拖</li>
+<li><code>labels</code>文件夹存放了darknet框架的标签格式文件<code>xxx.txt</code></li>
+</ul>
+<p><code>10103.txt</code></p>
+<pre tabindex="0"><code># class_id x y w h
+18 0.546 0.5165165165165165 0.908 0.9669669669669669
+14 0.145 0.6501501501501501 0.042 0.15915915915915915
+
+</code></pre><p><code>10103.xml</code></p>
+<pre tabindex="0"><code>&lt;annotation&gt;
+    &lt;folder&gt;VOC2012&lt;/folder&gt;
+    &lt;filename&gt;2008_000003.jpg&lt;/filename&gt;
+    &lt;source&gt;
+        &lt;database&gt;The VOC2008 Database&lt;/database&gt;
+        &lt;annotation&gt;PASCAL VOC2008&lt;/annotation&gt;
+        &lt;image&gt;flickr&lt;/image&gt;
+    &lt;/source&gt;
+    &lt;size&gt;
+        &lt;width&gt;500&lt;/width&gt;
+        &lt;height&gt;333&lt;/height&gt;
+        &lt;depth&gt;3&lt;/depth&gt;
+    &lt;/size&gt;
+    &lt;segmented&gt;0&lt;/segmented&gt;
+    &lt;object&gt;
+        &lt;name&gt;train&lt;/name&gt;
+        &lt;pose&gt;Unspecified&lt;/pose&gt;
+        &lt;truncated&gt;1&lt;/truncated&gt;
+        &lt;occluded&gt;0&lt;/occluded&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;46&lt;/xmin&gt;
+            &lt;ymin&gt;11&lt;/ymin&gt;
+            &lt;xmax&gt;500&lt;/xmax&gt;
+            &lt;ymax&gt;333&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+        &lt;difficult&gt;0&lt;/difficult&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;person&lt;/name&gt;
+        &lt;pose&gt;Right&lt;/pose&gt;
+        &lt;truncated&gt;1&lt;/truncated&gt;
+        &lt;occluded&gt;0&lt;/occluded&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;62&lt;/xmin&gt;
+            &lt;ymin&gt;190&lt;/ymin&gt;
+            &lt;xmax&gt;83&lt;/xmax&gt;
+            &lt;ymax&gt;243&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+        &lt;difficult&gt;0&lt;/difficult&gt;
+    &lt;/object&gt;
+&lt;/annotation&gt;
+
+</code></pre><p>模仿PASCAL VOC目录格式,创建一个VOC_KITTI文件夹,里面分别创建Annotations文件夹（用于存放将要生成的标签文件xxxx.xml），JPEGImages文件夹（用于存放KITTI所有的训练图片），Labels文件夹（用于存放了KITTI的标签格式文件xxxx.txt），还有两个脚本文件modify_annotations_txt.py和kitti_txt_to_xml.py，具体用法下面再讲。如下图所示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190111222750840.png" alt=""></p>
+<p><code>这里Annotations有14962项的原因是生成了xml和下面要讲的生成的darknet格式的标签文件。</code></p>
+<h3 id="21-使用modify_annotations_txtpy调整原来的8类为3类"><a href="#21-使用modify_annotations_txtpy调整原来的8类为3类" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:21-使用modify_annotations_txtpy调整原来的8类为3类" class="headings">2.1 使用modify_annotations_txt.py调整原来的8类为3类</a></h3>
+<p>以下提供一个脚本modify_annotations_txt.py来将原来的8类物体转换为我们现在需要的3类：Car，Pedestrain，Cyclist。我们把原来的Car、Van、Truck，Tram合并为Car类，把原来的Pedestrain，Person(sit-ting)合并为现在的Pedestrain，原来的Cyclist这一类保持不变。</p>
+<pre tabindex="0"><code># modify_annotations_txt.py
+import glob
+import string
+txt_list = glob.glob('./Labels/*.txt') # 存储Labels文件夹所有txt文件路径
+def show_category(txt_list):
+    category_list= []
+    for item in txt_list:
+        try:
+            with open(item) as tdf:
+                for each_line in tdf:
+                    labeldata = each_line.strip().split(' ') # 去掉前后多余的字符并把其分开
+                    category_list.append(labeldata[0]) # 只要第一个字段，即类别
+        except IOError as ioerr:
+            print('File error:'+str(ioerr))
+    print(set(category_list)) # 输出集合
+def merge(line):
+    each_line=''
+    for i in range(len(line)):
+        if i!= (len(line)-1):
+            each_line=each_line+line[i]+' '
+        else:
+            each_line=each_line+line[i] # 最后一条字段后面不加空格
+    each_line=each_line+'\n'
+    return (each_line)
+print('before modify categories are:\n')
+show_category(txt_list)
+for item in txt_list:
+    new_txt=[]
+    try:
+        with open(item, 'r') as r_tdf:
+            for each_line in r_tdf:
+                labeldata = each_line.strip().split(' ')
+                if labeldata[0] in ['Truck','Van','Tram']: # 合并汽车类
+                    labeldata[0] = labeldata[0].replace(labeldata[0],'Car')
+                if labeldata[0] == 'Person_sitting': # 合并行人类
+                    labeldata[0] = labeldata[0].replace(labeldata[0],'Pedestrian')
+                if labeldata[0] == 'DontCare': # 忽略Dontcare类
+                    continue
+                if labeldata[0] == 'Misc': # 忽略Misc类
+                    continue
+                new_txt.append(merge(labeldata)) # 重新写入新的txt文件
+        with open(item,'w+') as w_tdf: # w+是打开原文件将内容删除，另写新内容进去
+            for temp in new_txt:
+                w_tdf.write(temp)
+    except IOError as ioerr:
+        print('File error:'+str(ioerr))
+print('\nafter modify categories are:\n')
+show_category(txt_list) 
+
+</code></pre><p><code>执行命令python modify_annotations_txt.py运行脚本，将原来的8类物体转换为现在的3类。这里以000010.txt为例，展示原来的8类标签格式和现在的3类标签格式。</code></p>
+<pre tabindex="0"><code># 原来的标签
+Car 0.80 0 -2.09 1013.39 182.46 1241.00 374.00 1.57 1.65 3.35 4.43 1.65 5.20 -1.42
+Car 0.00 0 1.95 354.43 185.52 549.52 294.49 1.43 1.70 3.95 -2.39 1.66 11.80 1.76
+Pedestrian 0.00 2 1.41 859.54 159.80 879.68 221.40 1.96 0.72 1.09 8.33 1.55 23.51 1.75
+Car 0.00 0 -1.78 819.63 178.12 926.85 251.56 1.51 1.60 3.24 5.85 1.64 16.50 -1.44
+Car 0.00 2 -1.69 800.54 178.06 878.75 230.56 1.45 1.74 4.10 6.87 1.62 22.05 -1.39
+Car 0.00 0 1.80 558.55 179.04 635.05 230.61 1.54 1.68 3.79 -0.38 1.76 23.64 1.78
+Car 0.00 2 1.77 598.30 178.68 652.25 218.17 1.49 1.52 3.35 0.64 1.74 29.07 1.79
+Car 0.00 1 -1.67 784.59 178.04 839.98 220.10 1.53 1.65 4.37 7.88 1.75 28.53 -1.40
+Car 0.00 1 1.92 663.74 175.36 707.21 204.15 1.64 1.45 3.48 4.50 1.80 42.85 2.02
+DontCare -1 -1 -10 737.69 163.56 790.86 197.98 -1 -1 -1 -1000 -1000 -1000 -10
+DontCare -1 -1 -10 135.60 185.44 196.06 202.15 -1 -1 -1 -1000 -1000 -1000 -10
+DontCare -1 -1 -10 796.02 162.52 862.73 183.40 -1 -1 -1 -1000 -1000 -1000 -10
+DontCare -1 -1 -10 879.35 165.65 931.48 182.36 -1 -1 -1 -1000 -1000 -1000 -10
+
+# 现在生成的标签
+Car 0.80 0 -2.09 1013.39 182.46 1241.00 374.00 1.57 1.65 3.35 4.43 1.65 5.20 -1.42
+Car 0.00 0 1.95 354.43 185.52 549.52 294.49 1.43 1.70 3.95 -2.39 1.66 11.80 1.76
+Pedestrian 0.00 2 1.41 859.54 159.80 879.68 221.40 1.96 0.72 1.09 8.33 1.55 23.51 1.75
+Car 0.00 0 -1.78 819.63 178.12 926.85 251.56 1.51 1.60 3.24 5.85 1.64 16.50 -1.44
+Car 0.00 2 -1.69 800.54 178.06 878.75 230.56 1.45 1.74 4.10 6.87 1.62 22.05 -1.39
+Car 0.00 0 1.80 558.55 179.04 635.05 230.61 1.54 1.68 3.79 -0.38 1.76 23.64 1.78
+Car 0.00 2 1.77 598.30 178.68 652.25 218.17 1.49 1.52 3.35 0.64 1.74 29.07 1.79
+Car 0.00 1 -1.67 784.59 178.04 839.98 220.10 1.53 1.65 4.37 7.88 1.75 28.53 -1.40
+Car 0.00 1 1.92 663.74 175.36 707.21 204.15 1.64 1.45 3.48 4.50 1.80 42.85 2.02
+</code></pre><h2 id="22-将原来kitti标注的txt格式转换为pascal-voc的xml格式"><a href="#22-将原来kitti标注的txt格式转换为pascal-voc的xml格式" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:22-将原来kitti标注的txt格式转换为pascal-voc的xml格式" class="headings">2.2 将原来KITTI标注的txt格式转换为PASCAL VOC的xml格式</a></h2>
+<p>kitti标注格式如下:</p>
+<pre tabindex="0"><code>Car 0.00 0 -1.67 642.24 178.50 680.14 208.68 1.38 1.49 3.32 2.41 1.66 34.98 -1.60 
+Car 0.00 0 -1.75 685.77 178.12 767.02 235.21 1.50 1.62 3.89 3.27 1.67 21.18 -1.60 
+</code></pre><p><img src="https://img-blog.csdnimg.cn/20190111222817878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>我们现在只需要该标签的type、bbox等五项，还需要把float类型转换为int类型，最后将生成的xml文件存放于Annotations文件夹中，使用脚本kitti_txt_to_xml.py。</p>
+<pre tabindex="0"><code># kitti_txt_to_xml.py
+# encoding:utf-8
+# 根据一个给定的XML Schema，使用DOM树的形式从空白文件生成一个XML
+from xml.dom.minidom import Document
+import cv2
+import os
+def generate_xml(name,split_lines,img_size,class_ind):
+    doc = Document() # 创建DOM文档对象
+    annotation = doc.createElement('annotation')
+    doc.appendChild(annotation)
+    title = doc.createElement('folder')
+    title_text = doc.createTextNode('KITTI')
+    title.appendChild(title_text)
+    annotation.appendChild(title)
+    img_name=name+'.png'
+    title = doc.createElement('filename')
+    title_text = doc.createTextNode(img_name)
+    title.appendChild(title_text)
+    annotation.appendChild(title)
+    source = doc.createElement('source')
+    annotation.appendChild(source)
+    title = doc.createElement('database')
+    title_text = doc.createTextNode('The KITTI Database')
+    title.appendChild(title_text)
+    source.appendChild(title)
+    title = doc.createElement('annotation')
+    title_text = doc.createTextNode('KITTI')
+    title.appendChild(title_text)
+    source.appendChild(title)
+    size = doc.createElement('size')
+    annotation.appendChild(size)
+    title = doc.createElement('width')
+    title_text = doc.createTextNode(str(img_size[1]))
+    title.appendChild(title_text)
+    size.appendChild(title)
+    title = doc.createElement('height')
+    title_text = doc.createTextNode(str(img_size[0]))
+    title.appendChild(title_text)
+    size.appendChild(title)
+    title = doc.createElement('depth')
+    title_text = doc.createTextNode(str(img_size[2]))
+    title.appendChild(title_text)
+    size.appendChild(title)
+    for split_line in split_lines:
+        line=split_line.strip().split()
+        if line[0] in class_ind:
+            object = doc.createElement('object')
+            annotation.appendChild(object)
+            title = doc.createElement('name')
+            title_text = doc.createTextNode(line[0])
+            title.appendChild(title_text)
+            object.appendChild(title)
+            bndbox = doc.createElement('bndbox')
+            object.appendChild(bndbox)
+            title = doc.createElement('xmin')
+            title_text = doc.createTextNode(str(int(float(line[4]))))
+            title.appendChild(title_text)
+            bndbox.appendChild(title)
+            title = doc.createElement('ymin')
+            title_text = doc.createTextNode(str(int(float(line[5]))))
+            title.appendChild(title_text)
+            bndbox.appendChild(title)
+            title = doc.createElement('xmax')
+            title_text = doc.createTextNode(str(int(float(line[6]))))
+            title.appendChild(title_text)
+            bndbox.appendChild(title)
+            title = doc.createElement('ymax')
+            title_text = doc.createTextNode(str(int(float(line[7]))))
+            title.appendChild(title_text)
+            bndbox.appendChild(title)
+    # 将DOM对象doc写入文件
+    f = open('Annotations/'+name+'.xml','w')
+    f.write(doc.toprettyxml(indent = ''))
+    f.close()
+if __name__ == '__main__':
+    class_ind=('Pedestrian', 'Car', 'Cyclist')
+    cur_dir=os.getcwd()
+    labels_dir=os.path.join(cur_dir,'Labels')
+    for parent, dirnames, filenames in os.walk(labels_dir): # 分别得到根目录，子目录和根目录下文件   
+        for file_name in filenames:
+            full_path=os.path.join(parent, file_name) # 获取文件全路径
+            f=open(full_path)
+            split_lines = f.readlines()
+            name= file_name[:-4] # 后四位是扩展名.txt，只取前面的文件名
+            img_name=name+'.png' 
+            img_path=os.path.join('./JPEGImages/',img_name) # 路径需要自行修改            
+            img_size=cv2.imread(img_path).shape
+            generate_xml(name,split_lines,img_size,class_ind)
+print('all txts has converted into xmls')
+</code></pre><p>由于我们使用KITTI提供的共7481张训练集图片作为我们的训练集，因此，这里第86行代码为JPEGImages文件夹内的所有图片, 生成的xml文件存放于第72行的Annotations文件夹内。
+执行命令python kitti_txt_to_xml.py，生成PASCAL VOC格式的xml文件。这里以000010.txt为例，展示原来的txt标签格式和现在xml标签格式。</p>
+<pre tabindex="0"><code># 步骤2-1生成的txt格式
+Car 0.80 0 -2.09 1013.39 182.46 1241.00 374.00 1.57 1.65 3.35 4.43 1.65 5.20 -1.42
+Car 0.00 0 1.95 354.43 185.52 549.52 294.49 1.43 1.70 3.95 -2.39 1.66 11.80 1.76
+Pedestrian 0.00 2 1.41 859.54 159.80 879.68 221.40 1.96 0.72 1.09 8.33 1.55 23.51 1.75
+Car 0.00 0 -1.78 819.63 178.12 926.85 251.56 1.51 1.60 3.24 5.85 1.64 16.50 -1.44
+Car 0.00 2 -1.69 800.54 178.06 878.75 230.56 1.45 1.74 4.10 6.87 1.62 22.05 -1.39
+Car 0.00 0 1.80 558.55 179.04 635.05 230.61 1.54 1.68 3.79 -0.38 1.76 23.64 1.78
+Car 0.00 2 1.77 598.30 178.68 652.25 218.17 1.49 1.52 3.35 0.64 1.74 29.07 1.79
+Car 0.00 1 -1.67 784.59 178.04 839.98 220.10 1.53 1.65 4.37 7.88 1.75 28.53 -1.40
+Car 0.00 1 1.92 663.74 175.36 707.21 204.15 1.64 1.45 3.48 4.50 1.80 42.85 2.02
+
+# 此时转换的xml格式
+&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;annotation&gt;
+    &lt;folder&gt;KITTI&lt;/folder&gt;
+    &lt;filename&gt;000010.png&lt;/filename&gt;
+    &lt;source&gt;
+        &lt;database&gt;The KITTI Database&lt;/database&gt;
+        &lt;annotation&gt;KITTI&lt;/annotation&gt;
+    &lt;/source&gt;
+    &lt;size&gt;
+        &lt;width&gt;1242&lt;/width&gt;
+        &lt;height&gt;375&lt;/height&gt;
+        &lt;depth&gt;3&lt;/depth&gt;
+    &lt;/size&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;1013&lt;/xmin&gt;
+            &lt;ymin&gt;182&lt;/ymin&gt;
+            &lt;xmax&gt;1241&lt;/xmax&gt;
+            &lt;ymax&gt;374&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;354&lt;/xmin&gt;
+            &lt;ymin&gt;185&lt;/ymin&gt;
+            &lt;xmax&gt;549&lt;/xmax&gt;
+            &lt;ymax&gt;294&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Pedestrian&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;859&lt;/xmin&gt;
+            &lt;ymin&gt;159&lt;/ymin&gt;
+            &lt;xmax&gt;879&lt;/xmax&gt;
+            &lt;ymax&gt;221&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;819&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;926&lt;/xmax&gt;
+            &lt;ymax&gt;251&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;800&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;878&lt;/xmax&gt;
+            &lt;ymax&gt;230&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;558&lt;/xmin&gt;
+            &lt;ymin&gt;179&lt;/ymin&gt;
+            &lt;xmax&gt;635&lt;/xmax&gt;
+            &lt;ymax&gt;230&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;598&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;652&lt;/xmax&gt;
+            &lt;ymax&gt;218&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;784&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;839&lt;/xmax&gt;
+            &lt;ymax&gt;220&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;663&lt;/xmin&gt;
+            &lt;ymin&gt;175&lt;/ymin&gt;
+            &lt;xmax&gt;707&lt;/xmax&gt;
+            &lt;ymax&gt;204&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+&lt;/annotation&gt;
+</code></pre><h2 id="3将voc格式的xml标签转换为darknet格式的标签xxxtxt"><a href="#3将voc格式的xml标签转换为darknet格式的标签xxxtxt" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:3将voc格式的xml标签转换为darknet格式的标签xxxtxt" class="headings">3.将VOC格式的xml标签转换为darknet格式的标签xxx.txt</a></h2>
+<p>我们现在已经有了VOC标签格式的xml文件，现在我们需要生成darknet中YOLO使用的txt标签格式。我们在VOC_KITTI文件夹内创建一个xml_to_yolo_txt.py文件，代码如下：</p>
+<pre tabindex="0"><code># xml_to_yolo_txt.py
+# 此代码和VOC_KITTI文件夹同目录
+import glob
+import xml.etree.ElementTree as ET
+# 这里的类名为我们xml里面的类名，顺序现在不需要考虑
+class_names = ['Car', 'Cyclist', 'Pedestrian']
+# xml文件路径
+path = './Annotations/' 
+# 转换一个xml文件为txt
+def single_xml_to_txt(xml_file):
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    # 保存的txt文件路径
+    txt_file = xml_file.split('.')[0]+'.txt'
+    with open(txt_file, 'w') as txt_file:
+        for member in root.findall('object'):
+            #filename = root.find('filename').text
+            picture_width = int(root.find('size')[0].text)
+            picture_height = int(root.find('size')[1].text)
+            class_name = member[0].text
+            # 类名对应的index
+            class_num = class_names.index(class_name)
+
+            box_x_min = int(member[1][0].text) # 左上角横坐标
+            box_y_min = int(member[1][1].text) # 左上角纵坐标
+            box_x_max = int(member[1][2].text) # 右下角横坐标
+            box_y_max = int(member[1][3].text) # 右下角纵坐标
+            # 转成相对位置和宽高
+            x_center = float(box_x_min + box_x_max) / (2 * picture_width)
+            y_center = float(box_y_min + box_y_max) / (2 * picture_height)
+            width = float(box_x_max - box_x_min) /  picture_width
+            height = float(box_y_max - box_y_min) /  picture_height
+            print(class_num, x_center, y_center, width, height)
+            txt_file.write(str(class_num) + ' ' + str(x_center) + ' ' + str(y_center) + ' ' + str(width) + ' ' + str(height) + '\n')
+# 转换文件夹下的所有xml文件为txt
+def dir_xml_to_txt(path):
+    for xml_file in glob.glob(path + '*.xml'):
+        single_xml_to_txt(xml_file)
+dir_xml_to_txt(path)
+
+</code></pre><p>执行命令: <code>python xml_to_yolo_txt.py</code>,生成的txt文件在Annotations文件夹内.这里以000010.txt为例,展示原来的xml标签格式和现在darknet的txt标签格式.</p>
+<pre tabindex="0"><code># 原来的xml格式
+&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;annotation&gt;
+    &lt;folder&gt;KITTI&lt;/folder&gt;
+    &lt;filename&gt;000010.png&lt;/filename&gt;
+    &lt;source&gt;
+        &lt;database&gt;The KITTI Database&lt;/database&gt;
+        &lt;annotation&gt;KITTI&lt;/annotation&gt;
+    &lt;/source&gt;
+    &lt;size&gt;
+        &lt;width&gt;1242&lt;/width&gt;
+        &lt;height&gt;375&lt;/height&gt;
+        &lt;depth&gt;3&lt;/depth&gt;
+    &lt;/size&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;1013&lt;/xmin&gt;
+            &lt;ymin&gt;182&lt;/ymin&gt;
+            &lt;xmax&gt;1241&lt;/xmax&gt;
+            &lt;ymax&gt;374&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;354&lt;/xmin&gt;
+            &lt;ymin&gt;185&lt;/ymin&gt;
+            &lt;xmax&gt;549&lt;/xmax&gt;
+            &lt;ymax&gt;294&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Pedestrian&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;859&lt;/xmin&gt;
+            &lt;ymin&gt;159&lt;/ymin&gt;
+            &lt;xmax&gt;879&lt;/xmax&gt;
+            &lt;ymax&gt;221&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;819&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;926&lt;/xmax&gt;
+            &lt;ymax&gt;251&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;800&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;878&lt;/xmax&gt;
+            &lt;ymax&gt;230&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;558&lt;/xmin&gt;
+            &lt;ymin&gt;179&lt;/ymin&gt;
+            &lt;xmax&gt;635&lt;/xmax&gt;
+            &lt;ymax&gt;230&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;598&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;652&lt;/xmax&gt;
+            &lt;ymax&gt;218&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;784&lt;/xmin&gt;
+            &lt;ymin&gt;178&lt;/ymin&gt;
+            &lt;xmax&gt;839&lt;/xmax&gt;
+            &lt;ymax&gt;220&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+    &lt;object&gt;
+        &lt;name&gt;Car&lt;/name&gt;
+        &lt;bndbox&gt;
+            &lt;xmin&gt;663&lt;/xmin&gt;
+            &lt;ymin&gt;175&lt;/ymin&gt;
+            &lt;xmax&gt;707&lt;/xmax&gt;
+            &lt;ymax&gt;204&lt;/ymax&gt;
+        &lt;/bndbox&gt;
+    &lt;/object&gt;
+&lt;/annotation&gt;
+
+# 现在darknet的txt文件格式
+0 0.9074074074074074 0.7413333333333333 0.09178743961352658 0.256
+0 0.3635265700483092 0.6386666666666667 0.0785024154589372 0.14533333333333334
+2 0.6996779388083736 0.5066666666666667 0.008051529790660225 0.08266666666666667
+0 0.7024959742351047 0.572 0.0430756843800322 0.09733333333333333
+0 0.6755233494363929 0.544 0.03140096618357488 0.06933333333333333
+0 0.48027375201288247 0.5453333333333333 0.030998389694041867 0.068
+0 0.5032206119162641 0.528 0.021739130434782608 0.05333333333333334
+0 0.6533816425120773 0.5306666666666666 0.02214170692431562 0.056
+0 0.5515297906602254 0.5053333333333333 0.017713365539452495 0.03866666666666667
+</code></pre><p>可以看出，原来的bbox数据现在已经全部归一化，原来的Car类型变成现在的索引0，原来的Pedestrain类型变成现在的索引2。</p>
+<h2 id="4生成traintxt和valtxt"><a href="#4生成traintxt和valtxt" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:4生成traintxt和valtxt" class="headings">4.生成train.txt和val.txt</a></h2>
+<p>现在我们需要生成train.txt文件，里面存放了每一张训练图片的路径，由于我们没有测试，可以先不生成val.txt。这里我们在darknet安装目录下创建一个kitti_train_val.py文件，代码如下：</p>
+<pre tabindex="0"><code># kitti_train_val.py
+# 此代码和data文件夹同目录
+import glob
+path = 'kitti_data/'
+def generate_train_and_val(image_path, txt_file):
+    with open(txt_file, 'w') as tf:
+        for jpg_file in glob.glob(image_path + '*.png'):
+            tf.write(jpg_file + '\n')
+generate_train_and_val(path + 'train_images/', path + 'train.txt') # 生成的train.txt文件所在路径
+# generate_train_and_val(path + 'val_images/', path + 'val.txt') # 生成的val.txt文件所在路径
+
+</code></pre><p>根据代码可以看出，我们需要在daeknet安装目录下创建一个kitti_data文件夹，里面需要创建train_images文件夹和val_images文件夹，此外我们还需要创建train_labels和val_labels文件夹，我们把VOC_KITTI/JPEGImages文件夹里面的图片剪切或复制到kitti_data/train_images下，把VOC_KITTI/Annotaations下的txt文件剪切或复制到kitti_data/train_labels下，可以执行命令：</p>
+<pre tabindex="0"><code># 剪切图片
+mv VOC_KITTI/JPEGImages/* darknet/kitti_data/train_images
+# 剪切标签
+mv VOC_KITTI/Annotaations/*.txt darknet/kitti_data/train_labels
+</code></pre><p>接着在darknet路径下打开终端，执行命令：python kitti_train_val.py，最终在kitti_data目录下生成train.txt和val.txt。
+如下所示：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190111222849691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>这里的kitti.data和kitti.names即将创建</p>
+<h2 id="5准备数据的配置文件"><a href="#5准备数据的配置文件" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:5准备数据的配置文件" class="headings">5.准备数据的配置文件</a></h2>
+<p>需要准备<code>kitti.data</code>、<code>kitti.names</code>和网络模型配置文件<code>yolov3-kitti.cfg</code>。</p>
+<h3 id="51-准备kittinames"><a href="#51-准备kittinames" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:51-准备kittinames" class="headings">5.1 准备<code>kitti.names</code></a></h3>
+<p>kitti.names存放了每一类的类名，这个将在测试一张图片时显示一个物体的标签名。文件内容如下（注意顺序要与xml_to_yolo_txt.py文件里面的顺序一致。）：</p>
+<pre tabindex="0"><code>Car
+Pedestrian
+Cyclist
+</code></pre><h3 id="52-准备kittidata"><a href="#52-准备kittidata" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:52-准备kittidata" class="headings">5.2 准备kitti.data</a></h3>
+<p>kitti.data内容如下，其中classes表示类的数目，train和val表示第4步生成的train.txt和val.txt的存放路径，backup表示训练的yolo权重存放的位置。</p>
+<pre tabindex="0"><code>classes= 3
+train = kitti_data/train.txt
+valid = kitti_data/val.txt
+names = kitti_data/kitti.names
+backup = backup/
+</code></pre><h3 id="53-准备yolov3-kitticfg"><a href="#53-准备yolov3-kitticfg" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:53-准备yolov3-kitticfg" class="headings">5.3 准备yolov3-kitti.cfg</a></h3>
+<p>在darknet/cfg目录下，创建一个文件yolov3-kitti.cfg，里面的内容可以先拷贝yolov3.cfg，在修改以下几个部分：</p>
+<ul>
+<li>三处classes=80改为classes=3</li>
+<li>三处filters=255注意只需要修改[yolo]上面的[convolutional]的filters）修改为filters=24（ filters=3*(classes+5) ），如下：</li>
+</ul>
+<pre tabindex="0"><code>[convolutional]
+size=1
+stride=1
+pad=1
+filters=255 # 此处需要修改为filters=24
+activation=linear
+[yolo]
+mask = 3,4,5
+anchors = 10,13, 16,30, 33,23, 30,61, 62,45, 59,119, 116,90, 156,198, 373,326
+classes=80
+num=9
+</code></pre><blockquote>
+<p>此处问题
+当运行时,会出现 cudaError:out of memory 需要修改batch,subdivisions等参数</p>
+</blockquote>
+<p>一个epoch=total_train_images/batch
+而subdivisions表示将一个batch分为subdivisions个组进行分别训练 每组有batch/subdivisions个图片</p>
+<h2 id="6-下载imagenet预训练的网络参数"><a href="#6-下载imagenet预训练的网络参数" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:6-下载imagenet预训练的网络参数" class="headings">6. 下载ImageNet预训练的网络参数</a></h2>
+<p>yolov3默认的训练权重为darknet53，我们可以在darknet路径下打开终端，输入命令下载权重：
+<code>wget https://pjreddie.com/media/files/darknet53.conv.74</code></p>
+<h2 id="训练模型"><a href="#训练模型" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:训练模型" class="headings">训练模型</a></h2>
+<p><code>./darknet detector train kitti_data/kitti.data cfg/yolov3-kitti.cfg darknet53.conv.74</code></p>
+<p>在训练中,终端会打印输出</p>
+<pre tabindex="0"><code>Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.879770, Class: 0.999963, Obj: 0.999019, No Obj: 0.000455, .5R: 1.000000, .75R: 1.000000, count: 2
+Region 106 Avg IOU: 0.726660, Class: 0.981278, Obj: 0.848324, No Obj: 0.000362, .5R: 0.933333, .75R: 0.600000, count: 15
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000001, .5R: -nan, .75R: -nan, count: 0
+Region 106 Avg IOU: 0.739621, Class: 0.999773, Obj: 0.788386, No Obj: 0.000512, .5R: 0.937500, .75R: 0.625000, count: 16
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 106 Avg IOU: 0.842399, Class: 0.999971, Obj: 0.978920, No Obj: 0.000325, .5R: 1.000000, .75R: 1.000000, count: 11
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000012, .5R: -nan, .75R: -nan, count: 0
+Region 106 Avg IOU: 0.705575, Class: 0.949637, Obj: 0.893539, No Obj: 0.000549, .5R: 0.888889, .75R: 0.555556, count: 18
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000220, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.885422, Class: 0.999904, Obj: 0.996486, No Obj: 0.000944, .5R: 1.000000, .75R: 1.000000, count: 5
+Region 106 Avg IOU: 0.685692, Class: 0.999810, Obj: 0.818832, No Obj: 0.000441, .5R: 0.866667, .75R: 0.400000, count: 15
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.917769, Class: 0.999986, Obj: 0.999057, No Obj: 0.000483, .5R: 1.000000, .75R: 1.000000, count: 2
+Region 106 Avg IOU: 0.734660, Class: 0.999783, Obj: 0.806102, No Obj: 0.000853, .5R: 0.857143, .75R: 0.500000, count: 28
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000290, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.883034, Class: 0.999598, Obj: 0.952420, No Obj: 0.000755, .5R: 1.000000, .75R: 1.000000, count: 5
+Region 106 Avg IOU: 0.763281, Class: 0.999828, Obj: 0.776274, No Obj: 0.000371, .5R: 0.857143, .75R: 0.642857, count: 14
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000002, .5R: -nan, .75R: -nan, count: 0
+Region 106 Avg IOU: 0.788140, Class: 0.999921, Obj: 0.805065, No Obj: 0.000677, .5R: 1.000000, .75R: 0.761905, count: 21
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.823024, Class: 0.999452, Obj: 0.746079, No Obj: 0.000631, .5R: 1.000000, .75R: 0.600000, count: 5
+Region 106 Avg IOU: 0.734842, Class: 0.999643, Obj: 0.771043, No Obj: 0.000651, .5R: 0.950000, .75R: 0.500000, count: 20
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.832970, Class: 0.999085, Obj: 0.915872, No Obj: 0.000134, .5R: 1.000000, .75R: 1.000000, count: 1
+Region 106 Avg IOU: 0.647650, Class: 0.999931, Obj: 0.914428, No Obj: 0.000316, .5R: 0.818182, .75R: 0.363636, count: 11
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 106 Avg IOU: 0.647275, Class: 0.998951, Obj: 0.835732, No Obj: 0.000277, .5R: 1.000000, .75R: 0.200000, count: 10
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.859042, Class: 0.999873, Obj: 0.920159, No Obj: 0.001146, .5R: 1.000000, .75R: 1.000000, count: 8
+Region 106 Avg IOU: 0.760058, Class: 0.999575, Obj: 0.829456, No Obj: 0.000763, .5R: 0.950000, .75R: 0.650000, count: 20
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.780092, Class: 0.999876, Obj: 0.873641, No Obj: 0.000480, .5R: 1.000000, .75R: 0.500000, count: 2
+Region 106 Avg IOU: 0.714661, Class: 0.998230, Obj: 0.930809, No Obj: 0.000893, .5R: 0.862069, .75R: 0.551724, count: 29
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.748140, Class: 0.999394, Obj: 0.698991, No Obj: 0.000304, .5R: 0.666667, .75R: 0.666667, count: 3
+Region 106 Avg IOU: 0.661677, Class: 0.999870, Obj: 0.814655, No Obj: 0.000667, .5R: 0.818182, .75R: 0.318182, count: 22
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.839435, Class: 0.994511, Obj: 0.497955, No Obj: 0.000293, .5R: 1.000000, .75R: 1.000000, count: 2
+Region 106 Avg IOU: 0.697895, Class: 0.999256, Obj: 0.669627, No Obj: 0.000654, .5R: 0.958333, .75R: 0.333333, count: 24
+Region 82 Avg IOU: -nan, Class: -nan, Obj: -nan, No Obj: 0.000000, .5R: -nan, .75R: -nan, count: 0
+Region 94 Avg IOU: 0.858090, Class: 0.999985, Obj: 0.999754, No Obj: 0.000153, .5R: 1.000000, .75R: 1.000000, count: 1
+Region 106 Avg IOU: 0.664703, Class: 0.989184, Obj: 0.793579, No Obj: 0.000681, .5R: 0.791667, .75R: 0.458333, count: 24
+13202: 0.830514, 0.765624 avg, 0.001000 rate, 4.867255 seconds, 844928 images
+Loaded: 0.000038 seconds
+</code></pre><h2 id="8测试"><a href="#8测试" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:8测试" class="headings">8.测试</a></h2>
+<p>我们把batch设为64,经过13200iterations后,可以把KITTI的测试集中找一些图片放在darknet/data/目录下,输入以下命令在一张图进行测试
+<code>./darknet detector test kitti_data/kitti.data cfg/yolov3-kitti.cfg backup/yolov3-kitti.backup data/000005.png</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20190111222935938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTgzMDgzNjU4,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>可以看出,预测对象及其种类的精度可以,但定位误差较大 还需要训练一段时间看看.</p>
+<hr>
+<h2 id="模型配置文件----cfgyolov3-kitticfg"><a href="#模型配置文件----cfgyolov3-kitticfg" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:模型配置文件----cfgyolov3-kitticfg" class="headings">模型配置文件 -- cfg/yolov3-kitti.cfg</a></h2>
+<pre tabindex="0"><code>batch=64　　　　　　   # 一批训练样本的样本数量，每batch个样本更新一次参数
+subdivisions=32　　   # 它会让你的每一个batch不是一下子都丢到网络里。而是分成subdivision对应数字的份数，一份一份的跑完后，在一起打包算作完成一次iteration
+width=416　　　　     # 只可以设置成32的倍数
+height=416　　　　    # 只可以设置成32的倍数
+
+channels=3　　　　　　 # 若为灰度图，则chennels=1，另外还需修改/scr/data.c文件中的load_data_detection函数；若为RGB则 channels=3 ，无需修改/scr/data.c文件
+
+momentum=0.9　　      # 最优化方法的动量参数，这个值影响着梯度下降到最优值得速度 
+decay=0.0005　　   　 # 权重衰减正则项，防止过拟合
+angle=0　　　　    　　# 通过旋转角度来生成更多训练样本
+saturation = 1.5　　  # 通过调整饱和度来生成更多训练样本
+exposure = 1.5　　    # 通过调整曝光量来生成更多训练样本
+hue=.1　　　　　     　# 通过调整色调来生成更多训练样本
+
+
+learning_rate=0.001        # 学习率, 刚开始训练时, 以 0.01 ~ 0.001 为宜, 一定轮数过后,逐渐减缓。
+burn_in=1000　　　      　　 # 在迭代次数小于burn_in时，其学习率的更新有一种方式，大于burn_in时，才采用policy的更新方式
+max_batches = 50200  　　   # 训练步数
+policy=steps　　　　　 　　   # 学习率调整的策略
+steps=40000,45000     　    # 开始衰减的步数
+scales=.1,.1　　　　 　　   　# 在第40000和第45000次迭代时，学习率衰减10倍
+...
+[convolutional]——YOLO层前一层卷积层
+...
+filters=24 　　　　　　 　　  # 每一个[yolo]层前的最后一个卷积层中的 filters=num(yolo层个数)*(classes+5)
+...
+
+[yolo]
+mask = 6,7,8
+anchors = 10,13,  16,30,  33,23,  30,61,  62,45,  59,119,  116,90,  156,198,  373,326　　#如果想修改默认anchors数值，使用k-means即可；
+classes=3  　　　　　　# 修改为自己的类别数
+num=9　　　　　　　   　# 每个grid cell预测几个box,和anchors的数量一致。调大num后训练时Obj趋近0的话可以尝试调大object_scale
+jitter=.3　　　　　　　# 利用数据抖动产生更多数据, jitter是crop的参数, jitter=.3，就是在0~0.3中进行crop
+ignore_thresh = .5   # 决定是否需要计算IOU误差的参数，大于thresh，IOU误差不会夹在cost function中
+truth_thresh = 1
+random=1　　　　　　　  # 如果为1，每次迭代图片大小随机从320到608，步长为32，如果为0，每次训练大小与输入大小一致
+
+</code></pre>
+            </div>
+
+            
+    
+    
+        <ul class="post-copyright">
+            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://chenbokai.work" class="p-author h-card" target="_blank" rel="noopener">chenbokai</a></li>
+            
+                
+                
+                
+                
+                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="../../tech/yolov3%E8%AE%AD%E7%BB%83kitti/" target="_blank" rel="noopener">https://chenbokaix250.github.io/tech/yolov3训练kitti/</a></li>
+            
+            <li class="copyright-item license"><span class="copyright-item-text">许可</span>：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            
+        </ul>
+    
+
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2020-08-18 11:55:25 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-08-18</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-08-18</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        <div class="post-share">
+
+        
+
+        <div class="share-items">
+
+            
+                <div class="share-item twitter">
+                    
+                    <a href="https://twitter.com/share?url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;text=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;hashtags=DeepLearning,&amp;via=chenbokaiy450" title="分享到「Twitter」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item facebook">
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;hashtag=%23DeepLearning" title="分享到「Facebook」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item linkedin">
+                    
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;title=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;summary=YOLOv3%e8%ae%ad%e7%bb%83kitti%e6%95%b0%e6%8d%ae%e9%9b%86%201.%e8%8e%b7%e5%8f%96KITTI%e6%95%b0%e6%8d%ae%e9%9b%86%e5%8f%8a%e6%a0%87%e7%ad%be%20KITTI%e5%ae%98%e7%bd%91%e9%93%be%e6%8e%a5%202D%e2%80%a6%e2%80%a6&amp;source=%e6%9e%81%e4%b9%90%e4%b8%96%e7%95%8c" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item telegram">
+                    
+                    <a href="https://t.me/share/url?url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;text=Yolov3%e8%ae%ad%e7%bb%83kitti" title="分享到「Telegram」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon telegram-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item weibo">
+                    
+                    <a href="https://service.weibo.com/share/share.php?&amp;url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;title=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;pic=https://img-blog.csdnimg.cn/20190111222351577.png&amp;searchPic=false" title="分享到「新浪微博」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon weibo-icon"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item douban">
+                    
+                    <a href="https://www.douban.com/share/service?href=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;name=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;text=YOLOv3%e8%ae%ad%e7%bb%83kitti%e6%95%b0%e6%8d%ae%e9%9b%86%201.%e8%8e%b7%e5%8f%96KITTI%e6%95%b0%e6%8d%ae%e9%9b%86%e5%8f%8a%e6%a0%87%e7%ad%be%20KITTI%e5%ae%98%e7%bd%91%e9%93%be%e6%8e%a5%202D%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qq">
+                    
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;title=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;summary=YOLOv3%e8%ae%ad%e7%bb%83kitti%e6%95%b0%e6%8d%ae%e9%9b%86%201.%e8%8e%b7%e5%8f%96KITTI%e6%95%b0%e6%8d%ae%e9%9b%86%e5%8f%8a%e6%a0%87%e7%ad%be%20KITTI%e5%ae%98%e7%bd%91%e9%93%be%e6%8e%a5%202D%e2%80%a6%e2%80%a6&amp;pics=https://img-blog.csdnimg.cn/20190111222351577.png&amp;site=%e6%9e%81%e4%b9%90%e4%b8%96%e7%95%8c" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qzone">
+                    
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenbokaix250.github.io/tech/yolov3%E8%AE%AD%E7%BB%83kitti/&amp;title=Yolov3%e8%ae%ad%e7%bb%83kitti&amp;summary=YOLOv3%e8%ae%ad%e7%bb%83kitti%e6%95%b0%e6%8d%ae%e9%9b%86%201.%e8%8e%b7%e5%8f%96KITTI%e6%95%b0%e6%8d%ae%e9%9b%86%e5%8f%8a%e6%a0%87%e7%ad%be%20KITTI%e5%ae%98%e7%bd%91%e9%93%be%e6%8e%a5%202D%e2%80%a6%e2%80%a6&amp;pics=https://img-blog.csdnimg.cn/20190111222351577.png&amp;site=%e6%9e%81%e4%b9%90%e4%b8%96%e7%95%8c" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qrcode">
+                    <div class="qrcode-container" title="通过「二维码」"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+<script>
+    var typeNumber = 0;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData('https:\/\/chenbokaix250.github.io\/tech\/yolov3%E8%AE%AD%E7%BB%83kitti\/');
+    qr.make();
+    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+</script>
+
+                </div>
+            
+
+        </div>
+
+    </div>
+
+
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">相关文章：<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="../../tech/pytorch%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/" class="related-link">Pytorch常用代码段</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="../../tech/multi_task_learning/" class="related-link">Multi_task_learning</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="../../tech/tensorrt%E5%B0%8F%E7%BB%932/" class="related-link">TensorRT小结2</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="../../tech/tensorrt%E5%B0%8F%E7%BB%931/" class="related-link">TensorRT小结1</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="../../tech/xavier%E5%AE%89%E8%A3%85caffe/" class="related-link">Xavier安装caffe</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+    
+        <div class="post-tags">
+            
+                
+                
+                
+                
+                    
+                    <a href="../../tags/deeplearning/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>DeepLearning</a>
+                
+            
+        </div>
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="../../tech/u%E7%9B%98%E5%9C%A8ubuntu%E4%B8%8B%E5%8F%98%E6%88%90%E5%8F%AA%E8%AF%BB%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="prev">&lt; U盘在Ubuntu下变成只读的解决方案</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="../../tech/cuda%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B/" rel="next">Cuda安装过程 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;2020–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;chenbokai</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+                <div class="busuanzi-site-uv-and-pv">
+                    <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                </div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="../../rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="chenbokais3@gmail.com" target="_blank" rel="external noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/chenbokaix250" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://twitter.com/chenbokaiy450" target="_blank" rel="external noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://t.me/tellmewhy321" target="_blank" rel="external noopener" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon social-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+    
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+
+
+    </body>
+</html>
