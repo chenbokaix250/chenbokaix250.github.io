@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-03-17T16:36:34&#43;08:00</updated>
+    <updated>2022-03-18T08:31:58&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -58,18 +58,19 @@
             <title type="text">C&#43;&#43;_primer_2</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/" />
             <id>https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/</id>
-            <updated>2022-03-17T16:20:08&#43;08:00</updated>
+            <updated>2022-03-18T08:31:39&#43;08:00</updated>
             <published>2022-03-17T15:31:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
                     <uri>https://chenbokai.work</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ 进阶 test test2</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ 进阶 test test2 test3</summary>
             
                 <content type="html">&lt;h1 id=&#34;c-进阶&#34;&gt;C++ 进阶&lt;/h1&gt;
 &lt;p&gt;test
-test2&lt;/p&gt;
+test2
+test3&lt;/p&gt;
 </content>
             
             
