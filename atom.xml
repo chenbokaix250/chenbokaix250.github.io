@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-03-18T14:18:54&#43;08:00</updated>
+    <updated>2022-03-18T16:51:44&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -17,48 +17,10 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
         <entry>
-            <title type="text">Ttst</title>
-            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/ttst/" />
-            <id>https://chenbokaix250.github.io/tech/ttst/</id>
-            <updated>2022-03-17T16:36:19&#43;08:00</updated>
-            <published>2022-03-17T16:36:12&#43;08:00</published>
-            <author>
-                    <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
-                    <email>chenbokais3@gmail.com</email>
-                    </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">test</summary>
-            
-                <content type="html">&lt;p&gt;test&lt;/p&gt;
-</content>
-            
-            
-            
-                
-                
-                
-                    
-                    
-                    
-                        
-                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
-                        
-                    
-                
-            
-            
-            
-                
-                    
-                
-            
-        </entry>
-    
-        <entry>
             <title type="text">C&#43;&#43;_primer_2</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/" />
             <id>https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/</id>
-            <updated>2022-03-18T14:18:42&#43;08:00</updated>
+            <updated>2022-03-18T16:51:34&#43;08:00</updated>
             <published>2022-03-17T15:31:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
@@ -75,6 +37,16 @@ this指针指向用来调用成员函数的对象(this被作为隐藏参数传�
 &lt;hr&gt;
 &lt;h2 id=&#34;友元函数&#34;&gt;友元函数&lt;/h2&gt;
 &lt;p&gt;使用非成员函数可以按所需的顺序获得操作数,但引发了一个新问题:非成员函数不能直接访问类的私有数据,至少常规非成员函数不能访问.特殊的成员函数可以访问类的私有成员--&lt;strong&gt;友元函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;既不属于类的私有成员函数,又可以访问类的私有成员变量.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;构造函数在重载中的使用&#34;&gt;构造函数在重载中的使用&lt;/h2&gt;
+&lt;p&gt;在类的函数运算符重载中&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Vector Vector::operator+(const Vector &amp;amp; b) const
+{
+    return Vector(x + b.x,y + b.y);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;代码中将新的x分量和y分量传递给Vector构造函数,而后者将使用这些值来创建无名的新对象,并返回该对象的副本.这确保新的Vector对象是根据构造函数制定的标准规则创建的.&lt;/p&gt;
+&lt;hr&gt;
 </content>
             
             

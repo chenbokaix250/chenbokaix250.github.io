@@ -23,45 +23,10 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 18 Mar 2022 14:18:54 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 18 Mar 2022 16:51:44 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
-        
-            <item>
-                <title>Ttst</title>
-                <link>https://chenbokaix250.github.io/tech/ttst/</link>
-                <guid isPermaLink="true">https://chenbokaix250.github.io/tech/ttst/</guid>
-                <pubDate>Thu, 17 Mar 2022 16:36:12 &#43;0800</pubDate>
-                
-                    <author>chenbokais3@gmail.com (chenbokai)</author>
-                
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-                
-                    <description>&lt;p&gt;test&lt;/p&gt;
-</description>
-                
-                
-                
-                    
-                    
-                    
-                        
-                        
-                        
-                            
-                                <category domain="https://chenbokaix250.github.io/tech/">tech</category>
-                            
-                        
-                    
-                
-                
-                
-                    
-                        
-                    
-                
-            </item>
         
             <item>
                 <title>C&#43;&#43;_primer_2</title>
@@ -81,6 +46,16 @@ this指针指向用来调用成员函数的对象(this被作为隐藏参数传�
 &lt;hr&gt;
 &lt;h2 id=&#34;友元函数&#34;&gt;友元函数&lt;/h2&gt;
 &lt;p&gt;使用非成员函数可以按所需的顺序获得操作数,但引发了一个新问题:非成员函数不能直接访问类的私有数据,至少常规非成员函数不能访问.特殊的成员函数可以访问类的私有成员--&lt;strong&gt;友元函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;既不属于类的私有成员函数,又可以访问类的私有成员变量.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;构造函数在重载中的使用&#34;&gt;构造函数在重载中的使用&lt;/h2&gt;
+&lt;p&gt;在类的函数运算符重载中&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Vector Vector::operator+(const Vector &amp;amp; b) const
+{
+    return Vector(x + b.x,y + b.y);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;代码中将新的x分量和y分量传递给Vector构造函数,而后者将使用这些值来创建无名的新对象,并返回该对象的副本.这确保新的Vector对象是根据构造函数制定的标准规则创建的.&lt;/p&gt;
+&lt;hr&gt;
 </description>
                 
                 
