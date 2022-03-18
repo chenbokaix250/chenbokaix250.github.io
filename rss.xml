@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 18 Mar 2022 11:50:17 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 18 Mar 2022 14:18:54 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
@@ -78,6 +78,9 @@
 &lt;h2 id=&#34;this指针和const联合&#34;&gt;this指针和const联合&lt;/h2&gt;
 &lt;p&gt;如果方法需要引用整个调用对象,则可以使用表达式&lt;code&gt;*this&lt;/code&gt;.在函数的括号后面使用const限定符将this限定为const,这样将不能使用this来修改对象的值.
 this指针指向用来调用成员函数的对象(this被作为隐藏参数传递给方法)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;友元函数&#34;&gt;友元函数&lt;/h2&gt;
+&lt;p&gt;使用非成员函数可以按所需的顺序获得操作数,但引发了一个新问题:非成员函数不能直接访问类的私有数据,至少常规非成员函数不能访问.特殊的成员函数可以访问类的私有成员--&lt;strong&gt;友元函数&lt;/strong&gt;&lt;/p&gt;
 </description>
                 
                 
