@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-03-25T19:35:45&#43;08:00</updated>
+    <updated>2022-04-01T11:48:12&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,282 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">YoloV4自建数据集训练过程</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/yolov4%E8%87%AA%E5%BB%BA%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/" />
+            <id>https://chenbokaix250.github.io/tech/yolov4%E8%87%AA%E5%BB%BA%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/</id>
+            <updated>2022-04-01T11:40:13&#43;08:00</updated>
+            <published>2022-03-31T16:10:46&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">YoloV4 自建数据集训练过程 需求是完成对于锥桶的识别的任务 1.yolov4环境搭建 下载dar……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;yolov4-自建数据集训练过程&#34;&gt;YoloV4 自建数据集训练过程&lt;/h1&gt;
+&lt;p&gt;需求是完成对于锥桶的识别的任务&lt;/p&gt;
+&lt;h2 id=&#34;1yolov4环境搭建&#34;&gt;1.yolov4环境搭建&lt;/h2&gt;
+&lt;h3 id=&#34;下载darknet&#34;&gt;下载darknet&lt;/h3&gt;
+&lt;p&gt;在Ubuntu终端下克隆该工程
+&lt;code&gt;git clone https://github.com/AlexeyAB/darknet.git&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;编译darknet&#34;&gt;编译darknet&lt;/h3&gt;
+&lt;p&gt;在编译前,首先需要修改&lt;code&gt;Makefile&lt;/code&gt;,在终端输入以下命令:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd darknet
+gedit Makefile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果仅在cpu下尝试,则不进行改动&lt;/p&gt;
+&lt;p&gt;如在gpu下运行,则需要修改GPU CUDNN OPENCV的参数&lt;/p&gt;
+&lt;p&gt;需要安装opencv,采用以下命令
+&lt;code&gt;sudo apt-get install libopencv-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MakeFile&lt;/strong&gt;中的两个关键点:&lt;/p&gt;
+&lt;p&gt;1.选择ARCH.根据平台的不同,将支持平台 赋值给ARCH参数
+2.设置NVCC的实际路径 一般为: &lt;code&gt;/usr/local/cuda-10.1/bin/nvcc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置完毕后,编译
+&lt;code&gt;make&lt;/code&gt;或者多核可采用&lt;code&gt;make -j8&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;编译完成后,下载权重文件进行测试
+&lt;code&gt;https://drive.google.com/open?id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT&lt;/code&gt;
+完成权重下载后,可以编写shell版本
+&lt;code&gt;test_yolo.sh&lt;/code&gt;的内容:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./darknet detector test cfg/coco.data cfg/yolov4.cfg yolov4.weights -thresh 0.25 data/dog.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;熟悉的结果
+&lt;img src=&#34;https://s2.loli.net/2022/03/31/BkZpdXOqjC7HKgL.jpg&#34; alt=&#34;20200424154154670.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;说明环境配置成功&lt;/p&gt;
+&lt;h2 id=&#34;2图片标注&#34;&gt;2.图片标注&lt;/h2&gt;
+&lt;p&gt;在线标注工具
+&lt;a href=&#34;https://www.makesense.ai/&#34;&gt;makesense&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本地标注功能 LabelImg&lt;/p&gt;
+&lt;p&gt;标注后会产生对应名字的xml文件&lt;/p&gt;
+&lt;p&gt;Label是目标检测数据标注工具,可以标注两种格式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;VOC标签格式，标注的标签存储在xml文件&lt;/li&gt;
+&lt;li&gt;YOLO标签格式，标注的标签存储在txt文件中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tzutalin/labelImg&#34;&gt;LabelImg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install labelimg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Python3环境使用命令安装&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install pyqt5-dev-tools
+sudo pip3 install -r requirements/requirements-linux-python3.txt
+make qt5py3
+python3 labelImg.py
+python3 labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;labelimg的使用&#34;&gt;LabelImg的使用&lt;/h3&gt;
+&lt;p&gt;命令&lt;code&gt;labelimg&lt;/code&gt;打开&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/01/bXUpFoRTH3xPEcD.png&#34; alt=&#34;labelimg.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3voc数据集处理&#34;&gt;3.VOC数据集处理&lt;/h2&gt;
+&lt;p&gt;经过标定后,形成了图片和xml组成的文件夹&lt;/p&gt;
+&lt;p&gt;利用上述文件,组成VOC的数据集格式&lt;/p&gt;
+&lt;p&gt;利用yolov4训练 需要将文件组织成yolo的数据集形式(txt)&lt;/p&gt;
+&lt;p&gt;所以涉及两个工作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进行VOC数据集格式的生成&lt;/li&gt;
+&lt;li&gt;将其转化为yolo格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;创建VOC目录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#make_voc_dir.py
+
+import os
+
+os.makedirs(&amp;quot;VOCdevkit/VOC2007/Annotations&amp;quot;)
+os.makedirs(&amp;quot;VOCdevkit/VOC2007/JPEGImages&amp;quot;)
+os.makedirs(&amp;quot;VOCdevkit/VOC2007/ImageSets/Main/&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将标签放入Annotations,图片放入JPEGImages&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;生成xml对应的txt文件
+执行split_data.py&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# split_data.py   将JPEGImages下的所有文件分成训练集，测试集，生成ImageSets下Main文件夹中的txt文件。
+import os  
+import random 
+xmlfilepath=r&#39;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/Annotations&#39;   #自己数据集中xml的路径                        
+saveBasePath=r&amp;quot;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/&amp;quot;                     # 保存路径
+trainval_percent=0.9                                             #训练集和验证集的比例调整
+train_percent=0.9                                                      
+total_xml = os.listdir(xmlfilepath)
+num=len(total_xml)    
+list=range(num)    
+tv=int(num*trainval_percent)    
+tr=int(tv*train_percent)    
+trainval= random.sample(list,tv)    
+train=random.sample(trainval,tr)    
+  
+print(&amp;quot;train and val size&amp;quot;,tv)  
+print(&amp;quot;traub suze&amp;quot;,tr)  
+ftrainval = open(os.path.join(saveBasePath,&#39;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/ImageSets/Main/trainval.txt&#39;), &#39;w&#39;)    # txt文件储存的路径
+ftest = open(os.path.join(saveBasePath,&#39;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/ImageSets/Main/test.txt&#39;), &#39;w&#39;)    #
+ftrain = open(os.path.join(saveBasePath,&#39;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/ImageSets/Main/train.txt&#39;), &#39;w&#39;)    #
+fval = open(os.path.join(saveBasePath,&#39;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/ImageSets/Main/val.txt&#39;), &#39;w&#39;)    #
+  
+for i  in list:    
+    #name=&amp;quot;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/JPEGImages/&amp;quot; + total_xml[i][:-4]+ &#39;.jpg&#39; + &#39;\n&#39;   
+    name =  total_xml[i][:-4] +  &#39;\n&#39; 
+    if i in trainval:    
+        ftrainval.write(name)    
+        if i in train:    
+            ftrain.write(name)    
+        else:    
+            fval.write(name)    
+    else:    
+        ftest.write(name)    
+    
+ftrainval.close()    
+ftrain.close()    
+fval.close()    
+ftest .close()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行完之后会在main文件夹下生成完整版共4个txt文件，分别为：trainval.txt, train.txt, val.txt, test.txt。注意：这些文件中的图片名称必须是不包含路径以及后缀.jpg或者.png.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;执行voc_label&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import xml.etree.ElementTree as ET
+import pickle
+import os
+from os import listdir, getcwd
+from os.path import join
+
+sets=[(&#39;2007&#39;, &#39;train&#39;), (&#39;2007&#39;, &#39;val&#39;), (&#39;2007&#39;, &#39;test&#39;)]
+
+classes = [&amp;quot;car&amp;quot;]
+
+
+def convert(size, box):
+    dw = 1./(size[0])
+    dh = 1./(size[1])
+    x = (box[0] + box[1])/2.0 - 1
+    y = (box[2] + box[3])/2.0 - 1
+    w = box[1] - box[0]
+    h = box[3] - box[2]
+    x = x*dw
+    w = w*dw
+    y = y*dh
+    h = h*dh
+    return (x,y,w,h)
+
+def convert_annotation(year, image_id):
+    in_file = open(&#39;VOCdevkit/VOC%s/Annotations/%s.xml&#39;%(year, image_id))
+    out_file = open(&#39;VOCdevkit/VOC%s/labels/%s.txt&#39;%(year, image_id), &#39;w&#39;)
+    tree=ET.parse(in_file)
+    root = tree.getroot()
+    size = root.find(&#39;size&#39;)
+    w = int(size.find(&#39;width&#39;).text)
+    h = int(size.find(&#39;height&#39;).text)
+
+    for obj in root.iter(&#39;object&#39;):
+        difficult = obj.find(&#39;difficult&#39;).text
+        cls = obj.find(&#39;name&#39;).text
+        if cls not in classes or int(difficult)==1:
+            continue
+        cls_id = classes.index(cls)
+        xmlbox = obj.find(&#39;bndbox&#39;)
+        b = (float(xmlbox.find(&#39;xmin&#39;).text), float(xmlbox.find(&#39;xmax&#39;).text), float(xmlbox.find(&#39;ymin&#39;).text), float(xmlbox.find(&#39;ymax&#39;).text))
+        bb = convert((w,h), b)
+        out_file.write(str(cls_id) + &amp;quot; &amp;quot; + &amp;quot; &amp;quot;.join([str(a) for a in bb]) + &#39;\n&#39;)
+
+wd = getcwd()
+
+for year, image_set in sets:
+    if not os.path.exists(&#39;VOCdevkit/VOC%s/labels/&#39;%(year)):
+        os.makedirs(&#39;VOCdevkit/VOC%s/labels/&#39;%(year))
+    image_ids = open(&#39;VOCdevkit/VOC%s/ImageSets/Main/%s.txt&#39;%(year, image_set)).read().strip().split()
+    list_file = open(&#39;%s_%s.txt&#39;%(year, image_set), &#39;w&#39;)
+    for image_id in image_ids:
+        list_file.write(&#39;%s/VOCdevkit/VOC%s/JPEGImages/%s.jpg\n&#39;%(wd, year, image_id))
+        convert_annotation(year, image_id)
+    list_file.close()
+
+os.system(&amp;quot;cat 2007_train.txt 2007_val.txt &amp;gt; train.txt&amp;quot;)
+os.system(&amp;quot;cat 2007_train.txt 2007_val.txt 2007_test.txt &amp;gt; train.all.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行完voc_label.py后生成的trainval.txt, train.txt, val.txt, test.txt拷贝到mian文件夹下替换掉里面没路径的trainval.txt, train.txt, val.txt, test.txt这四个txt文件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;classes的配置和sets需要根据情况而定&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;此时生成的txt文件中必须是&lt;code&gt;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/JPEGImages/8.jpg）&lt;/code&gt;全路径,完整的路径.&lt;/p&gt;
+&lt;p&gt;至此,yolo的数据集格式已经建立完毕.&lt;/p&gt;
+&lt;h2 id=&#34;4yolov4训练过程配置&#34;&gt;4.yolov4训练过程配置&lt;/h2&gt;
+&lt;p&gt;需要修改的配置参数有三处:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;data文件夹下的&lt;code&gt;.names&lt;/code&gt;文件.&lt;/li&gt;
+&lt;li&gt;cfg文件夹下的&lt;code&gt;.data&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;cfg文件夹下的&lt;code&gt;.cfg&lt;/code&gt;文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;.names&lt;/code&gt;文件描述了模型需要训练的数据类别,一行一个类,每个类独立成行
+&lt;code&gt;.data&lt;/code&gt;描述了train.txt和val.txt的绝对路径,参数名字为train和valid,而不是train和val&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;classes= 1
+train = /home/jys/darknet-yolov4/2007_train.txt
+valid = /home/jys/darknet-yolov4/2007_val.txt
+names = data/ba.names
+backup = /home/jys/darknet-yolov4/backup
+eval=coco
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;.cfg&lt;/code&gt;描述了训练参数,需要修改的主要有:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;修改batch=64,修改subdivisions=64(如果显卡性能高可以设置batch=96,sudivisions=16;)
+batch的含义为一次喂给网络多少张图片
+subdivisions的含义为将batch数量的图片分成多少份喂入&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改width的尺寸(416或608)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改max_batches=classes*2000,max_batches表示最终的迭代次数.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改classes,搜索[yolo]可以找到关键字位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改filters,filters=(classes + 5)*3,搜索[yolo]可以找到convolutional中的filters关键字位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载预训练权重,放入darknet主目录下
+权重下载地址:&lt;code&gt;https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用该命令进行训练&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./darknet detector train cfg/ba.data cfg/yolov4-voc-ba.cfg yolov4.conv.137      #（每1000轮保存一个权重）
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;如果需要中途停止后,继续训练&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./darknet detector train cfg/person.data cfg/yolov4-person.cfg backup/yolov4_2000.weights
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;5训练及结果&#34;&gt;5.训练及结果&lt;/h2&gt;
+&lt;p&gt;训练跑起来后
+会显示对应的loss和epoch图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/01/vi4hmxsdHwejlz7.png&#34; alt=&#34;chart_yolov4-ba.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;等待完全结束后,可以进行detect的测试,也可以利用backup文件中的临时权重文件测试其效果&lt;/p&gt;
+&lt;p&gt;效果还是可以的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/01/7VlKGQSdz5Mo8U3.jpg&#34; alt=&#34;predictions.jpg&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://chenbokaix250.github.io/tags/deeplearning/" term="DeepLearning" label="DeepLearning" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">PlantUML初步</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/plantuml%E5%88%9D%E6%AD%A5/" />
@@ -134,7 +410,7 @@ Alice -&amp;gt; Bob : thank
             <title type="text">C&#43;&#43;_primer_2面向对象</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/" />
             <id>https://chenbokaix250.github.io/tech/c&#43;&#43;_primer_2/</id>
-            <updated>2022-03-25T17:25:01&#43;08:00</updated>
+            <updated>2022-03-28T10:26:19&#43;08:00</updated>
             <published>2022-03-17T15:31:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
@@ -441,6 +717,17 @@ this指针指向用来调用成员函数的对象(this被作为隐藏参数传�
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;此时,SingingWaiter对象将只包含Worker对象的一个副本.继承的Singer和Waiter对象共享一个Worker对象.&lt;/p&gt;
 &lt;p&gt;c++在基类是虚的时候,禁止信息通过中间类自动传递给基类.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;友元类&#34;&gt;友元类&lt;/h2&gt;
+&lt;p&gt;友元类的所有方法都可以访问原始类的私有成员和保护成员.&lt;/p&gt;
+&lt;p&gt;两个类之间没有派生和继承关系,并且一个类需要访问另一个类中的保护/私有成员数据时,用友元类来定义(电视机和遥控器的关系).&lt;/p&gt;
+&lt;p&gt;为了使编译器在一开始知道Tv和Remote的类型,当使用友元类时,需要使用前向声明.&lt;/p&gt;
+&lt;p&gt;友元类的方法采用内联函数进行编写.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;智能指针&#34;&gt;智能指针&lt;/h2&gt;
+&lt;p&gt;Auto_ptr 系统不推荐使用(行为不确定)&lt;/p&gt;
+&lt;p&gt;shared_ptr 如果程序要使用多个指向同一个对象的指针时使用.&lt;/p&gt;
+&lt;p&gt;unique_ptr 如果程序不需要多个指向同一个对象的指针&lt;/p&gt;
 &lt;hr&gt;
 </content>
             
