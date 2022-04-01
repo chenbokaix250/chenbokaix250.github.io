@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 01 Apr 2022 11:48:12 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 01 Apr 2022 11:59:51 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
@@ -42,8 +42,8 @@
 &lt;p&gt;需求是完成对于锥桶的识别的任务&lt;/p&gt;
 &lt;h2 id=&#34;1yolov4环境搭建&#34;&gt;1.yolov4环境搭建&lt;/h2&gt;
 &lt;h3 id=&#34;下载darknet&#34;&gt;下载darknet&lt;/h3&gt;
-&lt;p&gt;在Ubuntu终端下克隆该工程
-&lt;code&gt;git clone https://github.com/AlexeyAB/darknet.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在Ubuntu终端下克隆该工程&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git clone https://github.com/AlexeyAB/darknet.git&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;编译darknet&#34;&gt;编译darknet&lt;/h3&gt;
 &lt;p&gt;在编译前,首先需要修改&lt;code&gt;Makefile&lt;/code&gt;,在终端输入以下命令:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd darknet
@@ -53,15 +53,15 @@ gedit Makefile
 &lt;p&gt;需要安装opencv,采用以下命令
 &lt;code&gt;sudo apt-get install libopencv-dev&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;MakeFile&lt;/strong&gt;中的两个关键点:&lt;/p&gt;
-&lt;p&gt;1.选择ARCH.根据平台的不同,将支持平台 赋值给ARCH参数
-2.设置NVCC的实际路径 一般为: &lt;code&gt;/usr/local/cuda-10.1/bin/nvcc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;设置完毕后,编译
+&lt;p&gt;1.选择ARCH.根据平台的不同,将支持平台 赋值给ARCH参数&lt;/p&gt;
+&lt;p&gt;2.设置NVCC的实际路径 一般为: &lt;code&gt;/usr/local/cuda-10.1/bin/nvcc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置完毕后,编译:
 &lt;code&gt;make&lt;/code&gt;或者多核可采用&lt;code&gt;make -j8&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
-&lt;p&gt;编译完成后,下载权重文件进行测试
-&lt;code&gt;https://drive.google.com/open?id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT&lt;/code&gt;
-完成权重下载后,可以编写shell版本
-&lt;code&gt;test_yolo.sh&lt;/code&gt;的内容:&lt;/p&gt;
+&lt;p&gt;编译完成后,下载权重文件进行测试&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://drive.google.com/open?id=1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;完成权重下载后,可以编写shell版本&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;test_yolo.sh&lt;/code&gt;的内容:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./darknet detector test cfg/coco.data cfg/yolov4.cfg yolov4.weights -thresh 0.25 data/dog.jpg
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;熟悉的结果
 &lt;img src=&#34;https://s2.loli.net/2022/03/31/BkZpdXOqjC7HKgL.jpg&#34; alt=&#34;20200424154154670.jpeg&#34;&gt;&lt;/p&gt;
@@ -108,8 +108,7 @@ os.makedirs(&amp;quot;VOCdevkit/VOC2007/JPEGImages&amp;quot;)
 os.makedirs(&amp;quot;VOCdevkit/VOC2007/ImageSets/Main/&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将标签放入Annotations,图片放入JPEGImages&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;生成xml对应的txt文件
-执行split_data.py&lt;/li&gt;
+&lt;li&gt;生成xml对应的txt文件,执行split_data.py&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# split_data.py   将JPEGImages下的所有文件分成训练集，测试集，生成ImageSets下Main文件夹中的txt文件。
 import os  
@@ -213,7 +212,9 @@ os.system(&amp;quot;cat 2007_train.txt 2007_val.txt &amp;gt; train.txt&amp;quot;
 os.system(&amp;quot;cat 2007_train.txt 2007_val.txt 2007_test.txt &amp;gt; train.all.txt&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行完voc_label.py后生成的trainval.txt, train.txt, val.txt, test.txt拷贝到mian文件夹下替换掉里面没路径的trainval.txt, train.txt, val.txt, test.txt这四个txt文件。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;classes的配置和sets需要根据情况而定&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;此时生成的txt文件中必须是&lt;code&gt;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/JPEGImages/8.jpg）&lt;/code&gt;全路径,完整的路径.&lt;/p&gt;
+&lt;p&gt;此时生成的txt文件中必须是&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/home/dlm/yolov4_split_shujuji/VOCdevkit_person/VOC2007/JPEGImages/8.jpg）&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;全路径,完整的路径.&lt;/p&gt;
 &lt;p&gt;至此,yolo的数据集格式已经建立完毕.&lt;/p&gt;
 &lt;h2 id=&#34;4yolov4训练过程配置&#34;&gt;4.yolov4训练过程配置&lt;/h2&gt;
 &lt;p&gt;需要修改的配置参数有三处:&lt;/p&gt;
@@ -251,11 +252,12 @@ subdivisions的含义为将batch数量的图片分成多少份喂入&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;下载预训练权重,放入darknet主目录下
-权重下载地址:&lt;code&gt;https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137&lt;/code&gt;&lt;/p&gt;
+权重下载地址:&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用该命令进行训练&lt;/p&gt;
-&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137&lt;/code&gt;&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;用该命令进行训练&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./darknet detector train cfg/ba.data cfg/yolov4-voc-ba.cfg yolov4.conv.137      #（每1000轮保存一个权重）
 &lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;8&#34;&gt;
@@ -269,6 +271,8 @@ subdivisions的含义为将batch数量的图片分成多少份喂入&lt;/p&gt;
 &lt;p&gt;等待完全结束后,可以进行detect的测试,也可以利用backup文件中的临时权重文件测试其效果&lt;/p&gt;
 &lt;p&gt;效果还是可以的&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/01/7VlKGQSdz5Mo8U3.jpg&#34; alt=&#34;predictions.jpg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;效果拔群 撒花✿✿ヽ(°▽°)ノ✿&lt;/p&gt;
 </description>
                 
                 
