@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-04-01T11:59:51&#43;08:00</updated>
+    <updated>2022-04-13T16:12:37&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,175 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">Jetson刷机与挂载</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/jetson%E5%88%B7%E6%9C%BA%E4%B8%8E%E6%8C%82%E8%BD%BD/" />
+            <id>https://chenbokaix250.github.io/tech/jetson%E5%88%B7%E6%9C%BA%E4%B8%8E%E6%8C%82%E8%BD%BD/</id>
+            <updated>2022-04-13T16:11:57&#43;08:00</updated>
+            <published>2022-04-13T16:10:49&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">jetson Xavier刷写与挂载 刷写 目前使用的是jetson4.2 由于python3.6与目……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;jetson-xavier刷写与挂载&#34;&gt;jetson Xavier刷写与挂载&lt;/h1&gt;
+&lt;h2 id=&#34;刷写&#34;&gt;刷写&lt;/h2&gt;
+&lt;p&gt;目前使用的是jetson4.2 由于python3.6与目前Pytorch的yolov5无法兼容&lt;/p&gt;
+&lt;p&gt;需要升级jetson4.2--&amp;gt;5.0,完成Pytorch的安装&lt;/p&gt;
+&lt;p&gt;目前NVIDIA对于Pytorch的支持情况&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所以选择pytorch1.12 python3.8 对应jetson需要jetpack5.0&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;刷写过程:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;sdkmanager安装&lt;/li&gt;
+&lt;li&gt;利用typec连接机器(亮灯下方typeC口)&lt;/li&gt;
+&lt;li&gt;进入&lt;strong&gt;刷写模式&lt;/strong&gt;(按住中间按键,再按下左边按键,3s后同时松手)&lt;/li&gt;
+&lt;li&gt;sdkmanager自动检测到Xavier&lt;/li&gt;
+&lt;li&gt;取消Host&lt;/li&gt;
+&lt;li&gt;进入系统下载,完成所需image/CUDA/CUDAX-AI等包的下载&lt;/li&gt;
+&lt;li&gt;下一步,进入刷写,完成系统的安装,并与host设置在同一网络下&lt;/li&gt;
+&lt;li&gt;进入系统后,host端配置SSH,选择手动模式/硬盘可以选择EMMC(存储卡)或NVME(固态)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/13/E4QKYoICLzjnVUS.jpg&#34; alt=&#34;bbb.jpeg&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;开启Xavier,完成系统安装,等待再次重启后,系统正常进入&lt;/li&gt;
+&lt;li&gt;连接WIFI,SSH会自动开启&lt;/li&gt;
+&lt;li&gt;在系统安装完成后,先进行换源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;备份 &lt;code&gt;sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改&lt;code&gt;source.list&lt;/code&gt; 换源ARM源 Xavier清华:&lt;/p&gt;
+&lt;p&gt;主要ubuntu版本对应的源&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-security main restricted universe multiverse
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;更新清华源时,不要把之前的链接源删除&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;配置完成后&lt;code&gt;sudo apt update&lt;/code&gt;,重启,等待到达登录界面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此处会出现网络慢/或不稳定导致安装无法完成的情况继续等待CUDA等工具的安装,&lt;code&gt;不要点击刷新&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/04/13/saoW2OUCz5fHFwm.jpg&#34; alt=&#34;aaa.jpeg&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;ol start=&#34;14&#34;&gt;
+&lt;li&gt;terminal中会出现165M 196M 448M3个比较大的依赖包,需要从网络下载,需要耐心等待其下载完成.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;问题1: 需要原装数据线&lt;/p&gt;
+&lt;p&gt;问题2: reconvery mode 进入时需要先按住中间,再按左侧键,同时松手&lt;/p&gt;
+&lt;p&gt;问题3: lsusb无法找到nvidia设备时,重启主机和Xavier,重新运行sdkmanager&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;挂载&#34;&gt;挂载&lt;/h2&gt;
+&lt;p&gt;由于一直尝试使用NVME安装,导致NVME被分成许多逻辑分区&lt;/p&gt;
+&lt;p&gt;而利用EMMC安装完成后,挂载NVME时,无法整块挂载&lt;/p&gt;
+&lt;p&gt;需要对NVME上的分区进行删除后,再完成home目录移植和重新挂载&lt;/p&gt;
+&lt;p&gt;方法如下:&lt;/p&gt;
+&lt;p&gt;1.查看硬盘所有分区&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo fdisk -lu&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;会有一个&lt;code&gt;/dev/nvme0n1&lt;/code&gt;就是接入的硬盘&lt;/p&gt;
+&lt;p&gt;2.查看硬盘的分区,并操作&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo fdisk /dev/nvme0n1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在Command中:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;m是查看帮助&lt;/li&gt;
+&lt;li&gt;n是增加分区&lt;/li&gt;
+&lt;li&gt;d是删除分区&lt;/li&gt;
+&lt;li&gt;w是保存分区表&lt;/li&gt;
+&lt;li&gt;p是打印分区情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;需要利用d将之前分区全部删除,完成删除后,n新增加分区1个&lt;/p&gt;
+&lt;p&gt;然后&lt;code&gt;sudo fdisk -lu&lt;/code&gt;显示&lt;code&gt;/dev/nvme0n1p1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;3.格式化分区为ext4&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo mkfs -t ext4 /dev/nvme0n1p1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;4.挂在硬盘分区&lt;/p&gt;
+&lt;p&gt;先把新硬盘挂在临时目录下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /mnt/  &lt;span class=&#34;c1&#34;&gt;#在顶层目录&lt;/span&gt;
+sudo mkdir home
+sudo mount /dev/mvne0n1p1 /mnt/home
+df -h
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;5.替换原home目录&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo cp -a /home/* .mnt/home/ &lt;span class=&#34;c1&#34;&gt;#把home下的东西备份&lt;/span&gt;
+sudo rm -rf /home/* &lt;span class=&#34;c1&#34;&gt;#把home下的东西删除干净&lt;/span&gt;
+sudo umount /dev/nvme0n1p1 &lt;span class=&#34;c1&#34;&gt;#卸载硬盘&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;6.设置开机挂载&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo gedit /etc/fstab
+dev/nvme0n1p1    /home     ext4     defaults    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#末位增加一行&lt;/span&gt;
+df -h &lt;span class=&#34;c1&#34;&gt;#查看/home是否被挂载&lt;/span&gt;
+su&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;do&lt;/span&gt; mount -a &lt;span class=&#34;c1&#34;&gt;#挂载/etc/fstab中未挂载的分区&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;搞定!!!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/13/dN8LQXktGOE5x4F.png&#34; alt=&#34;test1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/13/JuHLtXE2ND4kGix.png&#34; alt=&#34;test2.png&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://chenbokaix250.github.io/tags/nvidia/" term="nvidia" label="nvidia" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">YoloV4自建数据集训练过程</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/yolov4%E8%87%AA%E5%BB%BA%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B/" />
