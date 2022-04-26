@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-04-13T16:12:37&#43;08:00</updated>
+    <updated>2022-04-26T08:41:30&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,140 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">Github图床</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/life/github%E5%9B%BE%E5%BA%8A/" />
+            <id>https://chenbokaix250.github.io/life/github%E5%9B%BE%E5%BA%8A/</id>
+            <updated>2022-04-26T08:40:50&#43;08:00</updated>
+            <published>2022-04-25T17:09:16&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Mac通过Picgo-Core+Github配置Typora图床 安装Picgo-Co……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;mac通过picgo-coregithub配置typora图床&#34;&gt;Mac通过Picgo-Core+Github配置Typora图床&lt;/h1&gt;
+&lt;h2 id=&#34;安装picgo-core&#34;&gt;安装Picgo-Core&lt;/h2&gt;
+&lt;p&gt;要求装有NPM，如果没有NPM可以用homebrew安装&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install picgo -g&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;成功之后运行&lt;code&gt;picgo install github-plus&lt;/code&gt; 安装增强的Github插件&lt;/p&gt;
+&lt;h2 id=&#34;配置github-repo&#34;&gt;配置Github Repo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;获得token&lt;/li&gt;
+&lt;li&gt;创建img仓库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;编写picgo配置文件&#34;&gt;编写Picgo配置文件&lt;/h2&gt;
+&lt;p&gt;打开 &lt;code&gt;~/.picgo/config.json&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置文件&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;quot;picBed&amp;quot;: {
+    &amp;quot;uploader&amp;quot;: &amp;quot;githubPlus&amp;quot;,
+    &amp;quot;current&amp;quot;: &amp;quot;githubPlus&amp;quot;,
+    &amp;quot;githubPlus&amp;quot;: {
+      &amp;quot;branch&amp;quot;: &amp;quot;main&amp;quot;, // 仓库分支
+      &amp;quot;customUrl&amp;quot;: &amp;quot;https://cdn.jsdelivr.net/gh/user/chenbokaix250@img_bed&amp;quot;, // 使用加速后的github自定义url
+      // &amp;quot;customUrl&amp;quot;: &amp;quot;https://raw.githubusercontent.com/user/repo/main/&amp;quot;, // 原始的github url
+      &amp;quot;origin&amp;quot;: &amp;quot;github&amp;quot;, // 存放的图片类型
+      &amp;quot;repo&amp;quot;: &amp;quot;chenbokaix250/img_bed&amp;quot;, // 存放图片的仓库，注意替换为你自己的仓库
+      &amp;quot;path&amp;quot;: &amp;quot;img/&amp;quot;, // 存放图片的仓库目录下的文件夹
+      &amp;quot;token&amp;quot;: &amp;quot;xxxxx&amp;quot; // 访问github的仓库的token
+    }
+  },
+  &amp;quot;picgoPlugins&amp;quot;: {
+    &amp;quot;picgo-plugin-github-plus&amp;quot;: true
+  },
+  &amp;quot;picgo-plugin-github-plus&amp;quot;: {
+    &amp;quot;lastSync&amp;quot;: &amp;quot;2022-04-25 04:54:32&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;配置typora&#34;&gt;配置Typora&lt;/h2&gt;
+&lt;p&gt;打开Typora设置,上传服务器选择Custome Command&lt;/p&gt;
+&lt;p&gt;输入命令
+&lt;code&gt;/usr/local/bin/node /usr/local/bin/picgo upload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置情况&lt;/p&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/chenbokaix250/img_bed/img/%E6%88%AA%E5%B1%8F2022-04-25%2017.23.44.png&#34; alt=&#34;截屏2022-04-25 17.23.44&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;点击验证&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/chenbokaix250/img_bed/img/%E6%88%AA%E5%B1%8F2022-04-25%2017.23.36.png&#34; alt=&#34;截屏2022-04-25 17.23.36&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/life/" term="life" label="life" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://chenbokaix250.github.io/tags/%E5%9B%BE%E5%BA%8A/" term="图床" label="图床" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Jetson_xavier下yolov5_TensorRT配置及使用</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/jetson_xavier%E4%B8%8Byolov5_tensorrt%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/" />
+            <id>https://chenbokaix250.github.io/tech/jetson_xavier%E4%B8%8Byolov5_tensorrt%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</id>
+            <updated>2022-04-25T12:07:24&#43;08:00</updated>
+            <published>2022-04-25T12:04:42&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html"></summary>
+            
+                <content type="html">&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://chenbokaix250.github.io/tags/xavier/" term="Xavier" label="Xavier" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Jetson刷机与挂载</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/jetson%E5%88%B7%E6%9C%BA%E4%B8%8E%E6%8C%82%E8%BD%BD/" />
