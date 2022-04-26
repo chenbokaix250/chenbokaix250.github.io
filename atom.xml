@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2022-04-26T11:01:42&#43;08:00</updated>
+    <updated>2022-04-26T14:24:45&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -108,7 +108,7 @@
             <title type="text">Jetson_xavier下yolov5_TensorRT配置及使用</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/jetson_xavier%E4%B8%8Byolov5_tensorrt%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/" />
             <id>https://chenbokaix250.github.io/tech/jetson_xavier%E4%B8%8Byolov5_tensorrt%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</id>
-            <updated>2022-04-26T11:00:04&#43;08:00</updated>
+            <updated>2022-04-26T14:23:46&#43;08:00</updated>
             <published>2022-04-25T12:04:42&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
@@ -965,6 +965,19 @@ sudo ./yolov5 -s yolov5s.wts yolov5s.engine s (时间较长)
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/chenbokaix250/img_bed/img/tensorRT.png&#34; alt=&#34;tensorRT&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;部署自己训练模型&#34;&gt;部署自己训练模型&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;将模型拷贝至yolov5文件夹下,利用&lt;code&gt;gern_wts.py&lt;/code&gt;转换wts文件&lt;/li&gt;
+&lt;li&gt;将wts文件拷贝至&lt;code&gt;tensorrtx/yolov5/build&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;修改&lt;code&gt;yololayer.h&lt;/code&gt;中的&lt;code&gt;CLASS_NUM&lt;/code&gt;,使其与训练coco保持一致&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;tensorrtx/yolov5/build&lt;/code&gt;中重新编译,得到yolov5&lt;/li&gt;
+&lt;li&gt;运行yolov5,&lt;code&gt;sudo ./yolov5 -s [.wts] [.engine] [n/s/m/l/x/n6/s6/m6/l6/x6 or c/c6 gd gw]&lt;/code&gt;得到engine&lt;/li&gt;
+&lt;li&gt;修改&lt;code&gt;yolo_mask_v5.py&lt;/code&gt;,主要是categories数组,利用&lt;code&gt;.engine&lt;/code&gt;进行识别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/26/GeDXxhyv61LbpIi.png&#34; alt=&#34;termimal.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/26/QH3rXhygtfPio4m.png&#34; alt=&#34;face.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/04/26/tncbULi65ZT3gYe.png&#34; alt=&#34;mask.png&#34;&gt;&lt;/p&gt;
 </content>
             
             
