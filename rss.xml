@@ -23,10 +23,78 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 06 May 2022 16:37:40 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sat, 24 Sep 2022 01:38:17 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
+        
+            <item>
+                <title>最近的改变</title>
+                <link>https://chenbokaix250.github.io/life/%E6%9C%80%E8%BF%91%E7%9A%84%E6%94%B9%E5%8F%98/</link>
+                <guid isPermaLink="true">https://chenbokaix250.github.io/life/%E6%9C%80%E8%BF%91%E7%9A%84%E6%94%B9%E5%8F%98/</guid>
+                <pubDate>Sat, 24 Sep 2022 01:08:39 &#43;0800</pubDate>
+                
+                    <author>chenbokais3@gmail.com (chenbokai)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h1 id=&#34;最近的改变&#34;&gt;最近的改变&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;p&gt;最近发生了很多事
+也很久没有坐下来写点东西,关于生活 关于记录生活&lt;/p&gt;
+&lt;p&gt;说实话 很久没有在mac上写东西 甚至对macos有点生涩了&lt;/p&gt;
+&lt;h2 id=&#34;球赛&#34;&gt;球赛&lt;/h2&gt;
+&lt;p&gt;代表研究院参加了最后一次比赛
+有一场大四喜
+更多的是感慨吧 去意已决 决定离开的时候 最舍不得的还是球场&lt;/p&gt;
+&lt;p&gt;在一起踢球很多年了 但是仍然忘不了那每场比赛 纵使刚来时还是个新人 最后又昂首挺胸的离开&lt;/p&gt;
+&lt;p&gt;志卿 黑子还在 还是有些不舍的 希望以后还有机会一起踢球吧&lt;/p&gt;
+&lt;h2 id=&#34;辞职&#34;&gt;辞职&lt;/h2&gt;
+&lt;p&gt;最重要的就是还是从陕汽离职了&lt;/p&gt;
+&lt;p&gt;其实这关乎于要不要继续做一个混子 还是冲出去面对新的人生.&lt;/p&gt;
+&lt;p&gt;本来做无人驾驶就是很辛苦的一件事 还有加上一堆嵌入式 定型的工作 感觉自己没有支持又异常疲倦&lt;/p&gt;
+&lt;p&gt;是时候开启一段新的时光  重新出发&lt;/p&gt;
+&lt;p&gt;也希望朋友们有缘江湖再见&lt;/p&gt;
+&lt;h2 id=&#34;byd&#34;&gt;byd&lt;/h2&gt;
+&lt;p&gt;其实一开始对此没报什么希望&lt;/p&gt;
+&lt;p&gt;但是越发的鼓起勇气向前 就越觉得自己可以&lt;/p&gt;
+&lt;p&gt;入职的一切都还顺利&lt;/p&gt;
+&lt;p&gt;领导同时都很不错 工作和方向也非常棒&lt;/p&gt;
+&lt;p&gt;感觉生活和心情迎刃而解&lt;/p&gt;
+&lt;p&gt;加油把新的项目梳理顺畅 然后向前冲!!&lt;/p&gt;
+&lt;h2 id=&#34;关于自己&#34;&gt;关于自己&lt;/h2&gt;
+&lt;p&gt;近两个月工作带来的快感和满足是不言而喻的&lt;/p&gt;
+&lt;p&gt;我用力的适应新的生活新的工作新的环境和朋友&lt;/p&gt;
+&lt;p&gt;也有三个同事来比亚迪 都在工程院 希望大家一切都好&lt;/p&gt;
+&lt;p&gt;也希望还在陕汽的朋友一切都好 努力做好自己&lt;/p&gt;
+&lt;p&gt;因为疫情和工作的缘故也没能去成金华的婚礼,有情后补吧&lt;/p&gt;
+&lt;p&gt;全情投入 做对的事&lt;/p&gt;
+&lt;p&gt;10月&lt;/p&gt;
+&lt;p&gt;希望今年一切都好&lt;/p&gt;
+&lt;p&gt;收获2022这不同的一年.&lt;/p&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://chenbokaix250.github.io/life/">life</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>C&#43;&#43;中的CRTP设计</title>
