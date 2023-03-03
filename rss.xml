@@ -23,10 +23,81 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 03 Mar 2023 23:48:50 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sat, 04 Mar 2023 00:18:35 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
+        
+            <item>
+                <title>更换域名中的事项</title>
+                <link>https://chenbokaix250.github.io/life/%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D%E4%B8%AD%E7%9A%84%E4%BA%8B%E9%A1%B9/</link>
+                <guid isPermaLink="true">https://chenbokaix250.github.io/life/%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D%E4%B8%AD%E7%9A%84%E4%BA%8B%E9%A1%B9/</guid>
+                <pubDate>Fri, 03 Mar 2023 23:50:04 &#43;0800</pubDate>
+                
+                    <author>chenbokais3@gmail.com (chenbokai)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h1 id=&#34;域名更换后的适配工作&#34;&gt;域名更换后的适配工作&lt;/h1&gt;
+&lt;p&gt;记性一天不如一天&lt;/p&gt;
+&lt;p&gt;有些东西要写下来才好对着做 要不然感觉很浪费时间&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;购买域名（腾讯云 今年只花了一元钱）（等待10分钟服务商购买）&lt;/li&gt;
+&lt;li&gt;设置域名服务商解析（免费的即可）（设置完后等待30min后配置）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2023/03/04/rNlzvTGBdObMUCw.png&#34; alt=&#34;截屏2023-03-04 00.08.28.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;根据域名 修改在github上的对应&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;具体位置 github.io-&amp;gt;Setting-&amp;gt;Pages-&amp;gt;Custom Domain&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2023/03/04/1F9Lfk8S52AHpOz.png&#34; alt=&#34;截屏2023-03-04 00.10.39.png&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;一般修改后，需要等待生效&lt;/li&gt;
+&lt;li&gt;此时推工程会产生错误，提示云与本地不一致&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;解决办法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先git push -f 强推&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后git pull拉去&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后再推&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;主要的问题是 publish中有个CNAME文件对应的是网页解析域名&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# bokaichen @ bokaideMacBook-Pro in ~/myblob/public on git:master o [0:15:46]
+$ cat CNAME
+chenbokai.asia%
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;当github中设置后 本地同步设置 也不会出问题&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;还有用链接生成二维码的网址是：https://qrbtf.com/&lt;/p&gt;
+&lt;p&gt;希望帖子来年有用 2023💪🏻&lt;/p&gt;
+&lt;hr&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://chenbokaix250.github.io/life/">life</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Gdb调试记录</title>
