@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">极乐世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2023-03-03T22:23:59&#43;08:00</updated>
+    <updated>2023-03-03T23:01:15&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,580 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">Gdb调试记录</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/gdb%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" />
+            <id>https://chenbokaix250.github.io/tech/gdb%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/</id>
+            <updated>2023-03-03T23:00:33&#43;08:00</updated>
+            <published>2023-03-03T23:00:07&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">GDB [toc] 1.简介 GDB调试器 可以再运行程序的时候检查里面发生了什么 GDB可以做4件事： 开……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;gdb&#34;&gt;GDB&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2 id=&#34;1简介&#34;&gt;1.简介&lt;/h2&gt;
+&lt;p&gt;GDB调试器 可以再运行程序的时候检查里面发生了什么&lt;/p&gt;
+&lt;p&gt;GDB可以做4件事：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开始并设置参数&lt;/li&gt;
+&lt;li&gt;打断点 再特殊情况下停止&lt;/li&gt;
+&lt;li&gt;当程序停止时，发生了什么&lt;/li&gt;
+&lt;li&gt;纠正错误的影响&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;GDB支持的语言：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ada&lt;/li&gt;
+&lt;li&gt;Assembly&lt;/li&gt;
+&lt;li&gt;C&lt;/li&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;D&lt;/li&gt;
+&lt;li&gt;Fortran&lt;/li&gt;
+&lt;li&gt;Go&lt;/li&gt;
+&lt;li&gt;Objective-C&lt;/li&gt;
+&lt;li&gt;OpenCL&lt;/li&gt;
+&lt;li&gt;Modula-2&lt;/li&gt;
+&lt;li&gt;Pascal&lt;/li&gt;
+&lt;li&gt;Rust&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2安装&#34;&gt;2.安装&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yum install gdb &lt;span class=&#34;c1&#34;&gt;#安装gdb&lt;/span&gt;
+
+gdb --version &lt;span class=&#34;c1&#34;&gt;#检测是否安装成功&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;3开始&#34;&gt;3.开始&lt;/h2&gt;
+&lt;h3 id=&#34;31-demo程序&#34;&gt;3.1 Demo程序&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;32-gdb命令&#34;&gt;3.2 gdb命令&lt;/h3&gt;
+&lt;p&gt;利用gcc -g 带调试信息，否则无法调试。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;gdb a.out &lt;span class=&#34;c1&#34;&gt;# 开始调试&lt;/span&gt;
+
+run / r   &lt;span class=&#34;c1&#34;&gt;# 运行程序&lt;/span&gt;
+
+quit      &lt;span class=&#34;c1&#34;&gt;# 结束&lt;/span&gt;
+
+&lt;span class=&#34;nb&#34;&gt;break&lt;/span&gt; / b &lt;span class=&#34;c1&#34;&gt;# 断点 b 9 第9行设置断点 &lt;/span&gt;
+          &lt;span class=&#34;c1&#34;&gt;# 可以用b+行号 b+函数名打断点&lt;/span&gt;
+
+next / n  &lt;span class=&#34;c1&#34;&gt;# 继续执行&lt;/span&gt;
+
+list / l  &lt;span class=&#34;c1&#34;&gt;# 查看源代码&lt;/span&gt;
+
+info b    &lt;span class=&#34;c1&#34;&gt;# 查看断点情况&lt;/span&gt;
+
+print /p  &lt;span class=&#34;c1&#34;&gt;# 打印变量或地址&lt;/span&gt;
+
+step / s  &lt;span class=&#34;c1&#34;&gt;# 进入函数&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;4gdb-技巧&#34;&gt;4.gdb 技巧&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;gdb中可以通过shell xxx 去执行linux命令&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;日志功能: set logging on&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;watchpoint(与print类似,可以观测变量的变化) 同样可以用info 查看watchpoint的情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5coredump调试&#34;&gt;5.coredump调试&lt;/h2&gt;
+&lt;p&gt;gdb 调试挂掉的程序&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;shell的限制导致没能生成core文件 需要设置&lt;/p&gt;
+&lt;p&gt;如果没有core文件 需要设置ulimit限制&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a查看&lt;/li&gt;
+&lt;li&gt;-c unlimited 修改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设置后发现不能生成core文件,需要三部:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt install systemd-coredump
+sudo su
+sudo &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;core_%e_%p_%t&amp;#34;&lt;/span&gt; &amp;gt; /proc/sys/kernel/core_pattern
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;gdb 二进制文件 core文件&lt;/p&gt;
+&lt;p&gt;** 当需要定位位置时 可以使用where**&lt;/p&gt;
+&lt;h2 id=&#34;6调试正在运行的程序&#34;&gt;6.调试正在运行的程序&lt;/h2&gt;
+&lt;p&gt;通过gdb -p PID调试正在运行的程序.注意./a.out &amp;amp; (后台运行)&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Dbus配置与运行</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/dbus%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%90%E8%A1%8C/" />
+            <id>https://chenbokaix250.github.io/tech/dbus%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%90%E8%A1%8C/</id>
+            <updated>2023-03-03T22:59:12&#43;08:00</updated>
+            <published>2023-03-03T22:58:31&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">官方例程配置过程 [toc] 完成CommonAPI SomIP运行后,研究官网例程 因为利用了db……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;官方例程配置过程&#34;&gt;官方例程配置过程&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;p&gt;完成CommonAPI SomIP运行后,研究官网例程&lt;/p&gt;
+&lt;p&gt;因为利用了dbus,出现了一些问题,予以记录&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;将E01HelloWorld从&lt;code&gt;capicxx-core-tools-master.zip\capicxx-core-tools-master\CommonAPI-Examples\&lt;/code&gt;中拖出&lt;/p&gt;
+&lt;p&gt;利用generator工具重新生成src-gen.注意使用绝对路径.&lt;/p&gt;
+&lt;h3 id=&#34;dbus-错误&#34;&gt;dbus 错误&lt;/h3&gt;
+&lt;p&gt;编译时,出现dbus错误.&lt;/p&gt;
+&lt;p&gt;重新安装&lt;code&gt;capicxx-dbus-runtime-master&lt;/code&gt;,编译时,出现错误:
+&lt;code&gt;error: ‘dbus_connection_send_with_reply_set_notify’ was not declared in this scope&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在该github仓库的issue中,有人问了类似的问题,作者回答:
+&lt;code&gt;You need to apply the patches (capicxx-dbus-runtime/tree/master/src/dbus-patches) to dbus before compiling capicxx-dbus-runtime.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;参考了patch的用法&lt;code&gt;https://www.cnblogs.com/xingboy/p/15954771.html&lt;/code&gt;,明白需要将补丁打到dbus上去.&lt;/p&gt;
+&lt;p&gt;曾利用命令,对dbus进行了安装&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;wget http://dbus.freedesktop.org/releases/dbus/dbus-1.10.10.tar.gz
+tar -xzf dbus-1.10.10.tar.gz
+cd dbus-1.10.10/
+patch -p1 &amp;lt; &amp;lt;/path/to/CommonAPI-D-Bus/src/dbus-patches/patch-names&amp;gt;.patch 
+./configure
+make -C dbus 
+make -C dbus install
+make install-pkgconfigDATA
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;patch理解&#34;&gt;patch理解&lt;/h3&gt;
+&lt;p&gt;但是没有使用&lt;code&gt;patch -p1 &amp;lt; &amp;lt;/path/to/CommonAPI-D-Bus/src/dbus-patches/patch-names&amp;gt;.patch&lt;/code&gt;,也没有出错,以为patch是需要给&lt;code&gt;capicxx-dbus-runtime-master&lt;/code&gt;打不补丁.
+patch中的终端输出也对思路产生了迷惑,因为其运行提示与文件&lt;code&gt;DBusConnection.cpp&lt;/code&gt;,&lt;code&gt;DBusConnection.hpp&lt;/code&gt;名称极为相似,有同在&lt;code&gt;capicxx-dbus-runtime-master\src\&lt;/code&gt;下.
+尝试多次patch后,扔无法成功.&lt;/p&gt;
+&lt;p&gt;回头看教程,发现是在dbus中进行patch.
+从而在&lt;code&gt;cd dbus-1.10.10/&lt;/code&gt;进行了patch,路径为绝对路径.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;capi-dbus-1-pc.patch
+capi-dbus-add-send-with-reply-set-notify.patch
+capi-dbus-add-support-for-custom-marshalling.patch
+capi-dbus-block-acquire-io-path-on-send.patch
+capi-dbus-correct-dbus-connection-block-pending-call.patch
+capi-dbus-send-with-reply-and-block-delete-reply-on-error.patch
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在想来,完全可以用脚本遍历:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for i in ../capicxx-dbus-runtime/src/dbus-patches/*.patch; do patch -p1 &amp;lt; $i; done&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将其执行完后,再编译&lt;code&gt;capicxx-dbus-runtime-master&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;dbus编译&#34;&gt;dbus编译&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ./capicxx-dbus-runtime
+make build
+cd ./build
+export PKG_CONFIG_PATH=&amp;quot;../../dbus-1.10.10&amp;quot;
+cmake -DUSE_INSTALLED_COMMONAPI=OFF -DUSE_INSTALLED_DBUS=OFF ..
+make -j12
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;generator与编译&#34;&gt;generator与编译&lt;/h2&gt;
+&lt;p&gt;同样利用代码生成工具将sen-gen生成,具体见someip安装&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;src-gen&lt;/code&gt;下生成的文件如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E01HelloWorld.hpp
+E01HelloWorldProxy.hpp
+E01HelloWorldProxyBase.hpp
+E01HelloWorldSomeIPDeployment.cpp
+E01HelloWorldSomeIPDeployment.hpp
+E01HelloWorldSomeIPProxy.cpp
+E01HelloWorldSomeIPProxy.hpp
+E01HelloWorldSomeIPStubAdapter.cpp
+E01HelloWorldSomeIPStubAdapter.hpp
+E01HelloWorldStub.hpp
+E01HelloWorldStubDefault.hpp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;同样CMakeLists.txt也存在问题,对其进行修改:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cmake_minimum_required(VERSION 2.8)
+project(E01HelloWorld)
+
+set(CMAKE_CXX_FLAGS &amp;quot;${CMAKE_CXX_FLAGS} -pthread -std=c++0x&amp;quot;)
+include_directories(
+    src-gen
+    src
+    /usr/local/include/CommonAPI-3.2
+    /usr/local/include/vsomeip
+)
+link_directories(
+    /usr/local/lib
+)
+add_executable(E01HelloWorldClient
+        src/E01HelloWorldClient.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPProxy.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPDeployment.cpp
+)
+
+target_link_libraries(E01HelloWorldClient CommonAPI CommonAPI-SomeIP vsomeip3)
+add_executable(E01HelloWorldService
+        src/E01HelloWorldService.cpp
+        src/E01HelloWorldStubImpl.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPStubAdapter.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPDeployment.cpp
+)
+
+target_link_libraries(E01HelloWorldService CommonAPI CommonAPI-SomeIP vsomeip3)
+
+add_library(E01HelloWorldShared SHARED  
+#	src/pythonWrapper.cpp
+        src/E01HelloWorldStubImpl.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPStubAdapter.cpp
+        src-gen/v0/commonapi/examples/E01HelloWorldSomeIPDeployment.cpp
+)
+
+target_link_libraries(E01HelloWorldShared CommonAPI CommonAPI-SomeIP vsomeip3)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;同样需要注意vsomeip3的问题&lt;/li&gt;
+&lt;li&gt;出现了&lt;code&gt;src/pythonWrapper.cpp&lt;/code&gt;无法找到,故将其屏蔽&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编译后,在build中产生&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E01HelloWorldClient
+E01HelloWorldService
+libE01HelloWorldShared
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;运行&#34;&gt;运行&lt;/h2&gt;
+&lt;p&gt;同样是两个终端&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#t1:
+touch vsomeio.json
+VSOMEIP_APPLICATION_NAME=service-sample ./E01HelloWorldService
+#t2:
+VSOMEIP_APPLICATION_NAME=client-sample ./E01HelloWorldClient
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;client与service数据打通&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
+        <entry>
+            <title type="text">Vsomeip安装配置</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/vsomeip%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" />
+            <id>https://chenbokaix250.github.io/tech/vsomeip%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</id>
+            <updated>2023-03-03T22:57:06&#43;08:00</updated>
+            <published>2023-03-03T22:49:48&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.work</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">vsomeip 安装与配置 someip配置过程 [toc] 文档描述CommonAPI SomIP的配置和示例运……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;vsomeip-安装与配置&#34;&gt;vsomeip 安装与配置&lt;/h1&gt;
+&lt;h1 id=&#34;someip配置过程&#34;&gt;someip配置过程&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;p&gt;文档描述CommonAPI SomIP的配置和示例运行过程中的步骤和问题&lt;/p&gt;
+&lt;p&gt;借鉴了github中COMMONAPI SOMEIP DEMO的内容,并针对过程问题改进&lt;/p&gt;
+&lt;h2 id=&#34;i-安装&#34;&gt;I 安装&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install cmake cmake-qt-gui libexpat-dev expat default-jre
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;安装java运行环境&#34;&gt;安装Java运行环境&lt;/h3&gt;
+&lt;p&gt;地址:&lt;code&gt;http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;oracle的官网下载必须进行注册后,才能下载!!!,完成&lt;code&gt;jdk-8u341-linux-x64.tar.gz&lt;/code&gt;的下载&lt;/p&gt;
+&lt;p&gt;安装步骤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;mkdir /home/java/  &lt;span class=&#34;c1&#34;&gt;#创建文件夹&lt;/span&gt;
+
+tar -zxvf server-jre-8u341-linux-x64.tar.gz &lt;span class=&#34;c1&#34;&gt;#解压&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在.bashrc中配置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;JAVA_HOME=/home/xxx/java/jdk1.8.0_341
+JAVA_BIN=/home/xxx/java/jdk1.8.0_341/bin
+export JAVA_HOME JAVA_BIN
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行&lt;code&gt;source .bashrc&lt;/code&gt;
+执行&lt;code&gt;java -version&lt;/code&gt;查看输出&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;之前先进行了jre8的安装,然后安装了default-jre,导致jre版本变更到了jre11.
+&lt;strong&gt;采用命令进行切换&lt;/strong&gt;
+切换JAVA版本到Oracle jdk1.8：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_281/bin/java 700
+sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_281/bin/javac 700
+sudo update-alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_281/bin/jar 700
+sudo update-alternatives --config java # 选择jdk1.8
+java -version # 检查是否配置成功
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h3 id=&#34;安装boost&#34;&gt;安装boost&lt;/h3&gt;
+&lt;p&gt;地址:&lt;code&gt;https://www.boost.org/users/download/&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd boost_1_57_0
+./bootstrap.sh
+./b2 link=shared
+sudo ./b2 install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;c++常用库,一般没有安装问题&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;安装commonapi的相关内容&#34;&gt;安装CommonAPI的相关内容&lt;/h3&gt;
+&lt;p&gt;此处主要问题是,中文资料相对过时,提供的资料库已经删除 &lt;code&gt;https://github.com/GENIVI/vsomeip.git&lt;/code&gt;
+而资料网站也已经关闭,无法打开,导致资料包无从下载 &lt;code&gt;https://docs.projects.genivi.org/yamaica-update-site/CommonAPI&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;目前所有的安装相关资料包全部托管在github
+地址为&lt;code&gt;https://github.com/COVESA/&lt;/code&gt;的仓库中&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;所用用到的资料包有:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;capicxx-core-runtime-master&lt;/li&gt;
+&lt;li&gt;capicxx-core-tools-master&lt;/li&gt;
+&lt;li&gt;capicxx-dbus-runtime-master&lt;/li&gt;
+&lt;li&gt;capicxx-someip-runtime-master&lt;/li&gt;
+&lt;li&gt;capicxx-someip-tools-master&lt;/li&gt;
+&lt;li&gt;vsomeip-master&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-安装vsomeip&#34;&gt;1. 安装vsomeip&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd vsomeip
+mkdir build
+cd build
+cmake -DENABLE_SIGNAL_HANDLING=1 -DDIAGNOSIS_ADDRESS=0x10 …
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;问题:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;doxygen dot not found&lt;/li&gt;
+&lt;li&gt;No package ‘automotive-dlt’ found&lt;/li&gt;
+&lt;li&gt;No package ‘libsystemd’ found&lt;/li&gt;
+&lt;li&gt;asciidoc is not installed&lt;/li&gt;
+&lt;li&gt;source-highlight is not installed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装依赖:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt install doxygen
+sudo apt install libsystemd-dev
+sudo apt install asciidoc
+sudo apt install source-highlight
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中‘automotive-dlt需要在安装dlt-daemon,项目同样托管在COVESA中.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-安装core-runtime&#34;&gt;2. 安装Core Runtime&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd capicxx-core-runtime/
+mkdir build
+cd build
+cmake …
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;3-安装someip-runtime&#34;&gt;3. 安装SomeIP Runtime&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd capicxx-someip-runtime/
+mkdir build
+cd build
+cmake -DUSE_INSTALLED_COMMONAPI=OFF …
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;4-编译commonapi-coresomeip-runtime代码生成工具&#34;&gt;4. 编译CommonAPI Core/SomeIP Runtime代码生成工具&lt;/h3&gt;
+&lt;p&gt;其中,需要重新安装maven.&lt;code&gt;sudo apt-get install maven&lt;/code&gt;,利用&lt;code&gt;mvn -v&lt;/code&gt;查看版本&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd capicxx-core-tools/org.genivi.commonapi.core.releng
+mvn -Dtarget.id=org.genivi.commonapi.core.target clean verify
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;命令执行时间很长,会出现无法从eclipse网站下载插件的问题,应该是脚本路径问题&lt;/p&gt;
+&lt;p&gt;尝试将&lt;code&gt;org.genivi.commonapi.core.target&lt;/code&gt;修改到ustc源上,但是报错.&lt;/p&gt;
+&lt;p&gt;万幸的是,作者在github中提供了编译好的版本,工具可直接进行下载.&lt;/p&gt;
+&lt;p&gt;故利用手机下载,然后导入微信(不知道为什么无法导入企业微信),再切换服务器到wifi,登录网页微信,下载到服务器(尴尬).&lt;/p&gt;
+&lt;p&gt;完成了generator工具的下载后,便可以利用生成工具对fidl文件进行解析&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ii-编译&#34;&gt;II 编译&lt;/h2&gt;
+&lt;p&gt;从git上拿到工程&lt;code&gt;commonapi_someip_demo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;利用生成器生成代码:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;./../commonapi_core_generator/commonapi-core-generator-linux-x86_64 -sk ./fidl/HelloWorld.fidl
+./../commonapi_someip_generator/commonapi-someip-generator-linux-x86_64 ./fidl/HelloWorld.fdepl
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;需要解压整个文件夹,负责会出现生成器运行崩溃的问题.&lt;/p&gt;
+&lt;p&gt;完成运行后,会在工程目录下生成src-gen文件夹,包括:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;HelloWorld.hpp
+HelloWorldProxy.hpp
+HelloWorldProxyBase.hpp
+HelloWorldSomeIPDeployment.cpp
+HelloWorldSomeIPDeployment.hpp
+HelloWorldSomeIPProxy.cpp
+HelloWorldSomeIPProxy.hpp
+HelloWorldSomeIPStubAdapter.cpp
+HelloWorldSomeIPStubAdapter.hpp
+HelloWorldStub.hpp
+HelloWorldStubDefault.hpp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;进行工程编译:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir build
+cd build
+cmake ..
+make
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;工程编译出现&lt;code&gt;-lvsomip&lt;/code&gt;无法找到的问题&lt;/p&gt;
+&lt;p&gt;CMakeLists.txt中:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;PROJECT(HelloWorldDemo)
+cmake_minimum_required(VERSION 3.5)
+
+set(CMAKE_CXX_FLAGS &amp;quot;${CMAKE_CXX_FLAGS} -pthread -std=c++0x&amp;quot;)
+include_directories(
+    src-gen
+    /usr/local/include/CommonAPI-3.2
+    /usr/local/include/vsomeip
+)
+link_directories(
+    /usr/local/lib
+)
+add_executable(HelloWorldClient
+    src/HelloWorldClient.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPProxy.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPDeployment.cpp
+)
+target_link_libraries(HelloWorldClient CommonAPI CommonAPI-SomeIP vsomeip)
+add_executable(HelloWorldService
+    src/HelloWorldService.cpp
+    src/HelloWorldStubImpl.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPStubAdapter.cpp
+    # src-gen/v1/commonapi/HelloWorldStubDefault.cpp
+    src-gen/v1/commonapi/HelloWorldSomeIPDeployment.cpp
+)
+target_link_libraries(HelloWorldService CommonAPI CommonAPI-SomeIP vsomeip)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;vsomeip编译为vsomeip3,问题解决.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;iii-运行&#34;&gt;III 运行&lt;/h2&gt;
+&lt;p&gt;在fidl文件夹中创建&lt;code&gt;vsomeip.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;启动两个ternimal,进入到build目录下,运行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#t1:
+cd build
+export VSOMEIP_CONFIGURATION_FILE=../fidl/vsomeip.json
+VSOMEIP_APPLICATION_NAME=service-sample ./HelloWorldService
+#t2:
+VSOMEIP_APPLICATION_NAME=client-sample ./
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后,就会出现&lt;code&gt;hello,Bob&lt;/code&gt;从service传送到client,说明运行符合预期.
+具体输出在sucess1.&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">关于阿根廷夺冠</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/life/%E5%85%B3%E4%BA%8E%E9%98%BF%E6%A0%B9%E5%BB%B7%E5%A4%BA%E5%86%A0/" />
