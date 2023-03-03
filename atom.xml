@@ -2,9 +2,9 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
-    <title type="text">极乐世界</title>
+    <title type="text">不那么乐的世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2023-03-03T23:01:15&#43;08:00</updated>
+    <updated>2023-03-03T23:36:49&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -24,7 +24,7 @@
             <published>2023-03-03T23:00:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">GDB [toc] 1.简介 GDB调试器 可以再运行程序的时候检查里面发生了什么 GDB可以做4件事： 开……</summary>
@@ -237,7 +237,7 @@ sudo &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34
             <published>2023-03-03T22:58:31&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">官方例程配置过程 [toc] 完成CommonAPI SomIP运行后,研究官网例程 因为利用了db……</summary>
@@ -388,7 +388,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./E01HelloWorldClient
             <published>2023-03-03T22:49:48&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">vsomeip 安装与配置 someip配置过程 [toc] 文档描述CommonAPI SomIP的配置和示例运……</summary>
@@ -598,7 +598,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./
             <published>2023-03-03T22:11:11&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">关于阿根廷夺冠 刚开始看阿根廷还是98年 巴蒂 贝隆 萨内蒂 那一年的英阿大战，让人印象深刻。……</summary>
@@ -652,7 +652,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./
             <published>2022-09-24T01:08:39&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">最近的改变 [toc] 最近发生了很多事 也很久没有坐下来写点东西,关于生活 关于记录生活 说实话 很久……</summary>
@@ -723,7 +723,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./
             <published>2022-05-06T16:22:22&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ CRTP(奇异的递归模板模式) 介绍 CRTO有两大特性: 继承自模板类 派生类将自身作为……</summary>
@@ -1172,7 +1172,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./
             <published>2022-04-25T17:09:16&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Mac通过Picgo-Core+Github配置Typora图床 安装Picgo-Co……</summary>
@@ -1260,7 +1260,7 @@ VSOMEIP_APPLICATION_NAME=client-sample ./
             <published>2022-04-25T12:04:42&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jetson_xavier的基本命令 查看TensorRT版本 dpkg -l | grep TensorRT 8.2.1-1+cuda10.2 查看cuda……</summary>
@@ -2166,7 +2166,7 @@ sudo ./yolov5 -s yolov5s.wts yolov5s.engine s (时间较长)
             <published>2022-04-13T16:10:49&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">jetson Xavier刷写与挂载 刷写 目前使用的是jetson4.2 由于python3.6与目……</summary>
@@ -2335,7 +2335,7 @@ su&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#3
             <published>2022-03-31T16:10:46&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">YoloV4 自建数据集训练过程 需求是完成对于锥桶的识别的任务 1.yolov4环境搭建 下载dar……</summary>
@@ -2615,7 +2615,7 @@ subdivisions的含义为将batch数量的图片分成多少份喂入&lt;/p&gt;
             <published>2022-03-25T18:55:54&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">PlantUML初步 什么是PLANTUML PlantUML是一个快速创建UML图形的……</summary>
@@ -2729,7 +2729,7 @@ Alice -&amp;gt; Bob : thank
             <published>2022-03-17T15:31:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ 进阶(面向对象) 如果既可以通过初始化,也可以通过赋值来设置对象的值,则应采用初始化……</summary>
@@ -3084,7 +3084,7 @@ this指针指向用来调用成员函数的对象(this被作为隐藏参数传�
             <published>2022-03-17T14:17:44&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++_PRIMER 整理总结 地址 数组的地址 数组名被解释为其第一个元素的地址,而对数组名应用地址运算符时……</summary>
@@ -3345,7 +3345,7 @@ this指针指向用来调用成员函数的对象(this被作为隐藏参数传�
             <published>2022-03-11T10:30:16&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python面向对象编程 区别 面向对象编程和函数式编程（面向过程编程）的区别 面向过程编……</summary>
@@ -3855,7 +3855,7 @@ __pow__:        幂
             <published>2022-03-02T15:29:12&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">QT类提升机制 远程遥控驾驶项目中 需要在视频图像上实现车道及引导线 QT中 使用QPain……</summary>
@@ -3962,7 +3962,7 @@ update需要放在主函数中 循环调度 并且 paintEvent的绘制坐标系�
             <published>2022-02-18T15:37:25&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">socket protobuf rpc之间的理解 三者的定义 1.socket 套接字,与底层TCP/IP网络协议栈打交道的对象，直……</summary>
@@ -4031,7 +4031,7 @@ update需要放在主函数中 循环调度 并且 paintEvent的绘制坐标系�
             <published>2022-02-09T17:03:40&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Pytorch1.7.1和LibTorch的安装 ubuntu: 18.04 Nvidia DriverVersion: 430.64 CUDA Version: 10.1 Cudnn: 7.6.5 Pytorch: 1.7.1 torch: 1.7.1 驱动安装……</summary>
@@ -4138,7 +4138,7 @@ int main() {
             <published>2022-01-24T15:56:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">c++中的&amp;quot;&amp;amp;&amp;quot;的使用 引用 引用就是某一变量的一个别名,对……</summary>
@@ -4260,7 +4260,7 @@ int main() {
             <published>2022-01-22T01:10:46&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">PID控制及python实现 [toc] PID：比列(Proportion)，积分(Integ……</summary>
@@ -4445,7 +4445,7 @@ if __name__ == &amp;quot;__main__&amp;quot;:
             <published>2022-01-21T02:26:27&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">[toc] Eigen官方文档摘要 安装与使用 linux下安装 sudo apt-get install libeigen3-dev mac下安装 brew install eigen CMak……</summary>
@@ -4568,7 +4568,7 @@ std::cout &amp;lt;&amp;lt; &amp;quot;joined = &amp;quot; &amp;lt;&amp;lt; joined
             <published>2022-01-20T22:23:37&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">深入理解协程 什么是协程 协程是一种函数对象，可以设置锚点做暂停，然后再该锚点恢复继续运……</summary>
@@ -4642,7 +4642,7 @@ target_link_libraries(coroutine_test ${Boost_LIBRARIES})
             <published>2022-01-19T01:29:22&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">c++ 创建动态对象 C++没有反射,但在apolloAUTO中出现了很多读取配置文件然后实……</summary>
@@ -4853,7 +4853,7 @@ add_executable(demo DynTest.cpp DynBase.h DynBase.cpp Shape.h Shape.cpp)
             <published>2022-01-17T01:47:46&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">我是爱知乎的，但我们不能假装一切都没有发生 「如果我 all in 长期做空知乎，这可能就会成为一……</summary>
@@ -4978,7 +4978,7 @@ add_executable(demo DynTest.cpp DynBase.h DynBase.cpp Shape.h Shape.cpp)
             <published>2022-01-16T01:46:27&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">std::lock_guard相关的知识 [toc] std::lock_guard这个模板类,……</summary>
@@ -5211,7 +5211,7 @@ Process finished with exit code 143 (interrupted by signal 15: SIGTERM)
             <published>2022-01-15T03:07:55&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++的Memory_Order [toc] 为什么需要 Memory Order 如果不使用任何同步机制（例如 mutex 或 at……</summary>
@@ -5364,7 +5364,7 @@ int main()
             <published>2022-01-14T02:17:08&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">提交步骤 1、先在远程仓库(如github)创建项目,为了避免错误,不要初始化 README, license, 或者……</summary>
@@ -5427,7 +5427,7 @@ git remote -v
             <published>2022-01-11T02:58:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">常用快捷键汇总 [toc] Mac常用30个快捷键 1、return回车键=修改文件/文件夹名称。……</summary>
@@ -5541,7 +5541,7 @@ git remote -v
             <published>2022-01-01T02:18:51&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">1 、美秀集团 S 级 ——《米儿》《生活袂晓过》 A 级 —— 《细粒的目睭》《小老婆》《挡一根》……</summary>
@@ -5619,7 +5619,7 @@ A 级 —— 《他们说我是没有用的年轻人》《蒸发》
             <published>2021-12-29T01:48:28&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Scons使用教程 Scons是在研究https://github.com/autoa……</summary>
@@ -5676,7 +5676,7 @@ A 级 —— 《他们说我是没有用的年轻人》《蒸发》
             <published>2021-12-27T23:57:30&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">[toc] MCU软件开发中startip过程详解 statup的过程和启动代码在新建工程时,已……</summary>
@@ -5768,7 +5768,7 @@ startup过程往往需要一定的MCU内核CPU汇编指令知识,很多对内核
             <published>2021-12-10T18:51:21&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Windows 下全套安装过程 微 PE：制作 U 盘启动项安装系统 msdn：下载 windows 镜像 CarLa（win……</summary>
@@ -6026,7 +6026,7 @@ check dependence的文件可以拷贝出来 装机完成后继续使用 不用�
             <published>2021-12-04T11:12:11&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Mac下安装MIT6.828 只有了解底层原理才能写好上层应用，曾经几度想要系统地学习……</summary>
@@ -6115,7 +6115,7 @@ $
             <published>2021-11-24T18:20:59&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ROS分布式通信 在两台电脑之间完成ROS的通信 http://wiki.ros.org/cn/ROS/Tutorials/MultipleMachines 利用两台机器上使用ROS系统. 只需要……</summary>
@@ -6199,7 +6199,7 @@ rosrun rospy_tutorials talker.py
             <published>2021-11-23T16:05:15&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jetson NX 操作文档 nomachine控制nx: mac:192.168.2.99 nx: 192.168.2.32 username: a password:123456 一 关于转台控制: 1. 转台控制协议 2.……</summary>
@@ -6289,7 +6289,7 @@ sudo python3 ./1_CAN_Send.py 2 90   #方位角顺时针转90度
             <published>2021-09-03T22:26:52&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">两种单片机编程思想 分层思想 分层的思想，并不是什么神秘的东西，事实上很多做项目的工程师……</summary>
@@ -6471,7 +6471,7 @@ sudo python3 ./1_CAN_Send.py 2 90   #方位角顺时针转90度
             <published>2021-08-26T11:23:16&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Tesla AI DAY 技术情况 特斯拉感知 通过8个摄像头的输入 得到三维向量空间 Tesla Camera的分辨率 1280*960……</summary>
@@ -6583,7 +6583,7 @@ Video Neural Net Architecture模块
             <published>2021-08-24T10:07:12&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">多目标跟踪 简介 多目标跟踪 MOT(multi-object Tracking) 在自动驾驶场景中,往往需要对众多目标同时进行跟踪. 多目标……</summary>
@@ -6686,7 +6686,7 @@ ID switch(ID切换):对于同一个目标,由于跟踪算法误判,导致其ID�
             <published>2021-08-11T15:09:50&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">进程和线程、协程的区别 协程是最近流行起来的.python中有协程库gevent,py……</summary>
@@ -6761,7 +6761,7 @@ ID switch(ID切换):对于同一个目标,由于跟踪算法误判,导致其ID�
             <published>2021-07-27T08:34:31&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Linux nohup 命令 nohup英文全称 no hang up(不挂起),用于在系统后台卜卦断地运行命令,退出终……</summary>
@@ -6823,7 +6823,7 @@ Arg:一些参数,可以指定输出文件
             <published>2021-07-22T16:06:06&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">python实现udp图片传输 首先要了解UDP的工作模式 对于服务器，首先绑定IP和端……</summary>
@@ -7470,7 +7470,7 @@ Arg:一些参数,可以指定输出文件
             <published>2021-07-07T12:32:17&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">1.NML 工程安装 NML是RCS库中的一部分，NML英文全称是neutral message languag……</summary>
@@ -7763,7 +7763,7 @@ extern int MessageAFormat(NMLTYPE, void *, CMS *);
             <published>2021-07-01T08:53:23&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">转载一篇陆奇在百度时期的内部发言,希望能受用. Believe in 技术 首先要相信技术，我刚才已经讲了……</summary>
@@ -7836,7 +7836,7 @@ extern int MessageAFormat(NMLTYPE, void *, CMS *);
             <published>2021-06-05T09:51:42&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">LaneProject 理解代码中途的一些知识点记录整理 memcpy()函数 void memcpy(void str1,const void str2,size_t n) 从存储区str2复……</summary>
@@ -8126,7 +8126,7 @@ cmd: 交互协议，设备驱动将根据cmd执行对应操作&lt;/p&gt;
             <published>2021-05-27T17:06:30&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CenterNet工程调试的过程及问题 最近调试了关于CenterNet的几个工程 CenterNet RTM3D……</summary>
@@ -8404,7 +8404,7 @@ cd ..
             <published>2021-05-24T13:43:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Pytorch中的forward理解 我们在使用Pytorch的时候,模型训练时,不需……</summary>
@@ -8734,7 +8734,7 @@ True
             <published>2021-05-21T15:45:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Pytorch搭建Unet语义分割平台 什么是Unet模型 Unet是一个优秀的语义分割……</summary>
@@ -8839,7 +8839,7 @@ Unet可以分为三个部分,如下图所示:&lt;/p&gt;
             <published>2021-05-20T08:45:15&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CenterNet算法 通常目标检测算法的做法是设定一堆先验框,对先验框进行调整获得预……</summary>
@@ -9793,7 +9793,7 @@ Keras中的所有模型都继承了Model类.&lt;/p&gt;
             <published>2021-04-30T11:02:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Qt学习中的记录 Qt Create 遇到的问题 Q1:在 macOS 上的 Qt Creator 中出現 No valid kits found https://blog.yowko.com/no-valid-kits-found-on-mac/ Q2:书籍下载 https://gitee.com/feiyangqingyun/qtkaifajingyan/blob/master/Qt%20Creator%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8_%E7%AC%AC%E4%B8%89%E7%89%88__%E9%9C%8D%E4%BA%9A%E9%A3%9E%E7%BC%96%E8%91%97.z01 Q3:Qt 5.5……</summary>
@@ -10504,7 +10504,7 @@ connect(&amp;amp;tcpSocket,SIGNAL(readyRead()),this,SLOT(onReadyRead()));
             <published>2021-04-17T14:17:52&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python子任务代码 重复元素判定 以下方法可以检查给定列表是不是存在重复元素,她会使……</summary>
@@ -11122,7 +11122,7 @@ print(s.title())
             <published>2021-04-15T16:15:41&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ 宏中包含特殊符号 分为几种: #,##,\ 字符串化操作符(#) 在一个宏中的参数前面使用一个#,预……</summary>
@@ -11292,7 +11292,7 @@ print(s.title())
             <published>2021-04-07T17:19:45&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Pytorch官方示例 Pytorch Tensor的通道排序:[batch,channel,hei……</summary>
@@ -11489,7 +11489,7 @@ model.load_state_dict(checkpoint)
             <published>2021-04-07T17:15:51&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">effective python 要点笔记 Pythonic Thinking 查看Python版本 遵循PEP8风格编程风格 关于空格的使用 使用空格而……</summary>
@@ -11774,7 +11774,7 @@ if not a is b   x
             <published>2021-03-26T17:13:40&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">InterPy要点整理 *args 和 ***kwargs *args 可以将不定数量的参数传递给一个函数 **kwargs 将不定长度的键值对……</summary>
@@ -12534,7 +12534,7 @@ id返回不同种类对象的唯一ID&lt;/p&gt;
             <published>2021-03-23T16:24:30&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">摄像头单目测距原理与实现 一.测距原理 空间的深度或距离等数据的摄像头 单纯的单目视觉测距……</summary>
@@ -12692,7 +12692,7 @@ if __name__ == &#39;__main__&#39;:
             <published>2021-03-23T15:57:34&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">目标 根据检测信息估算到场景中物体（汽车，行人，卡车）的距离 方案 训练深度学习模型,该模……</summary>
@@ -13001,7 +13001,7 @@ KITTI-distance-estimation
             <published>2021-03-20T14:53:01&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CUDA并行计算基础 目录 CUDA异构计算 CUDA处理流程 CUDA线程层次 Grid Block Thread blockldx threadldx gridDim……</summary>
@@ -13167,7 +13167,7 @@ cv2_imshow(img)
             <published>2021-03-20T14:51:08&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">基于OpenCV的相机标定 1.什么是相机标定 相机参数的估计过程称为相机标定。这意味着……</summary>
@@ -13323,7 +13323,7 @@ cv2_imshow(img)
             <published>2021-03-11T10:26:04&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python标准模块 logging 1.简介 logging模块是Python内置的标准模块,主要用……</summary>
@@ -13747,7 +13747,7 @@ Namespace(x=&#39;1&#39;)
             <published>2021-03-10T18:53:51&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">PolyLaneNet实践 PolyLaneNet 源码解析 工程结构 工程文件结构如下: $ tree . ├── LICENSE ├── README.md……</summary>
@@ -14041,7 +14041,7 @@ print(response.read().decode(&#39;utf-8&#39;))
             <published>2021-03-04T17:21:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">编程语言的动态性 类型系统层面上的动态性 根据类型检查是在编译期还是在运行期进行的，我们……</summary>
@@ -14175,7 +14175,7 @@ If you hate him, teach him C++, for it&#39;s hell&lt;/p&gt;
             <published>2021-03-04T11:07:31&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">移动硬盘损坏故障 早晨往硬盘拷贝数据时,微信死机了,然后重启了 然后就悲剧了 打开之后在m……</summary>
@@ -14262,7 +14262,7 @@ If you hate him, teach him C++, for it&#39;s hell&lt;/p&gt;
             <published>2021-03-02T17:03:51&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Lane detection研究报告 内容主要包含两部分 对于视频分享的要点的整理 对于视频中提到……</summary>
@@ -14586,7 +14586,7 @@ Ablation Study. 为了调查对所提出的方法做出的一些决定的影响�
             <published>2021-03-02T17:02:01&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">vision_beyond_track代码解析 文件结构目录 # bokaichen @ bokaideMacBook-Pro in ~/Desktop/vision_beyond_track [11:14:36] $ tree . ├──……</summary>
@@ -14951,7 +14951,7 @@ ros句柄   node_handle_
             <published>2021-03-01T14:42:23&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">深度学习模型提取特征 有时候需要从图片中提取出数值型特征，供各种模型使用。 深度学习模型……</summary>
@@ -15226,7 +15226,7 @@ if __name__ == &#39;__main__&#39;:
             <published>2021-02-26T11:31:41&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">匈牙利算法步骤 作用 解决指派问题。所谓的指派问题就比如：甲乙丙三个人去做ABC三件事情……</summary>
@@ -15410,7 +15410,7 @@ O 0 1                   0 O 1
             <published>2021-02-23T12:00:18&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">OpenCV在MAC的Xcode的配置 最初的情况 之前利用brew install opencv 安装完后,在py……</summary>
@@ -15729,7 +15729,7 @@ LIBS += -L/usr/local/Cellar/opencv/4.5.1_2/lib  -lopencv_core -lopencv_highgui -
             <published>2021-02-19T15:18:26&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">基于芯片中的一些知识 AI芯片的分类 Context的理解 CPU GPU ASIC FPGA AI芯片按应用场景分类……</summary>
@@ -15851,7 +15851,7 @@ LIBS += -L/usr/local/Cellar/opencv/4.5.1_2/lib  -lopencv_core -lopencv_highgui -
             <published>2021-02-18T15:02:05&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ros2 action 当需要实时反馈指令效果时,ROS需要应用级的通信机制--动作(action) ac……</summary>
@@ -16024,7 +16024,7 @@ def generate_launch_description():       # 在LaunchDescription中描述三个�
             <published>2021-02-10T10:06:14&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">MAC中的ROS2入门教程 1.ROS2环境配置 mac上利用的是编译好的工程进行学习 主……</summary>
@@ -16190,7 +16190,7 @@ ros2 action list
             <published>2021-02-02T11:49:50&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">KMS服务激活 朋友的激活服务器,白嫖一下 #@ Win10 专业版批量授权版激活步骤： 管理员权限运行……</summary>
@@ -16548,7 +16548,7 @@ Office Word 2019 : PBX3G-NWMT6-Q7XBW-PYJGG-WXD33
             <published>2021-02-01T08:45:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Mac下ROS2的安装 一直想在mac上安装一下ROS2,感受一下ROS2的新特性 闲来……</summary>
@@ -16773,7 +16773,7 @@ $ brew cleanup git #清理单个已安装软件包的历史版本
             <published>2021-01-28T15:35:06&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">jetson-inference 实践中的问题 实践pytorch、TensorRT技术栈 利用项目jetson-inf……</summary>
@@ -17376,7 +17376,7 @@ $ roslaunch ros_deep_learning segnet.ros1.launch input:=csi://0 output:=display:
             <published>2021-01-26T16:52:59&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CUDA编程入门教程 前言 2006年，NVIDIA公司发布了CUDA，CUDA是建立在……</summary>
@@ -17735,7 +17735,7 @@ Device &amp;quot;GeForce GT 730 (0)&amp;quot;
             <published>2021-01-26T16:10:42&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Git中.gitignore文件的配置使用 在使用Git的过程中，有的文件比如日志，临……</summary>
@@ -17920,7 +17920,7 @@ insert_final_newline = true
             <published>2021-01-23T11:37:53&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">psutil库 用Python来编写脚本简化日常的运维工作是Python的一个重要用途……</summary>
@@ -18068,7 +18068,7 @@ Terminated: 15 &amp;lt;-- 自己把自己结束了
             <published>2021-01-23T10:42:44&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python中的几个语法糖 语法糖是编程过程中的一些特殊写法 最近遇到的几个Python……</summary>
@@ -18192,7 +18192,7 @@ b = [e+233 for e in a]
             <published>2021-01-12T11:36:14&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">算法进阶 贪心算法 对问题求解时,总是做出在当前看来是最好的选择.不从整体最优上加以考虑……</summary>
@@ -18363,7 +18363,7 @@ print(gcd(12,16))
             <published>2021-01-12T11:35:31&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">数据结构 数据结构按照逻辑结构分为线性结构/树结构/图结构 线性结构 一对一 树结构 一对多 图……</summary>
@@ -18765,7 +18765,7 @@ AVL树具有以下性质:&lt;/p&gt;
             <published>2021-01-12T11:32:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">算法入门 课程第一部分 排序 程序等于数据结构+算法 复杂度 时间复杂度 时间复杂度排序 O(1) &amp;lt; O(logn)&amp;lt;O(n)&amp;lt;O(nlogn)&amp;lt;O(n2)&amp;lt;O(n2logn)&amp;lt;O(n3) 快……</summary>
@@ -19166,7 +19166,7 @@ def merge_sort(li,low,high):
             <published>2020-12-22T17:08:44&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">2020年终 好恶取代了茫然，观念取代了迷惑，安全感取代了好奇心。 今年发生了很多事 很多……</summary>
@@ -19302,7 +19302,7 @@ def merge_sort(li,low,high):
             <published>2020-12-19T10:17:54&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Pytorch常用代码段合集 PyTorch常用的代码段 集合整理 用于写程序时查询 1.基……</summary>
@@ -20129,7 +20129,7 @@ model.zero_grad()会把整个模型的参数的梯度都归零, 而optimizer.zer
             <published>2020-12-14T23:29:22&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html"></summary>
@@ -20166,7 +20166,7 @@ model.zero_grad()会把整个模型的参数的梯度都归零, 而optimizer.zer
             <published>2020-12-14T23:14:03&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">智能家居通讯协议汇总 智能家居通信技术分为有线和无线。 无线技术主要有：zigbee，z……</summary>
@@ -20255,7 +20255,7 @@ EnOcean技术和同类技术相比，功耗最低，传输距离最远，可以�
             <published>2020-12-06T01:13:15&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">docker常用命令总结 1.目的 总结Docker常用命令，便于梳理和巩固对Docke……</summary>
@@ -20362,7 +20362,7 @@ $ docker history $IMAGE_ID           # 显示镜像每层的变更内容
             <published>2020-12-02T22:02:25&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">多任务学习简述 什么是多任务学习 多任务学习（Multi-Task Learning）顾名……</summary>
@@ -20546,7 +20546,7 @@ with tf.Session() as session:
             <published>2020-11-21T14:39:56&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">gtest 小结 1. gtest在xcode的配置 Build Settings设置: Header Search Paths 添加 /usr/local/include Library Search Paths 添加 /usr/local/lib/……</summary>
@@ -20706,7 +20706,7 @@ int _tmain(int argc, _TCHAR* argv[])
             <published>2020-11-18T22:58:34&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Awesome Home Networking 本文档主要用于整理家庭网络相关知识，目前由 Blanboom 维护。 感谢原作者 目录 Awesome Home Networking 目录 网站……</summary>
@@ -22085,7 +22085,7 @@ int _tmain(int argc, _TCHAR* argv[])
             <published>2020-11-17T12:21:52&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">boost在xcode出现的问题及解决 安装boost 利用xcode编译含&amp;lt;bo……</summary>
@@ -22174,7 +22174,7 @@ int _tmain(int argc, _TCHAR* argv[])
             <published>2020-11-16T08:39:41&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">TensorRT小结2 学习TensorFlow-TensorRT项目,总结学习心得.……</summary>
@@ -22324,7 +22324,7 @@ utils.read_pb_return_tensors(tf.get_default_graph(),
             <published>2020-11-14T13:44:04&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">TensorRT小结 利用Xavier的硬件 集中学习了tensorRT 记录一下 1.Te……</summary>
@@ -22482,7 +22482,7 @@ Type &amp;quot;help&amp;quot;, &amp;quot;copyright&amp;quot;, &amp;quot;credits&
             <published>2020-11-06T18:54:37&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">编译caffe-SSD时,准备编译caffe遇到整屏幕的错误 错误描述是Makefil……</summary>
@@ -22672,7 +22672,7 @@ make: *** [.build_release/tools/convert_annoset.bin] Error 1
             <published>2020-11-06T10:48:45&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">vision_ssd_detect 代码解读 在Autoware平台的Core Perception模块中实现了如何利用S……</summary>
@@ -22906,7 +22906,7 @@ make: *** [.build_release/tools/convert_annoset.bin] Error 1
             <published>2020-11-03T16:45:39&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Xavier中orb_slam 安装ORB_SLAM3 ORB-SLAM3是西班牙萨拉戈……</summary>
@@ -23198,7 +23198,7 @@ source ~/.bashrc
             <published>2020-10-23T15:01:20&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Xavier入门教程软件篇-源码安装autoware1.13.0 环境 xavier4.2.3 安装 autoware1.13.0 安装系统……</summary>
@@ -23445,7 +23445,7 @@ $ roslaunch runtime_manager runtime_manager.launch
             <published>2020-10-17T16:44:19&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">升级Eigen到达3.3.7版本 查看当前版本 vim /usr/include/eigen3/Eigen/src/Core/util/Macros.h #define EIGEN_WORLD_VERSION 3 #define EIGEN_MAJOR_VERSION 3 #define EIGEN_MINOR_VERSION 4 即为版本3.3.4……</summary>
@@ -23524,7 +23524,7 @@ sudo make install
             <published>2020-10-17T16:35:56&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Xavier 安装caffe 1.安装各种依赖包 sudo apt-get update sudo apt-get install build-essential cmake git pkg-config`` sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler`` sudo apt-get install libatlas-base-dev`` sudo apt-get install……</summary>
@@ -23666,7 +23666,7 @@ LIBRARIES += glog gflags protobuf boost_system boost_filesystem boost_regex m hd
             <published>2020-10-17T16:32:12&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Ubuntu下U盘变成只读的解决方法 运行命令：tail -f /var/log/syslog 2）当有问题的优盘插入电脑……</summary>
@@ -23722,7 +23722,7 @@ sudo dosfsck -v -a /dev/sdc4&lt;/p&gt;
             <published>2020-09-02T00:06:29&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">六月之后,天气开始炎热,就没有再接着跑步了. 体重也有些反弹. 整个疫情在一步一步的变好……</summary>
@@ -23804,7 +23804,7 @@ sudo dosfsck -v -a /dev/sdc4&lt;/p&gt;
             <published>2020-08-18T09:57:50&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">YOLOv3训练kitti数据集 1.获取KITTI数据集及标签 KITTI官网链接 2D……</summary>
@@ -24532,7 +24532,7 @@ random=1　　　　　　　  # 如果为1，每次迭代图片大小随机从3
             <published>2020-08-13T13:55:33&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">CUDA CUDNN tensorflow 相关安装过程 整个过程需要安装 cuda驱动 cuda软件 cudnn库 tensorflow-gpu 不同平台之间……</summary>
@@ -24730,7 +24730,7 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
             <published>2020-08-11T11:14:58&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python__init__.py作用详解 __init__.py该文件的作用就是相当……</summary>
@@ -24862,7 +24862,7 @@ from mypackage.subpackage_1 import test11
             <published>2020-08-10T16:47:24&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">python argparse用法总结 1.argparse介绍 是python的一个命令行解析包，……</summary>
@@ -25163,7 +25163,7 @@ the square of 8 equals 64
             <published>2020-07-15T10:25:11&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Linux下设置Python脚本文件为服务 python脚本开机自动运行 适用于使用sy……</summary>
@@ -25241,7 +25241,7 @@ sudo systemctl enable autorun.service
             <published>2020-07-14T14:32:09&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Xavier调试 1. 换源 备份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup 修改source.list 换源ARM源 Xavier……</summary>
@@ -25437,7 +25437,7 @@ set(CUDA_HOST_COMPILER_FLAGS &amp;quot;-Xcompiler \&amp;quot; ${ADDITIONAL_CXX_F
             <published>2020-07-07T14:09:49&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">raspberry摄像头调试中的问题处理 安装驱动 使能模块 利用sudo raspi-config 配置camer……</summary>
@@ -25525,7 +25525,7 @@ sudo mv info.bak info #還原info
             <published>2020-07-02T15:52:58&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">树莓派记录II API安装 树莓派安装OpenCV-Python ssh文件传输 树莓派硬件……</summary>
@@ -25703,7 +25703,7 @@ GPIO.cleanup() #清理引脚
             <published>2020-07-02T08:56:23&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ORB_slam解析 目录结构 ORB slam目录中: src为源代码 include为源码对应……</summary>
@@ -26040,7 +26040,7 @@ mpLoopCloser-&amp;gt;SetLocalMapper(mpLocalMapper);
             <published>2020-07-01T14:53:26&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Paspberry安装指针 part1 系统安装 1.格式化 --SDFormatter 2.写镜像 --Disk Image 3.在boot下添加文……</summary>
@@ -26213,7 +26213,7 @@ sudo ln -s /usr/bin/python3.5 /usr/bin/python
             <published>2020-06-19T16:59:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">深入理解图优化与g2o slam中的主流优化方法——图优化（graph-based op……</summary>
@@ -26299,7 +26299,7 @@ sudo ln -s /usr/bin/python3.5 /usr/bin/python
             <published>2020-06-18T19:04:34&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++11 并发指南 与 C++11 多线程相关的头文件 C++11 新标准中引入了四个头文件来支持多线程编程，他们分别……</summary>
@@ -26482,7 +26482,7 @@ unique_lock比lock_guard使用更加灵活，功能更加强大。
             <published>2020-06-03T16:09:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">第二个月比较遗憾: 没有完成一次10公里 没有完成150公里 甚至没有完成100公里 偷懒 |……</summary>
@@ -26557,7 +26557,7 @@ unique_lock比lock_guard使用更加灵活，功能更加强大。
             <published>2020-06-03T15:57:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">eigen 中四元数、欧拉角、旋转矩阵、旋转向量 一、旋转向量 1.0 初始化旋转向量: 旋转角为alph……</summary>
@@ -26663,7 +26663,7 @@ Eigen::Quaterniond quaternion;quaternion=yawAngle*pitchAngle*rollAngle;
             <published>2020-06-01T18:51:40&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">需要掌握的算法 计算机科学家投票选出最重要的算法(按照英文名称字母顺序排序) 1、A* 搜……</summary>
@@ -26745,7 +26745,7 @@ Eigen::Quaterniond quaternion;quaternion=yawAngle*pitchAngle*rollAngle;
             <published>2020-05-27T17:06:13&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">linux下openCV3.1 安装过程 准备 1. 更新系统 sudo apt-get update sudo apt-get upgrade 2. 安装底包 sudo apt-get install build-essential sudo……</summary>
@@ -26832,7 +26832,7 @@ cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
             <published>2020-05-26T16:26:57&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">十年来全球最热门歌曲 世界榜2008-2017 总榜TOP100 100.Stressed Out —— Twenty One Pilots 99.One More Night ——……</summary>
@@ -27181,7 +27181,7 @@ cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
             <published>2020-05-08T17:12:22&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Client Library与roscpp roscpp ROS的C++库，是目前最广泛应用的ROS客户端库，……</summary>
@@ -27517,7 +27517,7 @@ int32 nsec
             <published>2020-05-08T15:40:58&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ROS小结 因为ROS之前有段时间没有用 有些生疏 再加上之前掌握的不好 利用教程重新巩固一……</summary>
@@ -27755,7 +27755,7 @@ install&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;                &lt;span cla
             <published>2020-05-03T11:13:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Git常用命令参考手册 目录 配置 初始化本地仓库 文件状态 日志 克隆 查看分支 切换分支 创建分支……</summary>
@@ -28410,7 +28410,7 @@ git rm -r --cached .
             <published>2020-04-29T19:08:07&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Bash的基本语法 1.echo命令 echo命令的作用是在屏幕输出一行文本 1 2 $ echo hello hello……</summary>
@@ -30146,7 +30146,7 @@ $ bash demo.sh
             <published>2020-04-29T14:50:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">TFRecords文件的生成和读取方法 TFRecords是一种tensorflow的……</summary>
@@ -30546,7 +30546,7 @@ features={
             <published>2020-04-25T11:25:34&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">导数常见性质 基本函数的导数 常数函数c导数为0,如y=2函数导数 $ {y}$&#39;= 0 线性函数 y = a *……</summary>
@@ -30627,7 +30627,7 @@ features={
             <published>2020-04-24T16:23:02&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">人生第一个100公路 3月份腰部韧带拉伤 恢复后决定减体重 四月份目标超过100公里,已经……</summary>
@@ -30688,7 +30688,7 @@ features={
             <published>2020-04-21T10:42:06&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">训练模型的3种方法 模型的训练主要有 内置fit方法 内置tran_on_batch方法 自……</summary>
@@ -31280,7 +31280,7 @@ model = compile_model(model)
             <published>2020-04-21T09:58:31&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">构建模型的3种方法 可以使用以下3种方法构建模型: Sequential按层顺序构建模型……</summary>
@@ -31744,7 +31744,7 @@ history = model.fit(ds_train,validation_data = ds_test,epochs = 6,callbacks=[ten
             <published>2020-04-20T15:36:52&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">数据管道Dataset 如果需要训练的数据大小不大，例如不到1G，那么可以直接全部读入……</summary>
@@ -32503,7 +32503,7 @@ history = model.fit(ds_train,validation_data = ds_test,epochs = 6,callbacks=[ten
             <published>2020-04-20T11:26:44&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Autograph机制小结 有三种计算图的构建方式：静态计算图，动态计算图，以及Aut……</summary>
@@ -33209,7 +33209,7 @@ history = model.fit(ds_train,validation_data = ds_test,epochs = 6,callbacks=[ten
             <published>2020-04-20T08:34:19&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">张量的数学运算 张量结构操作诸如：张量创建，索引切片，维度变换，合并分割。 张量数学运算……</summary>
@@ -33890,7 +33890,7 @@ history = model.fit(ds_train,validation_data = ds_test,epochs = 6,callbacks=[ten
             <published>2020-04-18T15:00:02&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">张量的结构操作 张量的操作主要包括张量的结构操作和张量的数学运算. 张量结构操作诸如:张……</summary>
@@ -34496,7 +34496,7 @@ tf.split(c,3,axis = 0)  #指定分割份数，平均分割
             <published>2020-04-18T11:02:20&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Python @函数装饰器及用法 假设用 funA() 函数装饰器去装饰 funB() 函数，如下所示： 1 2 3 4 5 6 7 8 9 #funA 作……</summary>
@@ -34817,7 +34817,7 @@ foo
             <published>2020-04-15T16:57:25&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C语言结构体小结 **关于结构体 ** 把一些相关的变量组合起来,以一个整体形式对对象进行描……</summary>
@@ -35455,7 +35455,7 @@ p-&amp;gt;cName&lt;/p&gt;
             <published>2020-04-14T16:31:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">指针函数与函数指针(C语言) 1.指针函数 int *f(int a,int b); //返回值为int *,指针类型的返回……</summary>
@@ -35580,7 +35580,7 @@ int main()
             <published>2020-04-11T09:08:56&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">TensorFlow之estimator详解 Estimator初识 框架结构 在介绍Es……</summary>
@@ -35867,7 +35867,7 @@ train_op = optimizer.minimize(loss,global_step=tf.train.get_global_step())
             <published>2020-04-09T16:36:23&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Hugo搭建私人博客 安装Hugo，安装比较简单，因为我的Mac电脑，使用Homebr……</summary>
@@ -35937,7 +35937,7 @@ echo &#39;theme = &amp;quot;ananke&amp;quot;&#39; &amp;gt;&amp;gt; config.toml
             <published>2020-04-09T15:45:00&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C++ const 关键字小结 const 是 constant 的缩写，本意是不变的，不易改变的意思。在 C++ 中是用来修饰内置类型变……</summary>
@@ -36198,7 +36198,7 @@ int main(void)
             <published>2020-04-09T09:25:20&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Mxnet 笔记 MXnet中利用NDArray作为存储和变换数据的主要工具 NDArray提供了……</summary>
@@ -36275,7 +36275,7 @@ int main(void)
             <published>2020-04-09T09:07:02&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Qt 之路 Qt 涉及的术语和名词 Project Project 的中文翻译是“项目”或者“工程”，这里的项目是指为实现某……</summary>
@@ -37569,7 +37569,7 @@ UDP广播只能在局域网范围内使用&lt;/p&gt;
             <published>2020-04-09T01:16:59&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">detecter 参考yolo评价 mAP(mean Averge Precision) 作为object detection中衡量检测精度的指标 &amp;gt;45% FPS(Frames Per……</summary>
@@ -37642,7 +37642,7 @@ UDP广播只能在局域网范围内使用&lt;/p&gt;
             <published>2020-04-09T00:46:40&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Git 使用中的一些记录 今年需要输出一下相关的内容 准备用github托管一下 所以准备在gi……</summary>
@@ -37744,7 +37744,7 @@ $ git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first commit&amp;#34;&lt
             <published>2020-04-08T23:52:51&#43;08:00</published>
             <author>
                     <name>chenbokai</name>
-                    <uri>https://chenbokai.work</uri>
+                    <uri>https://chenbokai.asia</uri>
                     <email>chenbokais3@gmail.com</email>
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">利用hugo搭建博客 并挂载github pages 利用chenbokai.run 域名挂博客 算是……</summary>
