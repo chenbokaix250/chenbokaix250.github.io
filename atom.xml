@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">不那么乐的世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2023-03-04T00:18:35&#43;08:00</updated>
+    <updated>2023-03-12T01:17:10&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,314 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">TensorRT咨询Chatgpt</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/tensorrt%E5%92%A8%E8%AF%A2chatgpt/" />
+            <id>https://chenbokaix250.github.io/tech/tensorrt%E5%92%A8%E8%AF%A2chatgpt/</id>
+            <updated>2023-03-12T01:16:36&#43;08:00</updated>
+            <published>2023-03-12T00:53:50&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.asia</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">TensorRT全栈开发的步骤与接口 1. 介绍一个tensorrt全栈的开发及步骤 Ten……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;tensorrt全栈开发的步骤与接口&#34;&gt;TensorRT全栈开发的步骤与接口&lt;/h1&gt;
+&lt;h2 id=&#34;1-介绍一个tensorrt全栈的开发及步骤&#34;&gt;1. 介绍一个tensorrt全栈的开发及步骤&lt;/h2&gt;
+&lt;p&gt;TensorRT是英伟达推出的用于高性能深度学习推理的优化器和推理引擎。它可以将深度学习模型转换为高效的计算图，从而提高模型的推理性能。TensorRT的全栈开发主要包括以下步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;准备模型：选择需要部署的深度学习模型，并将其转换为可用于TensorRT的格式，如Caffe、ONNX、TensorFlow等。可以使用TensorRT提供的工具，如TensorRT Parser API和ONNX-TensorRT等，来将模型转换为TensorRT可用的格式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;优化模型：使用TensorRT的优化器来优化模型，以提高推理性能。TensorRT的优化器会自动将计算图转换为高效的计算图，同时还可以进行层融合、减少精度等操作，以进一步提高性能。TensorRT还支持自定义插件，可以使用插件来实现一些特定的操作，如卷积等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部署模型：将优化后的模型部署到目标平台上，可以使用TensorRT的C++ API或Python API进行部署。在部署过程中，需要设置输入和输出张量的维度，以及设置推理的batch size等参数。可以使用TensorRT提供的Profiler API来对推理过程进行性能分析。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;集成模型：将部署好的模型集成到应用程序中。可以使用TensorRT提供的TensorRT Inference Server来构建和管理深度学习推理服务，或使用TensorRT的插件来将模型集成到现有的推理框架中，如TensorFlow Serving、PyTorch Serving等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;需要注意的是，TensorRT全栈开发需要对深度学习模型、计算图优化、推理引擎等方面都有一定的了解和经验。同时，也需要熟悉C++或Python等编程语言。&lt;/p&gt;
+&lt;h2 id=&#34;2-用caffe-tensorflow-pytorch训练的模型-在转换后-部署是没有差异的么&#34;&gt;2. 用caffe tensorflow pytorch训练的模型 在转换后 部署是没有差异的么&lt;/h2&gt;
+&lt;p&gt;在使用TensorRT进行深度学习模型的优化和部署时，不同的深度学习框架的模型转换和部署步骤略有不同，但总体上可以使用TensorRT Parser API和ONNX-TensorRT等工具将各种深度学习框架训练出的模型转换为TensorRT可用的格式，然后使用TensorRT的C++ API或Python API进行部署。因此，在使用TensorRT进行深度学习模型的优化和部署时，各种深度学习框架的模型在转换后，基本上是没有差异的。&lt;/p&gt;
+&lt;p&gt;需要注意的是，不同深度学习框架的模型在转换为TensorRT可用的格式时，可能需要进行一些框架特定的操作，如caffe模型需要进行caffe模型文件(.prototxt)和caffe模型权重文件(.caffemodel)的转换，而TensorFlow模型需要进行Frozen Graph的转换等。另外，由于TensorRT在计算图优化和推理引擎方面的优化策略和实现细节有所不同，因此不同框架训练的模型在经过TensorRT优化后，可能会存在一定的性能差异。&lt;/p&gt;
+&lt;h2 id=&#34;3-以minist为例子-介绍pytorch开发模型后-在orin平台部署的步骤&#34;&gt;3. 以minist为例子 介绍pytorch开发模型后 在orin平台部署的步骤&lt;/h2&gt;
+&lt;p&gt;MINIST是一个手写数字识别数据集，可以用来训练图像分类模型。在PyTorch中，我们可以使用torchvision库来加载MINIST数据集并构建模型。在训练完模型后，我们需要将其部署到某个平台上，以便可以在生产环境中使用。在这里，我将介绍将PyTorch模型部署到ONNX Runtime（Orin）平台的步骤。&lt;/p&gt;
+&lt;p&gt;步骤一：训练模型&lt;/p&gt;
+&lt;p&gt;首先，我们需要在PyTorch中训练一个MINIST分类模型。这可以通过以下步骤完成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;加载MINIST数据集&lt;/li&gt;
+&lt;li&gt;定义模型架构&lt;/li&gt;
+&lt;li&gt;定义损失函数和优化器&lt;/li&gt;
+&lt;li&gt;训练模型&lt;/li&gt;
+&lt;li&gt;保存训练好的模型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一个简单的示例代码如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import torch
+import torchvision
+import torchvision.transforms as transforms
+
+# 加载MINIST数据集
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.1307,), (0.3081,))])
+
+trainset = torchvision.datasets.MNIST(root=&#39;./data&#39;, train=True,
+                                        download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=64,
+                                          shuffle=True, num_workers=2)
+
+testset = torchvision.datasets.MNIST(root=&#39;./data&#39;, train=False,
+                                       download=True, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=64,
+                                         shuffle=False, num_workers=2)
+
+# 定义模型架构
+class Net(torch.nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = torch.nn.Conv2d(1, 6, 5)
+        self.pool = torch.nn.MaxPool2d(2, 2)
+        self.conv2 = torch.nn.Conv2d(6, 16, 5)
+        self.fc1 = torch.nn.Linear(16 * 4 * 4, 120)
+        self.fc2 = torch.nn.Linear(120, 84)
+        self.fc3 = torch.nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = self.pool(torch.nn.functional.relu(self.conv1(x)))
+        x = self.pool(torch.nn.functional.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 4 * 4)
+        x = torch.nn.functional.relu(self.fc1(x))
+        x = torch.nn.functional.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+# 定义损失函数和优化器
+net = Net()
+criterion = torch.nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+# 训练模型
+for epoch in range(10):  # 迭代10次
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        inputs, labels = data
+        optimizer.zero_grad()
+        outputs = net(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+        running_loss += loss.item()
+        if i % 100 == 99:  # 每100个batch输出一次loss
+            print(&#39;[%d, %5d] loss
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;步骤二：将PyTorch模型转换为ONNX格式&lt;/p&gt;
+&lt;p&gt;一旦我们在PyTorch中训练好了模型，我们需要将它转换为ONNX格式，以便在ONNX Runtime（Orin）平台上运行。ONNX是一种跨平台、开放标准的神经网络框架，可以在多个框架之间转换模型，例如TensorFlow、Caffe和PyTorch等。&lt;/p&gt;
+&lt;p&gt;我们可以使用torch.onnx.export函数将PyTorch模型转换为ONNX格式。该函数需要指定输入张量的形状、模型的输出张量名称以及要保存的文件名。&lt;/p&gt;
+&lt;p&gt;以下是将MINIST分类模型转换为ONNX格式的示例代码：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 将PyTorch模型转换为ONNX格式
+dummy_input = torch.randn(1, 1, 28, 28)
+input_names = [&#39;input&#39;]
+output_names = [&#39;output&#39;]
+torch.onnx.export(net, dummy_input, &#39;minist.onnx&#39;, verbose=True, input_names=input_names, output_names=output_names)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;步骤三：在ONNX Runtime（Orin）平台上部署模型&lt;/p&gt;
+&lt;p&gt;一旦我们已经将PyTorch模型转换为ONNX格式，我们可以在ONNX Runtime（Orin）平台上部署它。在此之前，我们需要安装ONNX Runtime（Orin）库并将ONNX模型加载到运行时中。&lt;/p&gt;
+&lt;p&gt;以下是将MINIST分类模型部署到ONNX Runtime（Orin）平台的示例代码：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import onnxruntime as ort
+
+# 加载ONNX模型
+ort_session = ort.InferenceSession(&#39;minist.onnx&#39;)
+
+# 测试模型
+inputs = {ort_session.get_inputs()[0].name: testset[0][0].numpy()}
+outputs = ort_session.run(None, inputs)
+predicted = np.argmax(outputs)
+print(&#39;Prediction:&#39;, predicted)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在此示例中，我们首先使用onnxruntime.InferenceSession函数加载ONNX模型，然后使用get_inputs函数获取模型的输入张量，用numpy数组作为输入，然后使用run函数在模型上运行推理并获取输出结果。最后，我们使用numpy.argmax函数获取预测结果并将其打印出来。&lt;/p&gt;
+&lt;p&gt;这就是将PyTorch模型部署到ONNX Runtime（Orin）平台的步骤。在实际应用中，我们可能需要对部署过程进行更多的调试和优化，以确保模型在生产环境中能够正常工作。&lt;/p&gt;
+&lt;h2 id=&#34;4-使用c实现pytorch在平台上部署mnist&#34;&gt;4. 使用c++实现pytorch在平台上部署mnist&lt;/h2&gt;
+&lt;p&gt;要在 C++ 中使用 ONNX Runtime（Orin）运行转换后的 PyTorch 模型，需要按照以下步骤进行操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装 ONNX Runtime（Orin）库
+可以通过官方网站下载并安装适用于您的操作系统和硬件的 ONNX Runtime（Orin）库。或者，您可以使用适用于 C++ 的预编译库或源代码来构建和安装 ONNX Runtime（Orin）库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加载 ONNX 模型
+ONNX Runtime（Orin）支持在 C++ 中加载和运行 ONNX 格式的模型。可以使用 Ort::Env 和 Ort::Session 类来加载和运行模型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面是加载 MINIST 分类模型的示例代码：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;onnxruntime_cxx_api.h&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+int main() {
+    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, &amp;quot;test&amp;quot;);
+    Ort::Session session(env, &amp;quot;minist.onnx&amp;quot;, Ort::SessionOptions{nullptr});
+
+    Ort::AllocatorWithDefaultOptions allocator;
+
+    // 获取输入张量
+    const char* inputName = session.GetInputName(0, allocator);
+    Ort::TypeInfo inputTypeInfo = session.GetInputTypeInfo(0);
+    auto inputTensorInfo = inputTypeInfo.GetTensorTypeAndShapeInfo();
+
+    // 创建输入张量
+    std::vector&amp;lt;int64_t&amp;gt; inputDims = {1, 1, 28, 28};
+    std::vector&amp;lt;float&amp;gt; inputValues(1 * 1 * 28 * 28);
+    auto memoryInfo = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
+    auto inputTensor = Ort::Value::CreateTensor&amp;lt;float&amp;gt;(memoryInfo, inputValues.data(), inputValues.size(), inputDims.data(), inputDims.size());
+
+    // 获取输出张量
+    const char* outputName = session.GetOutputName(0, allocator);
+    Ort::TypeInfo outputTypeInfo = session.GetOutputTypeInfo(0);
+    auto outputTensorInfo = outputTypeInfo.GetTensorTypeAndShapeInfo();
+
+    // 运行模型
+    Ort::RunOptions runOptions;
+    auto outputValues = session.Run(runOptions, &amp;amp;inputName, &amp;amp;inputTensor, 1, &amp;amp;outputName, 1);
+    auto outputTensor = outputValues.front().Get&amp;lt;Tensor&amp;gt;();
+
+    // 获取预测结果
+    std::vector&amp;lt;float&amp;gt; outputData(outputTensorInfo.GetElementCount());
+    outputTensor.CopyTo(outputData.data(), outputData.size() * sizeof(float));
+    int prediction = std::distance(outputData.begin(), std::max_element(outputData.begin(), outputData.end()));
+    std::cout &amp;lt;&amp;lt; &amp;quot;Prediction: &amp;quot; &amp;lt;&amp;lt; prediction &amp;lt;&amp;lt; std::endl;
+    
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;运行模型并获取预测结果
+在 C++ 中运行模型的过程与在 Python 中运行模型类似，需要将输入张量传递给模型，然后获取模型的输出张量并将其转换为适当的格式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在上面的示例代码中，我们首先获取输入张量的名称和类型信息，然后创建一个新的输入张量，设置其形状和数据，并将其传递给模型。接下来，我们获取输出张量的名称和类型信息，运行模型并获取输出张量的值。最后，我们使用 std::max_element 函数查找输出张量中最大值所在的索引，并将其作为预测结果返回。&lt;/p&gt;
+&lt;p&gt;请注意，上面的示例代码仅适用于输入为大小为 28x28 的灰度图像，并且假定输入和输出张量均为浮点型。如果您的模型具有不同的输入或输出形状或数据类型，请相应地更改示例代码。&lt;/p&gt;
+&lt;p&gt;编译并运行 C++ 代码
+在将 C++ 代码与 ONNX Runtime（Orin）库链接之前，需要将 ONNX Runtime（Orin）头文件和库添加到编译器的搜索路径中。使用适当的编译器选项将 C++ 代码与 ONNX Runtime（Orin）库链接，并生成可执行文件。&lt;/p&gt;
+&lt;p&gt;在 Linux 系统上，可以使用以下命令编译 C++ 代码：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;g++ -std=c++11 -I /path/to/onnxruntime/include -L /path/to/onnxruntimelib -l onnxruntime_cxx -l onnxruntime_framework mnist.cpp -o mnist&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在 Windows 系统上，可以使用以下命令编译 C++ 代码：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cl.exe /EHsc /I C:\path\to\onnxruntime\include /link /LIBPATH:C:\path\to\onnxruntime\lib onnxruntime.lib onnxruntime_framework.lib mnist.cpp /out:mnist.exe&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;完成编译后，运行生成的可执行文件即可使用训练好的模型进行分类预测。&lt;/p&gt;
+&lt;p&gt;总之，在使用 PyTorch 训练模型并将其导出为 ONNX 格式后，可以使用 ONNX Runtime（Orin）库在 C++ 中加载和运行模型。为了实现此目标，您需要下载并安装适用于您的操作系统和硬件的 ONNX Runtime（Orin）库，并使用 Ort::Env 和 Ort::Session 类加载和运行模型。然后，您可以将 C++ 代码与 ONNX Runtime（Orin）库链接，并生成可执行文件。&lt;/p&gt;
+&lt;h2 id=&#34;34-步骤的代码&#34;&gt;3/4 步骤的代码&lt;/h2&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;加载并运行模型
+在 C++ 代码中加载和运行模型的示例代码如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;onnxruntime_cxx_api.h&amp;gt;
+
+int main() {
+    // 创建 Ort::Env 对象
+    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, &amp;quot;mnist&amp;quot;);
+
+    // 创建 Ort::SessionOptions 对象
+    Ort::SessionOptions session_options;
+    session_options.SetIntraOpNumThreads(1);
+
+    // 加载模型
+    const char* model_path = &amp;quot;mnist.onnx&amp;quot;;
+    Ort::Session session(env, model_path, session_options);
+
+    // 获取模型的输入和输出名称、形状和数据类型
+    std::vector&amp;lt;const char*&amp;gt; input_names = session.GetInputNames();
+    std::vector&amp;lt;const char*&amp;gt; output_names = session.GetOutputNames();
+    Ort::TypeInfo input_type_info = session.GetInputTypeInfo(0);
+    Ort::TypeInfo output_type_info = session.GetOutputTypeInfo(0);
+    auto input_tensor_info = input_type_info.GetTensorTypeAndShapeInfo();
+    auto output_tensor_info = output_type_info.GetTensorTypeAndShapeInfo();
+    std::vector&amp;lt;int64_t&amp;gt; input_shape = input_tensor_info.GetShape();
+    std::vector&amp;lt;int64_t&amp;gt; output_shape = output_tensor_info.GetShape();
+    ONNXTensorElementDataType input_type = input_tensor_info.GetElementType();
+    ONNXTensorElementDataType output_type = output_tensor_info.GetElementType();
+
+    // 分配输入和输出张量的内存
+    size_t input_tensor_size = 1;
+    size_t output_tensor_size = 1;
+    for (const auto&amp;amp; dim : input_shape) {
+        input_tensor_size *= dim;
+    }
+    for (const auto&amp;amp; dim : output_shape) {
+        output_tensor_size *= dim;
+    }
+    std::vector&amp;lt;float&amp;gt; input_data(input_tensor_size);
+    std::vector&amp;lt;float&amp;gt; output_data(output_tensor_size);
+
+    // 初始化输入张量
+    // 假设输入张量为大小为 28x28 的灰度图像，其中每个像素的值在 [0, 1] 之间
+    // input_data 为大小为 784 的一维数组，其中每个元素的值在 [0, 1] 之间
+    // 如果输入张量有不同的形状或数据类型，请相应地更改此代码
+    // 如果输入数据不在 [0, 1] 范围内，需要进行归一化或缩放处理
+    for (size_t i = 0; i &amp;lt; input_tensor_size; ++i) {
+        input_data[i] = i / static_cast&amp;lt;float&amp;gt;(input_tensor_size);
+    }
+
+    // 创建 Ort::Value 对象以表示输入和输出张量
+    Ort::MemoryInfo memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeDefault);
+    Ort::Value input_tensor = Ort::Value::CreateTensor&amp;lt;float&amp;gt;(memory_info, input_data.data(), input_tensor_size, input_shape.data(), input_shape.size());
+    Ort::Value output_tensor = Ort::Value::CreateTensor&amp;lt;float&amp;gt;(memory_info, output_data.data(), output_tensor_size, output_shape.data(), output_shape.size());
+
+    // 运行模型
+    std::vector&amp;lt;Ort::Value&amp;gt; input_tensors = {input_tensor};
+    std::vector&amp;lt;Ort::Value&amp;gt; output_tensors = {output_tensor};
+    session.Run(Ort::RunOptions{}, input_names.data(), input_tensors.data(), input_names
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;解析模型输出
+在 C++ 代码中解析模型输出的示例代码如下：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    // 获取模型的输出
+    float* output_data_ptr = output_tensor.GetTensorMutableData&amp;lt;float&amp;gt;();
+    std::vector&amp;lt;float&amp;gt; output_data(output_data_ptr, output_data_ptr + output_tensor_size);
+
+    // 输出模型的输出
+    // 假设模型的输出是 10 个类别的概率值
+    // 需要将输出概率值最大的类别作为预测结果
+    // 如果输出数据不是一维数组或不是浮点数，请相应地更改此代码
+    int predicted_class = -1;
+    float max_probability = -1.0f;
+    for (int i = 0; i &amp;lt; output_tensor_size; ++i) {
+        if (output_data[i] &amp;gt; max_probability) {
+            predicted_class = i;
+            max_probability = output_data[i];
+        }
+    }
+    std::cout &amp;lt;&amp;lt; &amp;quot;Predicted class: &amp;quot; &amp;lt;&amp;lt; predicted_class &amp;lt;&amp;lt; std::endl;
+
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该代码从输出张量中获取浮点数数组，并找到最大值所在的索引作为预测结果。如果输出数据不是一维数组或不是浮点数，则需要相应地更改该代码。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;cahtgpt查找和记录&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">更换域名中的事项</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/life/%E6%9B%B4%E6%8D%A2%E5%9F%9F%E5%90%8D%E4%B8%AD%E7%9A%84%E4%BA%8B%E9%A1%B9/" />
