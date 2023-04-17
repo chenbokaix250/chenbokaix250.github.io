@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://chenbokaix250.github.io/tech/</loc>
-    <lastmod>2023-03-12T01:16:36+08:00</lastmod>
+    <loc>https://chenbokaix250.github.io/tech/c&#43;&#43;acm%E6%A8%A1%E5%BC%8F%E6%94%BB%E7%95%A5/</loc>
+    <lastmod>2023-04-17T23:01:58+08:00</lastmod>
   </url><url>
-    <loc>https://chenbokaix250.github.io/tech/tensorrt%E5%92%A8%E8%AF%A2chatgpt/</loc>
-    <lastmod>2023-03-12T01:16:36+08:00</lastmod>
+    <loc>https://chenbokaix250.github.io/tech/</loc>
+    <lastmod>2023-04-17T23:01:58+08:00</lastmod>
   </url><url>
     <loc>https://chenbokaix250.github.io/</loc>
-    <lastmod>2023-03-12T01:16:36+08:00</lastmod>
+    <lastmod>2023-04-17T23:01:58+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,6 +20,9 @@
                 hreflang="zh"
                 href="https://chenbokaix250.github.io/"
                 />
+  </url><url>
+    <loc>https://chenbokaix250.github.io/tech/tensorrt%E5%92%A8%E8%AF%A2chatgpt/</loc>
+    <lastmod>2023-03-12T01:16:36+08:00</lastmod>
   </url><url>
     <loc>https://chenbokaix250.github.io/life/</loc>
     <lastmod>2023-03-04T00:18:15+08:00</lastmod>
