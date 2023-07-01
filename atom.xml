@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">不那么乐的世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2023-04-17T23:02:56&#43;08:00</updated>
+    <updated>2023-07-02T01:41:15&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,61 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">毕业十年</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/%E6%AF%95%E4%B8%9A%E5%8D%81%E5%B9%B4/" />
+            <id>https://chenbokaix250.github.io/tech/%E6%AF%95%E4%B8%9A%E5%8D%81%E5%B9%B4/</id>
+            <updated>2023-07-02T01:40:50&#43;08:00</updated>
+            <published>2023-07-02T01:17:13&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.asia</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">毕业十年 2013年7月1日 -- 2023年7月1日 毕业十年了 从23岁到33岁 一切快速 急迫……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;毕业十年&#34;&gt;毕业十年&lt;/h1&gt;
+&lt;p&gt;2013年7月1日 -- 2023年7月1日&lt;/p&gt;
+&lt;p&gt;毕业十年了 从23岁到33岁&lt;/p&gt;
+&lt;p&gt;一切快速 急迫 恍然间已经从青年到了中年&lt;/p&gt;
+&lt;p&gt;依稀记着从入职陕汽那天的场景&lt;/p&gt;
+&lt;p&gt;生活从一个人到两个人再到三个人&lt;/p&gt;
+&lt;p&gt;生活在慢慢变好 从第一个月的工资1999 到现在能翻10倍&lt;/p&gt;
+&lt;p&gt;家人都好 朋友们都好 一切都在往好的方向发展 工作 生活 等等&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;有的记忆清晰 有的记忆模糊&lt;/p&gt;
+&lt;p&gt;工作 从总装-&amp;gt;研究院-&amp;gt;进出口-&amp;gt;技术部-&amp;gt;研究院 一呆就是7年 然后又来了比亚迪&lt;/p&gt;
+&lt;p&gt;生活 从蓝领公寓到水榭花都 又到半坡 6年 又搬到御锦城幸福树&lt;/p&gt;
+&lt;p&gt;一辆雷凌双擎17年开到现在15万公里 点点滴滴 唏嘘来往&lt;/p&gt;
+&lt;p&gt;Dota2从中国独大到最服最菜&lt;/p&gt;
+&lt;p&gt;整个汽车行业从德日美到新能源特斯拉比亚迪的起来&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;从新出发 延续当前的局面&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加油 小凯!!!&lt;/strong&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">C&#43;&#43;ACM模式攻略</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/c&#43;&#43;acm%E6%A8%A1%E5%BC%8F%E6%94%BB%E7%95%A5/" />
