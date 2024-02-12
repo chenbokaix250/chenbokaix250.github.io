@@ -23,10 +23,348 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Tue, 13 Feb 2024 00:50:29 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 13 Feb 2024 01:01:02 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Uds初步</title>
+                <link>https://chenbokaix250.github.io/tech/uds%E5%88%9D%E6%AD%A5/</link>
+                <guid isPermaLink="true">https://chenbokaix250.github.io/tech/uds%E5%88%9D%E6%AD%A5/</guid>
+                <pubDate>Tue, 13 Feb 2024 00:59:22 &#43;0800</pubDate>
+                
+                    <author>chenbokais3@gmail.com (chenbokai)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h1 id=&#34;uds学习记录&#34;&gt;uds学习记录&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;p&gt;诊断系统是在汽车维修和故障排除过程中至关重要的工具之一。以下是UDS（Unified Diagnostic Services）汽车诊断的一些要点总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;UDS概述：UDS是一种汽车诊断协议，用于在车辆电子控制单元（ECU）和诊断工具之间进行通信。它定义了一组服务和消息，用于执行诊断、读取和写入数据以及执行特定功能。&lt;/li&gt;
+&lt;li&gt;诊断会话：UDS支持多种诊断会话，如默认会话（Default Session）、扩展会话（Extended Session）和制造商特定会话（Manufacturer Specific Session）。每种会话都有不同的权限和功能。&lt;/li&gt;
+&lt;li&gt;诊断服务：UDS定义了一组诊断服务，用于执行特定的操作。一些常见的诊断服务包括诊断控制（Diagnostic Control）、读取数据（Read Data）、写入数据（Write Data）、执行操作（Routine Control）和清除故障码（Clear Diagnostic Information）等。&lt;/li&gt;
+&lt;li&gt;诊断通信：UDS使用基于ISO 15765-2的标准诊断通信协议，通常通过CAN总线进行通信。诊断工具可以向车辆的ECU发送诊断请求，并接收相应的响应消息。&lt;/li&gt;
+&lt;li&gt;诊断标识符：UDS使用标识符（Identifier）来识别和访问ECU的不同数据和服务。每个诊断标识符都对应着特定的操作或数据。&lt;/li&gt;
+&lt;li&gt;诊断故障码：UDS支持诊断故障码（Diagnostic Trouble Codes，DTCs），用于识别和报告车辆系统中的故障。故障码提供了有关故障类型、位置和严重性的信息，以帮助诊断和排除故障。&lt;/li&gt;
+&lt;li&gt;诊断工具：UDS诊断工具可以是专用的汽车诊断仪、OBD-II扫描仪或计算机上的诊断软件。这些工具通过与车辆的ECU进行通信，执行诊断服务并获取诊断结果。&lt;/li&gt;
+&lt;li&gt;安全性和权限：UDS定义了不同级别的安全性和权限，以确保只有授权的诊断工具才能访问和执行特定的诊断操作。这有助于防止未经授权的访问和潜在的安全风险。&lt;/li&gt;
+&lt;li&gt;制造商特定扩展：UDS协议允许制造商在标准服务和数据之外定义自己的特定扩展。这些扩展可以包括制造商特定的诊断服务、数据和故障码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;UDS是一种广泛应用于现代汽车诊断的标准协议，它提供了一种标准化的方式来执行诊断操作并获取车辆系统的信息。通过使用UDS，诊断工程师可以更有效地检测和解决汽车故障，提高车辆维修的准确性和效率。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;DOIP（Diagnostics Over Internet Protocol）是一种基于IP网络的汽车诊断通信协议，它用于在车辆电子控制单元（ECU）和诊断工具之间进行远程诊断和编程操作。以下是DOIP的一些要点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;概述：DOIP是一种用于汽车诊断的协议，它基于现有的IP网络技术，如以太网和TCP/IP协议。它旨在提供高速、安全和可靠的远程诊断通信。&lt;/li&gt;
+&lt;li&gt;IP网络通信：DOIP使用IP网络进行通信，可以利用现有的以太网基础设施，包括局域网（LAN）和互联网。这使得远程诊断和编程操作变得更加灵活和便捷。&lt;/li&gt;
+&lt;li&gt;诊断通信：DOIP通过建立TCP/IP连接来进行诊断通信。诊断工具可以通过该连接向车辆的ECU发送诊断请求，并接收相应的响应消息。&lt;/li&gt;
+&lt;li&gt;网络安全：由于DOIP是基于IP网络的，网络安全成为一个重要的考虑因素。为了确保安全性，DOIP协议支持加密和身份验证等安全机制，以防止未经授权的访问和潜在的安全风险。&lt;/li&gt;
+&lt;li&gt;多路复用：DOIP协议支持在单个IP连接上进行多个诊断会话。这意味着诊断工具可以同时与多个ECU进行通信，从而提高了诊断操作的效率和并行性。&lt;/li&gt;
+&lt;li&gt;支持标准诊断协议：DOIP并不是一种独立的诊断协议，而是与其他诊断协议（如UDS）配合使用。DOIP提供了基于IP网络的传输层，使得现有的诊断协议可以在IP网络上运行。&lt;/li&gt;
+&lt;li&gt;远程编程：DOIP的一项重要功能是支持远程编程操作。通过DOIP，制造商可以远程更新ECU的软件和配置，而无需实际物理接触车辆。&lt;/li&gt;
+&lt;li&gt;标准化：DOIP的标准化工作由国际汽车工程师协会（SAE）负责。SAE J1939-22标准定义了DOIP的基本规范和要求。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;DOIP的引入使得汽车诊断和编程可以更灵活、高效，并提供了更大的远程访问能力。它为制造商和诊断工程师提供了一种现代化的方式来进行远程诊断和编程操作，为汽车维修和故障排除带来了许多便利和效益。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;概述&#34;&gt;概述&lt;/h1&gt;
+&lt;p&gt;DOIP是一种用于汽车诊断的协议，它基于现有的IP网络技术，如以太网和TCP/IP协议。它旨在提供高速、安全和可靠的远程诊断通信。&lt;/p&gt;
+&lt;p&gt;DOIP是对uds的加强&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;诊断网络架构&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;连接要求&#34;&gt;连接要求&lt;/h1&gt;
+&lt;h2 id=&#34;通信协议&#34;&gt;通信协议&lt;/h2&gt;
+&lt;h3 id=&#34;报文封装&#34;&gt;报文封装&lt;/h3&gt;
+&lt;p&gt;ETH + IP + TCP + DoIP + UDS&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;端口号:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TCP端口号 13400(加密) 3496(不加密)&lt;/p&gt;
+&lt;p&gt;UPD端口号 13400&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DOIP报文格式&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;0---------------------7---------------------15---------------------31---------------------63---------------------N&lt;/p&gt;
+&lt;p&gt;协议版本号           版本号取反			负载类型		负载长度(DoIP数据)	DoIP数据&lt;/p&gt;
+&lt;h4 id=&#34;doip首部&#34;&gt;DoIP首部&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;协议版本号:DoIP协议版本号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;0x01 -0x03 2010/2012/2019
+0x04-0xFE  预留
+0xFF     车辆识别请求报文默认值&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;版本号取反: 对版本号进行校验   eg:0x03----&amp;gt;0xFC&lt;/li&gt;
+&lt;li&gt;负载类型:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;0x0000-0x0008 节点管理类
+0x8001-0x8003 诊断类
+0x4001-0x4004 节点状态类
+其他				  预留&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;负载长度: DoIP的数据部分的长度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;doip首部否定响应报文0x0000&#34;&gt;DoIP首部否定响应报文(0x0000)&lt;/h4&gt;
+&lt;p&gt;02 FD 00 00 00 00 00 01 NACK code&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每个DoIP实体必须支持DoIP首部否定响应&lt;/li&gt;
+&lt;li&gt;每个DoIP实体应该忽略收到的DoIP首部否定响应报文&lt;/li&gt;
+&lt;li&gt;测试仪收到不符合规范的DoIP报文不应该发送首部否定应答&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;p&gt;​		TX: 02 FD 55 55 00 00 00 00&lt;/p&gt;
+&lt;p&gt;​		RX: 02 FD 00 00 00 00 00 01&lt;/p&gt;
+&lt;h4 id=&#34;车辆信息请求报文&#34;&gt;车辆信息请求报文&lt;/h4&gt;
+&lt;p&gt;TX: 02 FD 00 01&lt;/p&gt;
+&lt;p&gt;RX: 02 FD 00 04 32(+1)  负载数据&lt;/p&gt;
+&lt;p&gt;负载数据:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;th&gt;位置&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;长度&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;VIN&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Logic Address&lt;/td&gt;
+&lt;td&gt;17&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EID&lt;/td&gt;
+&lt;td&gt;19&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GID&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Futher action required&lt;/td&gt;
+&lt;td&gt;31&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VIN/GID sync Status&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;p&gt;TX: 03 FC     00 03    00 00 00 11     40 00 ---------------17--------------40 00&lt;/p&gt;
+&lt;p&gt;RX: 03 FC     00 04    00 00 00 20     +&lt;/p&gt;
+&lt;p&gt;​		40 00 ---------------17--------------40 00     (VIN)&lt;/p&gt;
+&lt;p&gt;​		00 20 														(LA)&lt;/p&gt;
+&lt;p&gt;​		00 00 00 00 00 00									(EID)&lt;/p&gt;
+&lt;p&gt;​		00 00 00 00 00 00									(GID)&lt;/p&gt;
+&lt;h4 id=&#34;路由激活&#34;&gt;路由激活&lt;/h4&gt;
+&lt;p&gt;负载类型 0x0005 负载长度 7(+4)  负载数据 sa + Activation Type + Reserved for ISO + Reserved forOEM&lt;/p&gt;
+&lt;h4 id=&#34;路由激活响应&#34;&gt;路由激活响应&lt;/h4&gt;
+&lt;p&gt;负载类型 0x0006 负载长度 9(+4) 负载数据 ta + sa + &lt;strong&gt;Routing Activation respond code&lt;/strong&gt; + reserved for ISO + Resered for OEM&lt;/p&gt;
+&lt;h3 id=&#34;在线检测&#34;&gt;在线检测&lt;/h3&gt;
+&lt;p&gt;DoIP实体主动发送&lt;/p&gt;
+&lt;p&gt;02 FD 00 07 00 00 00 00&lt;/p&gt;
+&lt;h4 id=&#34;在线检测响应报文&#34;&gt;在线检测响应报文&lt;/h4&gt;
+&lt;p&gt;02 FD 00 08 00 00 00 02&lt;/p&gt;
+&lt;p&gt;测试仪可以主动发起响应报文&lt;/p&gt;
+&lt;p&gt;测试仪在超时时间(T_TCP_Alive_Check)内未回复响应报文,DoIP实体会关闭socket,断开连接&lt;/p&gt;
+&lt;h3 id=&#34;诊断类报文&#34;&gt;诊断类报文&lt;/h3&gt;
+&lt;p&gt;0x8001 诊断报文&lt;/p&gt;
+&lt;p&gt;0x8002 诊断报文肯定应答&lt;/p&gt;
+&lt;p&gt;0x8003 诊断报文否定应答&lt;/p&gt;
+&lt;h4 id=&#34;诊断报文&#34;&gt;诊断报文&lt;/h4&gt;
+&lt;p&gt;负载类型 0x8001&lt;/p&gt;
+&lt;p&gt;负载长度 4+N&lt;/p&gt;
+&lt;p&gt;负载数据 SA +TA +诊断数据&lt;/p&gt;
+&lt;h4 id=&#34;诊断肯定响应报文&#34;&gt;诊断肯定响应报文&lt;/h4&gt;
+&lt;p&gt;负载类型 0x8002&lt;/p&gt;
+&lt;p&gt;负载长度 5+N&lt;/p&gt;
+&lt;p&gt;负载数据 SA +TA + ACK Code + Previous Diagnostic Message Data&lt;/p&gt;
+&lt;p&gt;诊断否定响应报文&lt;/p&gt;
+&lt;p&gt;负载类型 0x8003&lt;/p&gt;
+&lt;p&gt;负载长度 5+N&lt;/p&gt;
+&lt;p&gt;负载数据 SA+TA+NACK Code + Previous Diagnostic Message Data&lt;/p&gt;
+&lt;p&gt;eg(肯定):&lt;/p&gt;
+&lt;p&gt;TX: 02 FD 80 01 00 00 00 06 00 02 00 21 10 03&lt;/p&gt;
+&lt;p&gt;RX: 02 FD 80 02 00 00 00 05 00 21 00 20 00&lt;/p&gt;
+&lt;p&gt;RX(uds): 02 FD 80 01 00 00 00 0A 00 21 00 20 50 03 01 02 03 04&lt;/p&gt;
+&lt;p&gt;eg(否定):&lt;/p&gt;
+&lt;p&gt;TX: 02 FD 80 01 00 00 00 06 00 30 00 21 10 03&lt;/p&gt;
+&lt;p&gt;RX: 02 FD 80 03 00 00 00 05 00 21 00 30 02&lt;/p&gt;
+&lt;h4 id=&#34;诊断报文发出的步骤&#34;&gt;诊断报文发出的步骤&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;建立连接&lt;/li&gt;
+&lt;li&gt;选择车辆&lt;/li&gt;
+&lt;li&gt;路由激活&lt;/li&gt;
+&lt;li&gt;选择报文的发送&lt;/li&gt;
+&lt;li&gt;连接断开&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;节点状态类报文&#34;&gt;节点状态类报文&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;0x4001 DoIP实体状态请求报文&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;负载类型 0x4001&lt;/p&gt;
+&lt;p&gt;负载长度 0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;0x4002 DoIP实体状态响应报文&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;负载类型: 0x4002&lt;/p&gt;
+&lt;p&gt;负载长度: 3(+4)&lt;/p&gt;
+&lt;p&gt;负载数据:&lt;/p&gt;
+&lt;p&gt;节点类型/最大并发TCP_DATA的连接数量/目前打开的TCP_DATA数量/最大数据存储空间(可选)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;0x4003 诊断电源模式请求&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;负载类型: 0x4003&lt;/p&gt;
+&lt;p&gt;负载长度: 0&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;0x4004 诊断电源模式响应&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;负载类型 0x4004&lt;/p&gt;
+&lt;p&gt;负载长度: 1&lt;/p&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://chenbokaix250.github.io/tech/">tech</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>科室业务分层</title>
+                <link>https://chenbokaix250.github.io/tech/%E7%A7%91%E5%AE%A4%E4%B8%9A%E5%8A%A1%E5%88%86%E5%B1%82/</link>
+                <guid isPermaLink="true">https://chenbokaix250.github.io/tech/%E7%A7%91%E5%AE%A4%E4%B8%9A%E5%8A%A1%E5%88%86%E5%B1%82/</guid>
+                <pubDate>Tue, 13 Feb 2024 00:56:43 &#43;0800</pubDate>
+                
+                    <author>chenbokais3@gmail.com (chenbokai)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;h1 id=&#34;方向认知与开源阅读&#34;&gt;方向认知与开源阅读&lt;/h1&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2 id=&#34;1-业务层次&#34;&gt;1. 业务层次&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2023/12/03/rsVfxTRNPAJZDEU.png&#34; alt=&#34;业务分层.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-获取知识&#34;&gt;2. 获取知识&lt;/h2&gt;
+&lt;p&gt;B站视频入门:&lt;/p&gt;
+&lt;p&gt;​	很多大佬录制视频/文章 需要等待 不够全面&lt;/p&gt;
+&lt;p&gt;​	知识付费严重&lt;/p&gt;
+&lt;p&gt;​chatGPT时代到来&lt;/p&gt;
+&lt;p&gt;使用demo深入:&lt;/p&gt;
+&lt;p&gt;​	demo包括 安装 使用&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;chatGPT编写demo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;开源全盘理解&lt;/p&gt;
+&lt;h2 id=&#34;3-开源代码阅读的方法&#34;&gt;3. 开源代码阅读的方法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;安装 -&amp;gt; 知道他的使用场景&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;readme&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;框架&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实现思路&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;实现细节&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抽离/裁剪核心代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;验证运行&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-找项目&#34;&gt;4. 找项目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;找百科大全 awesome xxx&lt;/li&gt;
+&lt;li&gt;找例子 xxx sample&lt;/li&gt;
+&lt;li&gt;找框架 xxx starter / xxx boilerplate&lt;/li&gt;
+&lt;li&gt;找教程 xxx tutorial&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-新加入的同学宣贯&#34;&gt;5. 新加入的同学宣贯&lt;/h2&gt;
+&lt;h2 id=&#34;51-心得体会&#34;&gt;5.1 心得体会&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;过晚接触(精通)Linux&lt;/li&gt;
+&lt;li&gt;不重视工程/工具/自动化&lt;/li&gt;
+&lt;li&gt;只学习,不产出&lt;/li&gt;
+&lt;li&gt;过于重视编程语言&lt;/li&gt;
+&lt;li&gt;以为技术最重要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;52一个软件的系统演进&#34;&gt;5.2一个软件的系统演进&lt;/h2&gt;
+&lt;p&gt;函数&lt;/p&gt;
+&lt;p&gt;类&lt;/p&gt;
+&lt;p&gt;组件&lt;/p&gt;
+&lt;p&gt;脚本&lt;/p&gt;
+&lt;p&gt;系统&lt;/p&gt;
+&lt;p&gt;分栈/层&lt;/p&gt;
+&lt;p&gt;配置化/标准化/抽象化&lt;/p&gt;
+&lt;p&gt;自动化&lt;/p&gt;
+&lt;p&gt;平台化&lt;/p&gt;
+&lt;p&gt;产品化&lt;/p&gt;
+&lt;p&gt;规模化&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;软件工程的本质是应对规模化所带来的复杂性&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;53-业务与任务&#34;&gt;5.3 业务与任务&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;埋点 / DSSAD / 数据闭环的业务&lt;/li&gt;
+&lt;li&gt;希望同学在开发中承担的角色&lt;/li&gt;
+&lt;li&gt;车云链路&lt;/li&gt;
+&lt;li&gt;品质支撑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;54-开发须知&#34;&gt;5.4 开发须知&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;关于迭代周&lt;/li&gt;
+&lt;li&gt;关于代码规范&lt;/li&gt;
+&lt;li&gt;关于提交&lt;/li&gt;
+&lt;li&gt;关于测试&lt;/li&gt;
+&lt;li&gt;关于bug管理&lt;/li&gt;
+&lt;li&gt;关于交付&lt;/li&gt;
+&lt;li&gt;迭代任务及开发量&lt;/li&gt;
+&lt;li&gt;共同支撑&lt;/li&gt;
+&lt;li&gt;如何在迭代中进步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://chenbokaix250.github.io/tech/">tech</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>Windows深度学习开发环境搭建</title>
