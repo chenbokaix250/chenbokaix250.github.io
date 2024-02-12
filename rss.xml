@@ -23,10 +23,122 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Sun, 02 Jul 2023 02:16:41 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 13 Feb 2024 00:50:29 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://chenbokaix250.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Windows深度学习开发环境搭建</title>
+                <link>https://chenbokaix250.github.io/tech/windows%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+                <guid isPermaLink="true">https://chenbokaix250.github.io/tech/windows%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+                <pubDate>Tue, 13 Feb 2024 00:21:34 &#43;0800</pubDate>
+                
+                    <author>chenbokais3@gmail.com (chenbokai)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&#34;windiws深度学习开发环境搭建&#34;&gt;Windiws深度学习开发环境搭建&lt;/h1&gt;
+&lt;p&gt;记录安装配置过程&lt;/p&gt;
+&lt;h2 id=&#34;1-anaconda安装及相关设置&#34;&gt;1. Anaconda安装及相关设置&lt;/h2&gt;
+&lt;h3 id=&#34;11-下载软件&#34;&gt;1.1 下载软件&lt;/h3&gt;
+&lt;p&gt;需要安装anaconda&lt;/p&gt;
+&lt;h3 id=&#34;12-cmd开发anaconda&#34;&gt;1.2. cmd开发anaconda&lt;/h3&gt;
+&lt;p&gt;存在运行失败的问题 说明环境变量没有设置&lt;/p&gt;
+&lt;p&gt;此电脑-&amp;gt;选择属性-&amp;gt;高级设置-&amp;gt;环境变量
+添加意向三个到PATH：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;D:&lt;span class=&#34;se&#34;&gt;\D&lt;/span&gt;ownload&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;NACONDA
+D:&lt;span class=&#34;se&#34;&gt;\D&lt;/span&gt;ownload&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;NACONDA&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts
+D:&lt;span class=&#34;se&#34;&gt;\D&lt;/span&gt;ownload&lt;span class=&#34;se&#34;&gt;\A&lt;/span&gt;NACONDA&lt;span class=&#34;se&#34;&gt;\S&lt;/span&gt;cripts&lt;span class=&#34;se&#34;&gt;\L&lt;/span&gt;ibrary&lt;span class=&#34;se&#34;&gt;\b&lt;/span&gt;in
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;确保cmd中path显示后设置成功&lt;/p&gt;
+&lt;h3 id=&#34;13-anaconda配置&#34;&gt;1.3. anaconda配置&lt;/h3&gt;
+&lt;p&gt;python输入不成功&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CALL conda.bat activate&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后python或jupyter notebook&lt;/p&gt;
+&lt;p&gt;即可打开&lt;/p&gt;
+&lt;h3 id=&#34;14-安装opencv及更新库&#34;&gt;1.4. 安装opencv及更新库&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;conda update --all
+conda install -c menpo opencv
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;2-windows终端的科学上网&#34;&gt;2. windows终端的科学上网&lt;/h2&gt;
+&lt;p&gt;由于使用clash科学上网
+在windows中使用git工具时 MINGW64无法科学上网 不能&lt;code&gt;git clone&lt;/code&gt;
+需要将代理打上去具体方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git config --global http.proxy 127.0.0.1:7890
+git config --global https.proxy 127.0.0.1:7890
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;3-nv深度学习环境搭建&#34;&gt;3. nv深度学习环境搭建&lt;/h2&gt;
+&lt;p&gt;主要参考了&lt;a href=&#34;https://blog.csdn.net/qq_43874102/article/details/123164105&#34;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先需要安装GeForce的驱动,这一步主要是为了更新显卡驱动&lt;/p&gt;
+&lt;p&gt;驱动更新后 在终端界面 &lt;code&gt;nvdia-smi &lt;/code&gt;可以查看到显卡的相关信息&lt;/p&gt;
+&lt;h3 id=&#34;31-cuda的安装&#34;&gt;3.1 cuda的安装&lt;/h3&gt;
+&lt;p&gt;打开NVIDIA控制面板,依次点击帮助-系统信息-组件
+查看NVIDIA cuda需要的版本
+&lt;code&gt;CUDA官网：https://developer.nvidia.com/cuda-downloads&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;32-cudnn的安装&#34;&gt;3.2 cudnn的安装&lt;/h3&gt;
+&lt;p&gt;cudnn和cuda的版本号需要完全对应 9版本后cudnn的安装也是exe的形式&lt;/p&gt;
+&lt;p&gt;安装完成后 终端输出&lt;code&gt;nvcc -V&lt;/code&gt;来查看cuda的信息&lt;/p&gt;
+&lt;h3 id=&#34;33-pytorch的安装&#34;&gt;3.3 pytorch的安装&lt;/h3&gt;
+&lt;p&gt;利用conda进行安装:&lt;code&gt;conda install pytorch&lt;/code&gt;
+但是发现进入环境后&lt;code&gt;torch.cuda.is_available()&lt;/code&gt;显示False&lt;/p&gt;
+&lt;p&gt;进入Pytorch官网&lt;code&gt;PyTorch官网：https://pytorch.org&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;选择最新的cuda配置后 得到链接进行下载
+&lt;code&gt;conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注意对应python的版本 (3.11)&lt;/p&gt;
+&lt;p&gt;利用&lt;code&gt;torch.__version__&lt;/code&gt;查看版本号&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-tensorrt的安装&#34;&gt;4. tensorrt的安装&lt;/h2&gt;
+&lt;p&gt;当前tensorrt对应的8.6版本还未能对应cudnn9版本.&lt;/p&gt;
+&lt;p&gt;需要等待适配&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让子弹飞一会&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+                
+                
+                
+                    
+                    
+                    
+                        
+                        
+                        
+                            
+                                <category domain="https://chenbokaix250.github.io/tech/">tech</category>
+                            
+                        
+                    
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://chenbokaix250.github.io/tags/deep-learning/">deep-learning</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>毕业十年</title>
