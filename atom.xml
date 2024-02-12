@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">不那么乐的世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2024-02-13T01:01:02&#43;08:00</updated>
+    <updated>2024-02-13T01:02:25&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,79 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">Git基本命令</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" />
+            <id>https://chenbokaix250.github.io/tech/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</id>
+            <updated>2024-02-13T01:01:59&#43;08:00</updated>
+            <published>2024-02-13T01:01:44&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.asia</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">GIT相关 git 创建仓库:git init 克隆项目:git clone 跟踪文件或者目录: git add &amp;lt;name&amp;gt; 设置不被跟踪……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;git相关&#34;&gt;GIT相关&lt;/h1&gt;
+&lt;h2 id=&#34;git&#34;&gt;git&lt;/h2&gt;
+&lt;p&gt;创建仓库:&lt;code&gt;git init&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;克隆项目:&lt;code&gt;git clone&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;跟踪文件或者目录: &lt;code&gt;git add &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置不被跟踪:&lt;code&gt;git rm &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;版本提交: &lt;code&gt;git commit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看状态: &lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看差异:&lt;code&gt;git diff&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;历史提交:&lt;code&gt;git log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看所有提交:&lt;code&gt;git log -all&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;分支查看:&lt;code&gt;git branch --list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建分支:&lt;code&gt;git branch feature1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;切换分支:&lt;code&gt;git checkout feature1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;基于当前分支创建分支:&lt;code&gt;git checkout -b feature_reg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;从tag拉去新分支:&lt;code&gt;git checkout -b branch_name tag_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;推动单个tag:&lt;code&gt;git push origin [tagname]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;推动所有tag:&lt;code&gt;git push --tags&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;删除分支(本地):&lt;code&gt;git branch -d branch_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;删除分支(远程):&lt;code&gt;git push origin --delete branch_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;合并分支:&lt;code&gt;git merge xxx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;存储当前修改:&lt;code&gt;git stash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;恢复存储内容:&lt;code&gt;git stash apply&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;查看所以存储:&lt;code&gt;git stash list&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在本地删除远程不存在的分支:&lt;code&gt;git remote prune origin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;重来:reset&lt;/p&gt;
+&lt;p&gt;搬家:rebase&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;aoneflow&#34;&gt;Aoneflow&lt;/h2&gt;
+&lt;p&gt;首先有一个master
+在master基础上创建一个develop
+在develop上开发功能
+需要开发一个新特性时,拉去feature分支进行开发,开发完成后,合入develop,并删除分支.
+develop转到release分支,经过测试后,合入master,并打标签,完成发布.
+发布后,出现bug,需要从master上拉去新的分支bugfix,进行修复后,再合入master,重新打标签,立即发布.
+再次开发时,需根据master对其develop&lt;/p&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/tech/" term="tech" label="tech" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Uds初步</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/uds%E5%88%9D%E6%AD%A5/" />
