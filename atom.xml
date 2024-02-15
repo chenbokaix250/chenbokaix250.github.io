@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">不那么乐的世界</title>
     <subtitle type="html">其实没什么!</subtitle>
-    <updated>2024-02-13T01:02:25&#43;08:00</updated>
+    <updated>2024-02-16T02:08:58&#43;08:00</updated>
     <id>https://chenbokaix250.github.io/</id>
     <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://chenbokaix250.github.io/atom.xml" />
@@ -16,6 +16,85 @@
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.89.1">Hugo</generator>
+        <entry>
+            <title type="text">EID这一年</title>
+            <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/life/eid%E8%BF%99%E4%B8%80%E5%B9%B4/" />
+            <id>https://chenbokaix250.github.io/life/eid%E8%BF%99%E4%B8%80%E5%B9%B4/</id>
+            <updated>2024-02-16T02:08:23&#43;08:00</updated>
+            <published>2024-02-16T01:26:01&#43;08:00</published>
+            <author>
+                    <name>chenbokai</name>
+                    <uri>https://chenbokai.asia</uri>
+                    <email>chenbokais3@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">在电子集成部的这一年 IDD阶段 在比亚迪换部门之后，我进入了电子集成部。 总体来说 IDD……</summary>
+            
+                <content type="html">&lt;h1 id=&#34;在电子集成部的这一年&#34;&gt;在电子集成部的这一年&lt;/h1&gt;
+&lt;h2 id=&#34;idd阶段&#34;&gt;IDD阶段&lt;/h2&gt;
+&lt;p&gt;在比亚迪换部门之后，我进入了电子集成部。&lt;/p&gt;
+&lt;p&gt;总体来说 IDD还是过于懒散 整个部门也不是开发及产品为导向的部门&lt;/p&gt;
+&lt;p&gt;大致的开发任务多半都是自己说了算 还是有一些散漫&lt;/p&gt;
+&lt;p&gt;经过重组后,我们组来到了EID(电子集成部)这边&lt;/p&gt;
+&lt;h2 id=&#34;eid阶段&#34;&gt;EID阶段&lt;/h2&gt;
+&lt;p&gt;来到EID这边后 开始熟悉这边的软件运作体系和开发流程&lt;/p&gt;
+&lt;p&gt;刚来的时候 觉得还是蛮正规的
+运作一段时间后 发现执行的相对比较一般 很多开发还是自己做自己的任务 也没有和需求、测试形成良好的串联&lt;/p&gt;
+&lt;p&gt;但总体比IDD这边强太多了&lt;/p&gt;
+&lt;p&gt;今年进入EID后大致经历了三个阶段:&lt;/p&gt;
+&lt;h3 id=&#34;1-初期接触阶段&#34;&gt;1. 初期接触阶段&lt;/h3&gt;
+&lt;p&gt;从3月份到这边 其实开发任务比较轻 大致就还是埋点DSSAD的工作 顺便给同事指导一下代码 联合大家完成调试和测试输出等工作.&lt;/p&gt;
+&lt;p&gt;然后经过去二厂的FAE工作 渐渐的了解了一些底层的业务 并开始学习仓库代码&lt;/p&gt;
+&lt;p&gt;对日志/升级/时间同步/相机接入/生命周期/状态管理/诊断等模块都有了一些了解&lt;/p&gt;
+&lt;h3 id=&#34;2-数据闭环期间&#34;&gt;2. 数据闭环期间&lt;/h3&gt;
+&lt;p&gt;随着UXE的临近,前往济南出差后,逐步跟领导同事有了更多的交流&lt;/p&gt;
+&lt;p&gt;后来又被推上了中间件科室数据组组长的位置&lt;/p&gt;
+&lt;p&gt;期间爱莲转去了需求,晓涛转去了需求,阳总转去了算法&lt;/p&gt;
+&lt;p&gt;后面逐步把数据闭环的工作展开,从2.0到3.0
+整个团队的氛围维持/模块打合/任务分配等
+大家都是anti的状态,通过努力也确实证明了我们不比其他人落后.反而在业务上 更接近智驾&lt;/p&gt;
+&lt;p&gt;同时我们还做了自研的云端上传 总线数据上传 泊车记录 远程抓取等模块&lt;/p&gt;
+&lt;p&gt;业务都在往好的方向走 大家的开发能力也有了显著的提升&lt;/p&gt;
+&lt;p&gt;包括应届生同学的加入 也有给团队带来很多&lt;/p&gt;
+&lt;h3 id=&#34;3-全面底软与版本管理&#34;&gt;3. 全面底软与版本管理&lt;/h3&gt;
+&lt;p&gt;可能是数据闭环做的有些成绩&lt;/p&gt;
+&lt;p&gt;又被拉过来搞版本管理&lt;/p&gt;
+&lt;p&gt;主要是构建计划及相关bug的拉通 测试资源 发布节奏的协调等等&lt;/p&gt;
+&lt;p&gt;再加上数据闭环本身的业务问题 总的来说 还是很忙&lt;/p&gt;
+&lt;p&gt;这边少了很多提升的时间 只能就现有的局面继续努力吧&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;idc&#34;&gt;IDC&lt;/h2&gt;
+&lt;p&gt;部门重组后 变更为中心&lt;/p&gt;
+&lt;p&gt;开发上看业务 是不是还有更多的空间&lt;/p&gt;
+&lt;p&gt;同时就自己的能力 也有逐步去往智驾上提升&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;总的来说 今年在EID历练了很多&lt;/p&gt;
+&lt;p&gt;整个提升也很大&lt;/p&gt;
+&lt;p&gt;来年继续加油 干就完了 😃 加油 👍&lt;/p&gt;
+&lt;hr&gt;
+</content>
+            
+            
+            
+                
+                
+                
+                    
+                    
+                    
+                        
+                            <category scheme="https://chenbokaix250.github.io/life/" term="life" label="life" />
+                        
+                    
+                
+            
+            
+            
+                
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Git基本命令</title>
             <link rel="alternate" type="text/html" href="https://chenbokaix250.github.io/tech/git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" />
